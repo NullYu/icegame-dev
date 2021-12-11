@@ -437,7 +437,7 @@
       "grayscale" : false,
       "is_new_nine_slice" : false,
       "keep_ratio" : true,
-      "layer" : 1,
+      "layer" : 0,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "nine_slice_buttom" : 0,
@@ -468,7 +468,7 @@
       "grayscale" : false,
       "is_new_nine_slice" : false,
       "keep_ratio" : true,
-      "layer" : 0,
+      "layer" : 1,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "nine_slice_buttom" : 0,
@@ -664,9 +664,6 @@
       "always_accepts_input" : false,
       "controls" : [
          {
-            "image0@gunsUI.image0" : {}
-         },
-         {
             "image1@gunsUI.image1" : {}
          },
          {
@@ -745,7 +742,7 @@
       "layer" : 20,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
-      "offset" : [ -140.0, 81.0 ],
+      "offset" : [ -169.0, -110.0 ],
       "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 100, 100 ],
@@ -813,6 +810,9 @@
       "clips_children" : false,
       "controls" : [
          {
+            "image0@gunsUI.image0" : {}
+         },
+         {
             "dmgind1@gunsUI.dmgind1" : {}
          },
          {
@@ -823,7 +823,7 @@
       "layer" : 31,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
-      "offset" : [ -1.0, 0.0 ],
+      "offset" : [ 0, 0.0 ],
       "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 100, 100 ],

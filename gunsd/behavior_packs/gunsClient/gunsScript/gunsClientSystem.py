@@ -19,9 +19,24 @@ class gunsClient(ClientSystem):
         # self.ListenForEvent('test', 'testSystem', 'ShowTestUiEvent', self, self.OnShowTestUi)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'UiInitFinished', self, self.OnUIInitFinished)
         self.ListenForEvent('guns', 'gunsSystem', 'LoadNewEquipmentEvent', self, self.OnLoadNewEquipment)
+        self.ListenForEvent('guns', 'gunsSystem', 'UnloadNewEquipmentEvent', self, self.OnUnloadNewEquipment)
+        self.ListenForEvent('guns', 'gunsSystem', 'HearGunshotEvent', self, self.OnHearGunshot)
+        self.ListenForEvent('guns', 'gunsSystem', 'TakeDamageEvent', self, self.OnTakeDamage)
+        self.ListenForEvent('guns', 'gunsSystem', 'DeathEvent', self, self.OnDeath)
+        self.ListenForEvent('guns', 'gunsSystem', 'ResetClientEvent', self, self.OnResetClient)
+        self.ListenForEvent('guns', 'gunsSystem', 'SetHealthEvent', self, self.OnSetHealth)
 
         self.showFirstSign = False
         self.c = c
+
+        self.bAwaitingPlayerRespawn = False
+
+    def MakeTimer(self, isRepeat, delay, func, args=None):
+        comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+        if isRepeat:
+            comp.AddRepeatedTimer(delay, func, args)
+        else:
+            comp.AddTimer(delay, func, args)
 
     def OnUIInitFinished(self, args):
         uiRegisterSuccess = clientApi.RegisterUI('guns', 'gunsUI', 'gunsScript.gunsClientUI.gunsScreen', 'gunsUI.main')
@@ -35,19 +50,47 @@ class gunsClient(ClientSystem):
         else:
             print 'FAILED TO gunsUINODE.InitScreen!!! gunsUINODE=', str(self.mChillUINode)
 
+        clientApi.HideHealthGui(True)
+
+    def OnDeath(self, data):
+        if not self.bAwaitingPlayerRespawn:
+            self.PlayMusic('sfx.guns.death', 1)
+            self.bAwaitingPlayerRespawn = True
+            self.SetVisible(self.bloodPanel, False)
+
     def ShowGunsUI(self, args):
         print 'CALL OnShowSignUi', str(args)
 
         self.mChillUINode.ShowUi()
 
+    def OnResetClient(self, data):
+        self.bAwaitingPlayerRespawn = False
+        self.mChillUINode.ResetClient()
+
+    def OnHearGunshot(self, args):
+        self.PlayMusic('sfx.guns.whizz', 1, False)
+
+    def OnTakeDamage(self, args):
+        self.mChillUINode.takeDamage(args['dmg'], args['health'], args['armor'], args['inFov'])
+        self.PlayMusic('sfx.guns.hit', 1, False)
+
+    def OnSetHealth(self, data):
+        health = data['health']
+        armor = data['armor']
+        self.mChillUINode.health = health
+        self.mChillUINode.armor = armor
+        self.mChillUINode.UpdateData()
+
     def OnLoadNewEquipment(self, data):
         uiNode = self.mChillUINode
-
+        clientApi.HideHealthGui(True)
         uiNode.gunId = data['id']
         uiNode.ammo = data['ammo']
         uiNode.reserveAmmo = data['reserveAmmo']
         uiNode.maxAmmo = data['maxAmmo']
         uiNode.fireMode = data['firemode']
+        uiNode.gunData = data
+        uiNode.fireBtnHeld = False
 
         if data['zoom']:
             uiNode.scopeType = 1
@@ -55,6 +98,19 @@ class gunsClient(ClientSystem):
             uiNode.scopeType = 2
         else:
             uiNode.scopeType = 0
+
+        uiNode.UpdateData()
+
+    def OnUnloadNewEquipment(self, data):
+        uiNode = self.mChillUINode
+
+        uiNode.gunId = 24
+        uiNode.ammo = 0
+        uiNode.reserveAmmo = 0
+        uiNode.maxAmmo = 0
+        uiNode.scopeType = 0
+        uiNode.gunData = data
+        uiNode.fireBtnHeld = False
 
         uiNode.UpdateData()
 
@@ -71,14 +127,14 @@ class gunsClient(ClientSystem):
         }
         self.NotifyToClient(playerId, "PlayMusicEvent", args)
 
-    def PlayMusic(self, musicId):
+    def PlayMusic(self, musicId, volume=1, stopOrigin=True):
         print 'playing %s' % musicId
         playerId = clientApi.GetLocalPlayerId()
         musicClientSystem = clientApi.GetSystem("music", "musicClient")
         musicClientSystem.OnPlayMusic({
             'playerId': playerId,
             'musicId': musicId
-        })
+        }, volume, stopOrigin)
     # 函数名为Destroy才会被调用，在这个System被引擎回收的时候会调这个函数来销毁一些内容
     def Destroy(self):
         pass

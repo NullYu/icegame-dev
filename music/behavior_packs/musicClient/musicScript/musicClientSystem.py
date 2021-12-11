@@ -26,7 +26,7 @@ class musicClientSys(ClientSystem):
         data = 'ok'
         self.NotifyToServer('CheckClientConn', data)
 
-    def OnPlayMusic(self, args):
+    def OnPlayMusic(self, args, volume=1, stopOrigin=True):
         print 'CALL OnPlayMusic args=', str(args)
         playerId = clientApi.GetLocalPlayerId()
         musicId = args['musicId']
@@ -34,11 +34,14 @@ class musicClientSys(ClientSystem):
 
         if 'music.beeper' not in musicId:
             auComp.StopCustomMusic("music.beeper.default", 0)
-        auComp.DisableOriginMusic(True)
+        auComp.DisableOriginMusic(stopOrigin)
 
         if self.bMusicId:
             auComp.StopCustomMusicById(self.bMusicId, 0.5)
-        self.bMusicId = auComp.PlayGlobalCustomMusic(musicId, 1, False)
+
+        comp = clientApi.GetEngineCompFactory().CreatePos(playerId)
+        pos = comp.GetPos()
+        self.bMusicId = auComp.PlayCustomMusic(musicId, pos, volume, 1, False, playerId)
 
     def OnStopMusic(self, args):
         playerId = clientApi.GetLocalPlayerId()

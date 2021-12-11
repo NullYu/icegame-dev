@@ -68,3 +68,7 @@ gunAttrs = {
 gunItems = {
     1: ''
 }
+
+shotgunSpreadDef = {
+
+}

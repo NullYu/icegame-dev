@@ -1,23 +1,15 @@
 {
   "dy_load_list":[
-    "sounds/customSound/1",
-    "sounds/customSound/2",
-    "sounds/customSound/sasigei",
-    "sounds/customSound/pikachu",
-    "sounds/customSound/jiangnan",
-    "sounds/customSound/flowers",
-    "sounds/customSound/nb",
-    "sounds/customSound/beeper_default",
-    "sounds/customSound/thatgirl",
-    "sounds/customSound/baobaobao",
-    "sounds/customSound/386",
-    "sounds/customSound/tashahe",
-    "sounds/customSound/monika",
-    "sounds/customSound/animals",
-    "sounds/customSound/hg_cannon",
-    "sounds/customSound/start_sig",
-    "sounds/customSound/huijia",
-    "sounds/customSound/shanzhashu"
+    "sounds/customSound/awp",
+    "sounds/customSound/bolt",
+    "sounds/customSound/death",
+    "sounds/customSound/hit",
+    "sounds/customSound/whizz",
+    "sounds/customSound/fire_auto",
+    "sounds/customSound/fire_manual",
+    "sounds/customSound/empty",
+    "sounds/customSound/reload",
+    "sounds/customSound/taser"
 ],
   "sfx.generic.start": {
     "category": "music",
@@ -194,6 +186,106 @@
     "sounds": [
       {
         "name": "sounds/customSound/animals",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.awp": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/awp",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.bolt": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/bolt",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.hit": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/hit",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.death": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/death",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.whizz": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/whizz",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.fire.auto": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/fire_auto",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.empty": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/empty",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.reload": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/reload",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.taser": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/taser",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.fire.manual": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/fire_manual",
         "pitch": 1,
         "volume": 1
       }
