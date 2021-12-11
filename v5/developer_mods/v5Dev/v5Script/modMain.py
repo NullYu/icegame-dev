@@ -26,7 +26,7 @@ class LobbyServerMod(object):
         self.lobbyServer = serverApi.RegisterSystem("v5", "v5System",
                                                     "v5Script.v5System.v5SystemSys")
 
-    # test
+    # test a
 
     # DestroyServer绑定的函数作为服务端脚本退出的时候执行的析构函数，通常用来反注册一些内容,可为空
     @Mod.DestroyServer()
