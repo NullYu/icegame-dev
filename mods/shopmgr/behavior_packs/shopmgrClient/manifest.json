@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "b7f91f0b-b5cd-4147-9115-726fa720f988",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "shop mgr",
+    "uuid": "7b3f12fc-8703-4490-bb19-53e08e45ddb7",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

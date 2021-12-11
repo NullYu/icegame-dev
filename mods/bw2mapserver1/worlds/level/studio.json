@@ -1,0 +1,38 @@
+{
+    "Account": "aqs_mgg@163.com",
+    "AssertCacheDir": "C:\\MCStudioDownload\\EngineAssert",
+    "BlockNums": [
+        0,
+        0
+    ],
+    "BornPoint": [
+        0,
+        0,
+        0
+    ],
+    "CreateNew": false,
+    "DCWebUrl": "https://x19qadcweb.nie.netease.com",
+    "EditAddOnPaths": [
+
+    ],
+    "EditLogFilePath": "C:\\MCStudioDownload\\work\\editor\\edit.log",
+    "EditMaterialPaths": [
+
+    ],
+    "EditName": "bw2mapserver1",
+    "EditType": 1,
+    "ElkUrl": "https://x19mclexpr.nie.netease.com/client-log",
+    "GameType": 0,
+    "Id": null,
+    "IsMap": true,
+    "SaveBackAddOnPath": "",
+    "SaveBackMapPath": "C:\\MCStudioDownload\\work\\aqs_mgg@163.com\\Cpp\\Map\\5425739600ff492694eea1a62f1db0e8",
+    "Seed": "2855566116",
+    "ServerName": "EXPR",
+    "ShowGpuDriverTips": false,
+    "ShowGuide": false,
+    "StudioPort": 11257,
+    "UserId": "33198",
+    "UserName": "Mr_Tam",
+    "WorldType": 2
+}

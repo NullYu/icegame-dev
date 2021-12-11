@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "resources",
+      "uuid": "9bb68f5a-f2a6-48bd-8f64-76627a5d8399",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "hud",
+    "uuid": "920b7cb2-5235-4bda-af1d-61cb980aea76",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "Account": "aqs_mgg@163.com",
+    "AssertCacheDir": "D:\\MCStudioDownload\\EngineAssert",
+    "BlockNums": [
+        0,
+        0
+    ],
+    "BornPoint": [
+        0,
+        0,
+        0
+    ],
+    "CreateNew": false,
+    "DCWebUrl": "https://x19qadcweb.nie.netease.com",
+    "EditAddOnPaths": [
+
+    ],
+    "EditLogFilePath": "D:\\MCStudioDownload\\work\\editor\\edit.log",
+    "EditMaterialPaths": [
+
+    ],
+    "EditName": "pvp2",
+    "EditType": 1,
+    "ElkUrl": "https://x19mclexpr.nie.netease.com/client-log",
+    "GameType": 1,
+    "Id": null,
+    "IsMap": true,
+    "SaveBackAddOnPath": "",
+    "SaveBackMapPath": "D:\\MCStudioDownload\\work\\aqs_mgg@163.com\\Cpp\\Map\\aa82e738c5a84ebeb98124e1ecc2c586",
+    "Seed": "3561244301",
+    "ServerName": "EXPR",
+    "ShowGpuDriverTips": false,
+    "ShowGuide": false,
+    "StudioPort": 9412,
+    "UserId": "33198",
+    "UserName": "Mr_Tam",
+    "WorldType": 2
+}

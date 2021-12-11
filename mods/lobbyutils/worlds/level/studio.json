@@ -1,0 +1,38 @@
+{
+    "Account": "aqs_mgg@163.com",
+    "AssertCacheDir": "F:\\MCStudioDownload\\EngineAssert",
+    "BlockNums": [
+        0,
+        0
+    ],
+    "BornPoint": [
+        0,
+        0,
+        0
+    ],
+    "CreateNew": false,
+    "DCWebUrl": "https://x19qadcweb.nie.netease.com",
+    "EditAddOnPaths": [
+
+    ],
+    "EditLogFilePath": "F:\\MCStudioDownload\\work\\editor\\edit.log",
+    "EditMaterialPaths": [
+
+    ],
+    "EditName": "lobbyv2",
+    "EditType": 1,
+    "ElkUrl": "https://x19mclexpr.nie.netease.com/client-log",
+    "GameType": 1,
+    "Id": null,
+    "IsMap": true,
+    "SaveBackAddOnPath": "",
+    "SaveBackMapPath": "D:\\MCStudioDownload\\work\\aqs_mgg@163.com\\Cpp\\Map\\3a0758389b524561b102a08c0d2c551e",
+    "Seed": "4037943954",
+    "ServerName": "EXPR",
+    "ShowGpuDriverTips": false,
+    "ShowGuide": false,
+    "StudioPort": 9061,
+    "UserId": "33198",
+    "UserName": "Mr_Tam",
+    "WorldType": 2
+}

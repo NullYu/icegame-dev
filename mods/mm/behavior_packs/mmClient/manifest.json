@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "59e41d7f-dc9f-4ee0-bcd1-6bd8090569de",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "murder mystery",
+    "uuid": "16fdf30c-252e-428b-91ed-7b6b0015bc55",
+    "version": [
+      0,
+      1,
+      1
+    ]
+  }
+}

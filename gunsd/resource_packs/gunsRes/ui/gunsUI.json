@@ -1,0 +1,845 @@
+{
+   "blood1" : {
+      "alpha" : 0.5799999833106995,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 28,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -115.0, -52.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 136, 118 ],
+      "texture" : "textures/ui/gunsUI/splatter",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 640, 480 ],
+      "visible" : true
+   },
+   "blood2" : {
+      "alpha" : 0.5799999833106995,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 29,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 176.0, 9.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 136, 118 ],
+      "texture" : "textures/ui/gunsUI/splatter",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 640, 480 ],
+      "visible" : true
+   },
+   "blood3" : {
+      "alpha" : 0.5799999833106995,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 30,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -65.0, 50.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 208, 146 ],
+      "texture" : "textures/ui/gunsUI/splatter2",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 797, 961 ],
+      "visible" : true
+   },
+   "button0@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/gunsUI/shoot",
+      "$hover_texture" : "textures/ui/gunsUI/shoot_click",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%gunsdUI.click",
+      "$pressed_texture" : "textures/ui/gunsUI/shoot_click",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@gunsUI.default" : {}
+         },
+         {
+            "hover@gunsUI.hover" : {}
+         },
+         {
+            "pressed@gunsUI.pressed" : {}
+         },
+         {
+            "button_label@gunsUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 3,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+22.0px", "0.0%c+34.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 47, 27 ],
+      "visible" : true
+   },
+   "button1@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/gunsUI/change_bullet",
+      "$hover_texture" : "textures/ui/gunsUI/change_bullet_click",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%gunsdUI.click",
+      "$pressed_texture" : "textures/ui/gunsUI/change_bullet_click",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@gunsUI.default" : {}
+         },
+         {
+            "hover@gunsUI.hover" : {}
+         },
+         {
+            "pressed@gunsUI.pressed" : {}
+         },
+         {
+            "button_label@gunsUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 7,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+82.0px", "0.0%+-3.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 20, 19 ],
+      "visible" : true
+   },
+   "button2@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/gunsUI/aim",
+      "$hover_texture" : "textures/ui/gunsUI/aim_click",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%gunsdUI.click",
+      "$pressed_texture" : "textures/ui/gunsUI/aim_click",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@gunsUI.default" : {}
+         },
+         {
+            "hover@gunsUI.hover" : {}
+         },
+         {
+            "pressed@gunsUI.pressed" : {}
+         },
+         {
+            "button_label@gunsUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 11,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+61.0px", "0.0%+-3.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 20, 19 ],
+      "visible" : true
+   },
+   "button3@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/gunsUI/melee",
+      "$hover_texture" : "textures/ui/gunsUI/melee1",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%gunsdUI.click",
+      "$pressed_texture" : "textures/ui/gunsUI/melee1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@gunsUI.default" : {}
+         },
+         {
+            "hover@gunsUI.hover" : {}
+         },
+         {
+            "pressed@gunsUI.pressed" : {}
+         },
+         {
+            "button_label@gunsUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 15,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+26.5px", "0.0%+-3.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 23, 19 ],
+      "visible" : true
+   },
+   "button_label" : {
+      "alpha" : "$control_alpha",
+      "color" : "$label_color",
+      "font_scale_factor" : "$label_font_scale_factor",
+      "font_size" : "$label_font_size",
+      "font_type" : "smooth",
+      "layer" : "$label_layer",
+      "max_size" : [ "100%", "100%" ],
+      "offset" : "$label_offset",
+      "shadow" : false,
+      "text" : "$label_text",
+      "text_alignment" : "center",
+      "type" : "label"
+   },
+   "default" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$default_texture",
+      "type" : "image"
+   },
+   "dmgind1" : {
+      "alpha" : 0.5799999833106995,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 32,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ "0.0%+0.0px", "0.0%+-20.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 100 ],
+      "texture" : "textures/ui/gunsUI/damageind",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 250, 100 ],
+      "visible" : true
+   },
+   "dmgind2" : {
+      "alpha" : 0.7200000286102295,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 33,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ "0.0%+0.0px", "0.0%+39.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 100 ],
+      "texture" : "textures/ui/gunsUI/damageind1",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 254, 111 ],
+      "visible" : true
+   },
+   "hover" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$hover_texture",
+      "type" : "image"
+   },
+   "image0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 640, 423 ],
+      "texture" : "textures/ui/gunsUI/aimwindow",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 4000, 3000 ],
+      "visible" : true
+   },
+   "image1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 9, 9 ],
+      "texture" : "textures/ui/gunsUI/my_cross_hair",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 26, 26 ],
+      "visible" : true
+   },
+   "image2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 22,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ "0.0%+-42.0px", "0.0%+40.5px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 20, 15 ],
+      "texture" : "textures/ui/gunsUI/health",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 130, 130 ],
+      "visible" : true
+   },
+   "image3" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "controls" : [
+         {
+            "label2@gunsUI.label2" : {}
+         }
+      ],
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 23,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ "0.0%+-42.5px", "0.0%+20.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 15, 14 ],
+      "texture" : "textures/ui/gunsUI/armor",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 130, 130 ],
+      "visible" : true
+   },
+   "image4" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : true,
+      "keep_ratio" : false,
+      "layer" : 26,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ "0.0%+0.0px", "0.0%+0.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "texture" : "textures/ui/gunsUI/bloodscene",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 4000, 3000 ],
+      "visible" : true
+   },
+   "label0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "default",
+      "layer" : 19,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 41.50, -17.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 99, 13 ],
+      "text" : "30/90",
+      "text_alignment" : "right",
+      "type" : "label",
+      "visible" : true
+   },
+   "label1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.409999966621399,
+      "font_size" : "normal",
+      "font_type" : "default",
+      "layer" : 21,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+19.0px", "0.0%+43.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 16 ],
+      "text" : "100",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "label2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.409999966621399,
+      "font_size" : "normal",
+      "font_type" : "default",
+      "layer" : 24,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+46.0px", "0.0%+0.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 68, 13 ],
+      "text" : "100",
+      "text_alignment" : "left",
+      "type" : "label",
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "image0@gunsUI.image0" : {}
+         },
+         {
+            "image1@gunsUI.image1" : {}
+         },
+         {
+            "panel0@gunsUI.panel0" : {}
+         },
+         {
+            "panel1@gunsUI.panel1" : {}
+         },
+         {
+            "panel2@gunsUI.panel2" : {}
+         },
+         {
+            "panel4@gunsUI.panel4" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "namespace" : "gunsUI",
+   "panel0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "button0@gunsUI.button0" : {}
+         },
+         {
+            "button1@gunsUI.button1" : {}
+         },
+         {
+            "button2@gunsUI.button2" : {}
+         },
+         {
+            "button3@gunsUI.button3" : {}
+         },
+         {
+            "label0@gunsUI.label0" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 2,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 123.0, 62.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 199, 135 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "label1@gunsUI.label1" : {}
+         },
+         {
+            "image2@gunsUI.image2" : {}
+         },
+         {
+            "image3@gunsUI.image3" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 20,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -140.0, 81.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 100 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "image4@gunsUI.image4" : {}
+         },
+         {
+            "panel3@gunsUI.panel3" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 25,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel3" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "blood1@gunsUI.blood1" : {}
+         },
+         {
+            "blood2@gunsUI.blood2" : {}
+         },
+         {
+            "blood3@gunsUI.blood3" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 27,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel4" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "dmgind1@gunsUI.dmgind1" : {}
+         },
+         {
+            "dmgind2@gunsUI.dmgind2" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 31,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -1.0, 0.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 100 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "pressed" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$pressed_texture",
+      "type" : "image"
+   }
+}

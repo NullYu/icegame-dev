@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "resources",
+      "uuid": "e911d21a-2697-42db-9915-226715346baf",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "draw",
+    "uuid": "e084c6ae-2ad7-4378-98df-2535355b4bf8",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

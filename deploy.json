@@ -1,0 +1,288 @@
+{
+  "common": {
+    "zip_push_mod": false,
+    "supervisor": true,
+    "unique_levelname": true,
+    "pack_mcp": true,
+    "McpChose": true,
+    "command_line": "-m 8G",
+    "log_debug_level": true,
+    "game_id": 0,
+    "game_key": "",
+    "modVersion": null,
+    "online_mode": false,
+    "machines": [
+      "42.186.242.199"
+    ],
+    "master": {
+      "keep_alive_period": 30,
+      "app_type": "master",
+      "type": "master",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "reportMaster,shoutMaster,httpMaster,neteaseAnnounceMaster,neteaseGuildMaster,neteaseShopMaster,rebootMaster,queueMaster",
+      "port": 8503
+    },
+    "mysql": {
+      "database": "minecraft",
+      "user": "minecraft",
+      "host": "127.0.0.1",
+      "password": "minecraft",
+      "port": 3306
+    },
+    "mongo": null,
+    "redis": {
+      "host": "127.0.0.1",
+      "password": "mcnetgame",
+      "port": 6379
+    },
+    "extra_redis": {},
+    "influxdb": {
+      "interval": 10,
+      "enabled": false,
+      "database": "",
+      "user": "",
+      "host": "",
+      "password": "",
+      "port": 0
+    },
+    "nginx": false,
+    "delay_connect_server_time": 0,
+    "delay_remove_server_time": 0,
+    "rolling_size": 20,
+    "internet_ip": false,
+    "timeout": 30,
+    "stop_timeout": 30,
+    "rolling_timeout": 60,
+    "client_pool_size": 8,
+    "server_pool_size": 10,
+    "max_pool_size": 20,
+    "force_kill": true,
+    "act_type": 2,
+    "ident": "template",
+    "developer_switch": "test",
+    "web_server_url": "https://g79mclobt.nie.netease.com",
+    "gas_server_url": "http://g79gasobt.nie.netease.com:9090",
+    "machines_dict": {},
+    "netgame_common_url": "http://127.0.0.1:8503/conf/query/get-netgame-common",
+    "fluid_control": {
+      "max_login_queue": 1000,
+      "login_per_tick": 3
+    }
+  },
+  "servicelist": [
+    {
+      "module_names": [
+        "awesome_match",
+        "netease_salog_0",
+        "unranked",
+        "neteaseRank",
+        "neteaseStatistics",
+        "neteaseAnnounce",
+        "matchmaking",
+        "neteaseSquad"
+      ],
+      "app_type": "service",
+      "type": "service",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "neteaseAnnounceService,unrankedService,neteaseSquadService"
+    },
+    {
+      "module_names": [
+        "manhunt"
+      ],
+      "app_type": "service",
+      "type": "service_manhunt",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "manhuntService"
+    },
+    {
+      "module_names": [
+        "bw"
+      ],
+      "app_type": "service",
+      "type": "service_bw",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "bwService"
+    }
+  ],
+  "game": [
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_practice",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,bridge,cmd,deathMsg,hint,iac,reboot,replaceWords,shout"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "testing",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,cmd,cos,deathMsg,hint,hud,reboot,replaceWords,bw4mapserver1"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_unranked2",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,cmd,deathMsg,eco,gameutils2,hint,iac,reboot,replaceWords,shout,unrankedGame,utils,music"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_unranked3",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,cmd,deathMsg,eco,hint,iac,reboot,replaceWords,shout,unrankedGame,utils,music"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_rush",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,cmd,deathMsg,eco,hint,iac,neteaseMapAttrsRush,reboot,replaceWords,report,rush1,shout,utils,music"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_bts",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "ban,bts,cmd,eco,hint,iac,reboot,replaceWords,shout,utils,admin"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_cparty",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "ban,cmd,cparty,deathMsg,eco,hint,iac,reboot,replaceWords,shout,utils,admin"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_manhunt",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "ban,cmd,eco,hint,iac,manhunt,reboot,replaceWords,report,shoutMaster,utils,admin"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_bw",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,bw,bws,cmd,cos,eco,hint,iac,music,neteaseNpc,reboot,replaceWords,shout,utils,hud"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_bwBomb",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,bw,bws,cmd,eco,hint,iac,neteaseNpc,reboot,report,shout,utils,replaceWords,cos"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_sw",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,cmd,eco,hint,iac,music,reboot,replaceWords,report,shout,sw,utils"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_mm",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,cmd,cos,eco,deathMsg,hint,iac,mm,music,reboot,report,utils"
+    },
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "game",
+      "type": "game_60fb1",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,cmd,cos,eco,fb,fbmapserver1,hint,music,reboot,replaceWords,report,shout,utils,vkick"
+    }
+  ],
+  "lobby": [
+    {
+      "max_players": 200,
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "lobby",
+      "type": "lobby",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": "admin,ban,cmd,cos,deathMsg,draw,eco,expd,ffa,hint,iac,lobbyutils,match,menu,music,neteaseNpc,neteaseShop,rank,reboot,reg,replaceWords,report,shout,sign,utils"
+    }
+  ],
+  "proxy": [
+    {
+      "num": 1,
+      "save": false,
+      "save_id": 0,
+      "app_type": "proxy",
+      "type": "proxy",
+      "app_version": "1.25.0.release20211125",
+      "ip": "42.186.242.199",
+      "gb": 8,
+      "mods": ""
+    }
+  ]
+}

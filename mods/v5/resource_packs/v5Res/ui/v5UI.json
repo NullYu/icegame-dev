@@ -1,0 +1,1760 @@
+{
+   "button_label" : {
+      "alpha" : "$control_alpha",
+      "color" : "$label_color",
+      "font_scale_factor" : "$label_font_scale_factor",
+      "font_size" : "$label_font_size",
+      "font_type" : "smooth",
+      "layer" : "$label_layer",
+      "max_size" : [ "100%", "100%" ],
+      "offset" : "$label_offset",
+      "shadow" : false,
+      "text" : "$label_text",
+      "text_alignment" : "center",
+      "type" : "label"
+   },
+   "default" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$default_texture",
+      "type" : "image"
+   },
+   "dur1" : {
+      "$clip_direction" : "left",
+      "$clip_ratio" : 0.0,
+      "$is_new_nine_slice" : true,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$progress_bar_empty_texture" : "textures/ui/v5UI/progressbar-empty",
+      "$progress_bar_filled_texture" : "textures/ui/v5UI/progressbar-fill",
+      "alpha" : 1.0,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "empty_progress_bar@v5UI.empty_progress_bar" : {}
+         },
+         {
+            "filled_progress_bar@v5UI.filled_progress_bar" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 73,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -75, 218 ],
+      "priority" : 0,
+      "propagate_alpha" : true,
+      "size" : [ 74, 4 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "dur2" : {
+      "$clip_direction" : "left",
+      "$clip_ratio" : 0.0,
+      "$is_new_nine_slice" : true,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$progress_bar_empty_texture" : "textures/ui/v5UI/progressbar-empty",
+      "$progress_bar_filled_texture" : "textures/ui/v5UI/progressbar-fill",
+      "alpha" : 1.0,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "empty_progress_bar@v5UI.empty_progress_bar" : {}
+         },
+         {
+            "filled_progress_bar@v5UI.filled_progress_bar" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 76,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 218 ],
+      "priority" : 0,
+      "propagate_alpha" : true,
+      "size" : [ 74, 4 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "dur3" : {
+      "$clip_direction" : "left",
+      "$clip_ratio" : 0.0,
+      "$is_new_nine_slice" : true,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$progress_bar_empty_texture" : "textures/ui/v5UI/progressbar-bg",
+      "$progress_bar_filled_texture" : "textures/ui/v5UI/progressbar-fill",
+      "alpha" : 1.0,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "empty_progress_bar@v5UI.empty_progress_bar" : {}
+         },
+         {
+            "filled_progress_bar@v5UI.filled_progress_bar" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 79,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 130, 218 ],
+      "priority" : 0,
+      "propagate_alpha" : true,
+      "size" : [ 23, 4 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "durf" : {
+      "$clip_direction" : "left",
+      "$clip_ratio" : 0.0,
+      "$is_new_nine_slice" : true,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$progress_bar_empty_texture" : "textures/ui/v5UI/progressbar-empty",
+      "$progress_bar_filled_texture" : "textures/ui/v5UI/progressbar-fill",
+      "alpha" : 1.0,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "empty_progress_bar@v5UI.empty_progress_bar" : {}
+         },
+         {
+            "filled_progress_bar@v5UI.filled_progress_bar" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 86,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 75, 218 ],
+      "priority" : 0,
+      "propagate_alpha" : true,
+      "size" : [ 74, 4 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "empty_progress_bar" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : 1,
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$progress_bar_empty_texture",
+      "type" : "image"
+   },
+   "eqpPanel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "bottom_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "panel3@v5UI.panel3" : {}
+         },
+         {
+            "dur1@v5UI.dur1" : {}
+         },
+         {
+            "dur2@v5UI.dur2" : {}
+         },
+         {
+            "dur3@v5UI.dur3" : {}
+         },
+         {
+            "fixBtn@v5UI.fixBtn" : {}
+         },
+         {
+            "durf@v5UI.durf" : {}
+         },
+         {
+            "image6@v5UI.image6" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 59,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 13, -119 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "filled_progress_bar" : {
+      "clip_direction" : "$clip_direction",
+      "clip_pixelperfect" : false,
+      "clip_ratio" : "$clip_ratio",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : 2,
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$progress_bar_filled_texture",
+      "type" : "image"
+   },
+   "fixBtn@common.button" : {
+      "$control_alpha" : 0.8000000119209290,
+      "$default_texture" : "textures/ui/v5UI/fix-icon",
+      "$hover_texture" : "textures/ui/v5UI/fix-icon",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/fix-icon1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 82,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 130.0, 108.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 23 ],
+      "visible" : true
+   },
+   "hover" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$hover_texture",
+      "type" : "image"
+   },
+   "image0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 23,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -178.0, -51.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 84, 80 ],
+      "texture" : "textures/ui/v5UI/selweapon-hint",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 206, 342 ],
+      "visible" : true
+   },
+   "image1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 47,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -178.0, -51.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 84, 80 ],
+      "texture" : "textures/ui/v5UI/selskill-hint",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 206, 342 ],
+      "visible" : true
+   },
+   "image2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 50,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 110.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 237, 100 ],
+      "texture" : "textures/ui/v5UI/sel-desc",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 1246, 123 ],
+      "visible" : true
+   },
+   "image3" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 51,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -186.0, 0.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 48, 52 ],
+      "texture" : "textures/ui/v5UI/selected-hint",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 144, 51 ],
+      "visible" : true
+   },
+   "image4" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 55,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 1.50, -3.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 37, 26 ],
+      "texture" : "textures/ui/v5UI/colon",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 65, 142 ],
+      "visible" : true
+   },
+   "image5" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 58,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 2.0, -106.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 20, 30 ],
+      "texture" : "textures/ui/v5UI/defuser-icon",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 200, 200 ],
+      "visible" : true
+   },
+   "image6" : {
+      "alpha" : 0.750,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 89,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.0, 160.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 53, 30 ],
+      "texture" : "textures/ui/v5UI/broken-hint",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 200, 75 ],
+      "visible" : true
+   },
+   "m1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 54,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -11.50, 1.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 19, 18 ],
+      "texture" : "textures/ui/v5UI/2",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 65, 142 ],
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "prepPanel@v5UI.prepPanel" : {}
+         },
+         {
+            "timerPanel@v5UI.timerPanel" : {}
+         },
+         {
+            "eqpPanel@v5UI.eqpPanel" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "namespace" : "v5UI",
+   "overlay" : {
+      "alpha" : 0.6399999856948853,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : true,
+      "keep_ratio" : false,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "texture" : "textures/ui/v5UI/prep-overlay-sample",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 200, 200 ],
+      "visible" : true
+   },
+   "panel0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "w1@v5UI.w1" : {}
+         },
+         {
+            "w2@v5UI.w2" : {}
+         },
+         {
+            "w3@v5UI.w3" : {}
+         },
+         {
+            "w4@v5UI.w4" : {}
+         },
+         {
+            "w5@v5UI.w5" : {}
+         },
+         {
+            "image0@v5UI.image0" : {}
+         },
+         {
+            "ws@v5UI.ws" : {}
+         },
+         {
+            "wd@v5UI.wd" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 2,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+-8.0px", "0.0%+0.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "s1@v5UI.s1" : {}
+         },
+         {
+            "s2@v5UI.s2" : {}
+         },
+         {
+            "s3@v5UI.s3" : {}
+         },
+         {
+            "s4@v5UI.s4" : {}
+         },
+         {
+            "s5@v5UI.s5" : {}
+         },
+         {
+            "image1@v5UI.image1" : {}
+         },
+         {
+            "ss@v5UI.ss" : {}
+         },
+         {
+            "sd@v5UI.sd" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 26,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+-8.0px", "0.0%+103.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "m1@v5UI.m1" : {}
+         },
+         {
+            "image4@v5UI.image4" : {}
+         },
+         {
+            "se1@v5UI.se1" : {}
+         },
+         {
+            "se2@v5UI.se2" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 53,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, -108.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 26 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel3" : {
+      "alpha" : 1.0,
+      "anchor_from" : "bottom_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "primary@v5UI.primary" : {}
+         },
+         {
+            "secondary@v5UI.secondary" : {}
+         },
+         {
+            "skill@v5UI.skill" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 60,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, -50.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 224, 100 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "prepPanel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "overlay@v5UI.overlay" : {}
+         },
+         {
+            "panel0@v5UI.panel0" : {}
+         },
+         {
+            "panel1@v5UI.panel1" : {}
+         },
+         {
+            "image2@v5UI.image2" : {}
+         },
+         {
+            "image3@v5UI.image3" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "pressed" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$pressed_texture",
+      "type" : "image"
+   },
+   "primary@common.button" : {
+      "$control_alpha" : 0.8000000119209290,
+      "$default_texture" : "textures/ui/v5UI/diamond_sword",
+      "$hover_texture" : "textures/ui/v5UI/diamond_sword",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/diamond_sword1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 61,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -75.0, 32.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 74, 23 ],
+      "visible" : true
+   },
+   "s1@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/skill-card-oneshot",
+      "$hover_texture" : "textures/ui/v5UI/skill-card-oneshot",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/skill-card-oneshot",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 27,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+-115.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "s2@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/skill-card-tnt",
+      "$hover_texture" : "textures/ui/v5UI/skill-card-tnt",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/skill-card-tnt",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 31,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+-41.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "s3@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/skill-card-jumpboost",
+      "$hover_texture" : "textures/ui/v5UI/skill-card-jumpboost",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/skill-card-jumpboost",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 35,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+33.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "s4@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/skill-card-distraction",
+      "$hover_texture" : "textures/ui/v5UI/skill-card-distraction",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/skill-card-distraction",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 39,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+107.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "s5@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/skill-card-escape",
+      "$hover_texture" : "textures/ui/v5UI/skill-card-escape",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/skill-card-escape",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 43,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+181.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "sd" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 49,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -115.0, -51.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 80 ],
+      "texture" : "textures/ui/v5UI/disable-base",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 300, 342 ],
+      "visible" : true
+   },
+   "se1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 56,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 6.50, 1.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 19, 18 ],
+      "texture" : "textures/ui/v5UI/5",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 65, 142 ],
+      "visible" : true
+   },
+   "se2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 57,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 16.50, 1.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 19, 18 ],
+      "texture" : "textures/ui/v5UI/0",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 65, 142 ],
+      "visible" : true
+   },
+   "secondary@common.button" : {
+      "$control_alpha" : 0.8000000119209290,
+      "$default_texture" : "textures/ui/v5UI/shield",
+      "$hover_texture" : "textures/ui/v5UI/shield",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/shield1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 65,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 32.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 74, 23 ],
+      "visible" : true
+   },
+   "skill@common.button" : {
+      "$control_alpha" : 0.8000000119209290,
+      "$default_texture" : "textures/ui/v5UI/escape",
+      "$hover_texture" : "textures/ui/v5UI/escape",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/escape1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 69,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 75.0, 32.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 74, 23 ],
+      "visible" : true
+   },
+   "ss" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : true,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : false,
+      "layer" : 48,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -115.0, -97.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 70, 7 ],
+      "texture" : "textures/ui/v5UI/selected-self",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 300, 20 ],
+      "visible" : true
+   },
+   "timerPanel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "panel2@v5UI.panel2" : {}
+         },
+         {
+            "image5@v5UI.image5" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 52,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 126 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "w1@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/weapon-card-scout",
+      "$hover_texture" : "textures/ui/v5UI/weapon-card-scout",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/weapon-card-scout",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 3,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+-115.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "w2@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/weapon-card-dps",
+      "$hover_texture" : "textures/ui/v5UI/weapon-card-dps",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/weapon-card-dps",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 7,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+-41.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "w3@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/weapon-card-dps",
+      "$hover_texture" : "textures/ui/v5UI/weapon-card-dps",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/weapon-card-dps",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 11,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+33.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "w4@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/weapon-card-support",
+      "$hover_texture" : "textures/ui/v5UI/weapon-card-support",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/weapon-card-support",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 15,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+107.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "w5@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/weapon-card-tank",
+      "$hover_texture" : "textures/ui/v5UI/weapon-card-tank",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/weapon-card-tank",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 19,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ "0.0%+181.0px", "0.0%+-51.0px" ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "100.0%sm+100.0px", 80 ],
+      "visible" : true
+   },
+   "wd" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 25,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -115.0, -51.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 80 ],
+      "texture" : "textures/ui/v5UI/disable-base",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 300, 342 ],
+      "visible" : true
+   },
+   "ws" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : true,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : false,
+      "layer" : 24,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -115.0, -4.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 70, 7 ],
+      "texture" : "textures/ui/v5UI/selected-self",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 300, 20 ],
+      "visible" : true
+   }
+}

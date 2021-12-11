@@ -1,0 +1,294 @@
+{
+  "dy_load_list":[
+    "sounds/customSound/awp",
+    "sounds/customSound/bolt",
+    "sounds/customSound/death",
+    "sounds/customSound/hit",
+    "sounds/customSound/whizz",
+    "sounds/customSound/fire_auto",
+    "sounds/customSound/fire_manual",
+    "sounds/customSound/empty",
+    "sounds/customSound/reload",
+    "sounds/customSound/taser"
+],
+  "sfx.generic.start": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/start_sig",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.hg.cannon": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/hg_cannon",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.hg.anthem": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/hg_anthem",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.dj.free.1": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/huijia",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.dj.free.2": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/shanzhashu",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.1": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/1",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.2": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/2",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.3": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/sasigei",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.4": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/pikaqiu",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.5": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/jiangnan",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.6": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/flowers",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.7": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/nb",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.8": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/thatgirl",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.9": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/baobaobao",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.10": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/386",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.11": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/tashanhe",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.12": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/monika",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.13": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/animals",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.awp": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/awp",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.bolt": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/bolt",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.hit": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/hit",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.death": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/death",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.whizz": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/whizz",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.fire.auto": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/fire_auto",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.empty": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/empty",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.reload": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/reload",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.taser": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/taser",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.guns.fire.manual": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/fire_manual",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  }
+}

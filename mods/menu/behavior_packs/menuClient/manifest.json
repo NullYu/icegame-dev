@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "data",
+      "uuid": "1608d9dd-215d-46e4-8316-a651064a2da7",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By 0Kurome",
+    "name": "menu",
+    "uuid": "fd97bd0d-164f-4022-b6d4-07c9b4a916d0",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+    "dependencies": [
+
+    ],
+    "format_version": 1,
+    "header": {
+        "description": "",
+        "name": "behavior_pack",
+        "uuid": "572dfcf9-2780-4a11-ae02-1cc385a3a6ca",
+        "version": [
+            0,
+            0,
+            1
+        ]
+    },
+    "modules": [
+        {
+            "description": "",
+            "type": "data",
+            "uuid": "512df30c-8c7f-44d2-80b4-fbd30ac95d98",
+            "version": [
+                0,
+                0,
+                1
+            ]
+        }
+    ]
+}

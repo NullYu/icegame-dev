@@ -1,0 +1,193 @@
+{
+  "tiers": [
+    {
+      "trades": [
+        {
+          "reward_exp": false,
+          "wants": [
+            {
+              "item": "minecraft:iron_ingot",
+              "quantity": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "gives": [
+           {
+              "item": "minecraft:sandstone",
+              "quantity": {
+                "min": 4,
+                "max": 4
+           }
+		   }
+          ]
+        },
+		{
+          "reward_exp": false,
+          "wants": [
+            {
+              "item": "minecraft:iron_ingot",
+              "quantity": {
+                "min": 4,
+                "max": 4
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:stone"
+            }
+          ]
+        },
+        {
+          "reward_exp": false,
+          "wants": [
+            {
+              "item": "minecraft:gold_ingot",
+              "quantity": {
+                "min": 4,
+                "max": 4
+              }
+            }
+          ],
+          "gives": [
+            {
+               "item": "minecraft:glass"
+            }
+          ]
+        },
+        {
+          "reward_exp": false,
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 5,
+                "max": 5
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:obsidian",
+              "quantity": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:gold_ingot",
+              "quantity": {
+                "min": 10,
+                "max": 10
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:bw",
+              "quantity": 1
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:gold_ingot",
+              "quantity": 1
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:arow",
+              "quantity": {
+                "min": 4,
+                "max": 4
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:gold_ingot",
+              "quantity": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:arow",
+              "quantity": 4
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:gold_ingot",
+              "quantity": 10
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:gold_pple",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 10,
+                "max": 10
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:encanted_apple",
+              "quantity": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald"
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:cke"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

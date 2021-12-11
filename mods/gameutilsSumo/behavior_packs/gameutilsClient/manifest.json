@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "9a6d6b48-992c-4863-a56d-9fc367538fc8",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "sumo utils",
+    "uuid": "1339e767-cc9e-484b-a8c2-f1b7a996032f",
+    "version": [
+      0,
+      1,
+      2
+    ]
+  }
+}

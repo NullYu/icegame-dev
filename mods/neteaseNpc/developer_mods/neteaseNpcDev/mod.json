@@ -1,0 +1,124 @@
+{
+  "_comment":"mod的名字",
+  "netgame_mod_name":"neteaseNpcDev",
+
+  "_comment":"mod的版本号",
+  "netgame_mod_version":"1.0.4",
+
+  "_comment":"适用最低的引擎版本",
+  "min_app_version":"1.15.0.release20191226",
+
+  "_comment":"该服务器Mod隶属于“功能NPC”插件",
+  "description":"Npc mod插件",
+
+  "_comment":"适用的服务器类型",
+  "support_server_type":["lobby","game"],
+
+  "_comment":"作者名字",
+  "author": "NetEase",
+
+  "_comment":"NPC类型参数配置",
+  "NPCS_TYPE": {
+    "_comment":"typeId，和NPCS_DISTRIBUTE中的typeId对应",
+    "1001":{
+      "name": "NPC-A",
+      "identifier": "minecraft:npc",
+      "simpleStyle": false,
+      "modName": "Minecraft",
+      "systemName": "AwesomeLobby",
+      "funcName": "OnNpcTouched",
+      "funcArgs": ["gameA"]
+    },
+    "1002":{
+      "name": "NPC-B",
+      "identifier": "minecraft:npc",
+      "simpleStyle": false,
+      "modName": "Minecraft",
+      "systemName": "AwesomeLobby",
+      "funcName": "OnNpcTouched",
+      "funcArgs": ["gameB"]
+    },
+    "1003":{
+      "name": "NPC-C",
+      "identifier": "minecraft:npc",
+      "simpleStyle": false,
+      "modName": "Minecraft",
+      "systemName": "AwesomeLobby",
+      "funcName": "OnNpcTouched",
+      "funcArgs": ["gameC"]
+    },
+    "1004":{
+      "name": "返回大厅NPC",
+      "identifier": "minecraft:npc",
+      "simpleStyle": false,
+      "modName": "AwesomeGame",
+      "systemName": "FpsServerSystem",
+      "funcName": "OnNpcTouched",
+      "funcArgs": ["lobby"]
+    },
+    "1005":{
+      "name": "返回大厅NPC",
+      "identifier": "minecraft:npc",
+      "simpleStyle": false,
+      "modName": "Minecraft",
+      "systemName": "TutorialGame",
+      "funcName": "OnNpcTouched",
+      "funcArgs": ["lobby"]
+    },
+    "1006":{
+      "name": "返回大厅NPC",
+      "identifier": "minecraft:npc",
+      "simpleStyle": false,
+      "modName": "Minecraft",
+      "systemName": "gameMod",
+      "funcName": "OnNpcTouched",
+      "funcArgs": ["lobby"]
+    }
+  },
+  "_comment":"NPC分布列表",
+  "NPCS_DISTRIBUTE": [
+    {
+      "typeId" : "1001",
+      "server" : "lobby",
+      "pos" : [1396, 4, 57],
+      "orientations" : [0, 180],
+      "dimensionId" : 4
+    },
+    {
+      "typeId" : "1002",
+      "server" : "lobby",
+      "pos" : [1403, 4, 57],
+      "orientations" : [0, 180],
+      "dimensionId" : 4
+    },
+    {
+      "typeId" : "1003",
+      "server" : "lobby",
+      "pos" : [1410, 4, 57],
+      "orientations" : [0, 180],
+      "dimensionId" : 4
+    },
+    {
+      "typeId" : "1004",
+      "server" : "gameA",
+      "pos" : [5, 4, 5],
+      "orientations" : [0, 180],
+      "dimensionId" : 0
+    },
+    {
+      "typeId" : "1005",
+      "server" : "gameB",
+      "pos" : [5, 4, 5],
+      "orientations" : [0, 180],
+      "dimensionId" : 0
+    },
+    {
+      "typeId" : "1006",
+      "server" : "gameC",
+      "pos" : [5, 4, 5],
+      "orientations" : [0, 180],
+      "dimensionId" : 0
+    }
+  ]
+}
+

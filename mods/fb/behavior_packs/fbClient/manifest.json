@@ -1,0 +1,17 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "by 0Kurome",
+        "name": "fb",
+        "uuid": "28a7f374-8218-46e6-81b2-be3b59639e8d",
+        "version": [0, 0, 1]
+    },
+    "modules": [
+        {
+            "description": "by dev",
+            "type": "data",
+            "uuid": "13115def-aee1-46f1-9e11-a553d5ae31d0",
+            "version": [0, 0, 1]
+        }
+    ]
+}

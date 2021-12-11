@@ -1,0 +1,17 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "by 0Kurome",
+        "name": "utils",
+        "uuid": "ebefbcdb-dbd5-4f4c-bdb9-049d573ed557",
+        "version": [0, 0, 1]
+    },
+    "modules": [
+        {
+            "description": "by dev",
+            "type": "data",
+            "uuid": "5a154968-f82f-449a-8a77-ecb2f3ca69d5",
+            "version": [0, 0, 1]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "resources",
+      "uuid": "fd97bd0d-164f-4022-b6d4-07c9b4a916d0",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "menu",
+    "uuid": "1abb459e-5f6a-4817-a16a-01db93a6a9e2",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

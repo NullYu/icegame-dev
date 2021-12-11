@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "955e4df7-e8c1-44f4-bb91-2d98f21bbbfe",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "reboot",
+    "uuid": "9d8ab77c-433c-4644-b452-d36e488076c3",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

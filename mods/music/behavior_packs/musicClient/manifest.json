@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "music player for ice game - for global use",
+      "type": "data",
+      "uuid": "c8d9219d-a010-4d32-9f17-7b3a4012b081",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "music player for ice game - for global use",
+    "name": "music",
+    "uuid": "d81449d9-39e8-48ae-9bd8-d4c1e250d6c0",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

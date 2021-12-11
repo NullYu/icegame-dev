@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "de2057f4-90c0-4772-9ce7-2171242cfbaf",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "bts",
+    "uuid": "0e9ca361-2fa4-4ec2-831c-867c58115aeb",
+    "version": [
+      0,
+      1,
+      1
+    ]
+  }
+}

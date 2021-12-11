@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "resources",
+      "uuid": "c259ef06-2b8c-40ca-b2e8-55665cd5234f",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "expd",
+    "uuid": "52132ef4-da61-42ef-98b8-507c0f9bad64",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

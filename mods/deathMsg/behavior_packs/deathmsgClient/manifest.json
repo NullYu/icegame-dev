@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "49b50cd8-1f20-4a6a-b125-d5649b15074c",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "deathmsg",
+    "uuid": "80ab49a5-fbdd-4a96-9b5f-5bd7a49f77e4",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

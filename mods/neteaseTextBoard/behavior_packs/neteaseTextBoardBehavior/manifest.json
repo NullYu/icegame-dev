@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By Netease",
+      "type": "data",
+      "uuid": "806c83f3-7a0f-48d7-9862-ad2147516846",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By Netease",
+    "name": "TextBoard",
+    "uuid": "0289ef3e-3830-425d-b836-a62147516846",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

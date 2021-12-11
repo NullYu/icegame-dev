@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "b9991fb7-cf4a-4eca-820c-75a8c2e1acdd",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "bridge practice",
+    "uuid": "3f0a6012-37f5-46cd-9c89-e903ee5c3727",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

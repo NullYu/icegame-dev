@@ -1,0 +1,15 @@
+{
+  "netgame_mod_name":"shoutMaster",
+
+  "netgame_mod_version":"1.0.1",
+
+  "min_app_version":"1.18.0.release20200723",
+
+  "description":"shout master",
+
+  "support_server_type":["Master"],
+
+  "author": "0Kurome",
+
+  "group": "shout"
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "resources",
+      "uuid": "2e475d51-a3d5-4e60-ae63-cee66966fa66",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "bws",
+    "uuid": "2ede9381-bc4d-4b12-ac62-67b6213cd834",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

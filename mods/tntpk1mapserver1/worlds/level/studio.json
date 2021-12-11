@@ -1,0 +1,40 @@
+{
+    "Account": "aqs_mgg@163.com",
+    "AssertCacheDir": "C:\\MCStudioDownload\\EngineAssert",
+    "BlockNums": [
+        0,
+        0
+    ],
+    "BornPoint": [
+        0,
+        0,
+        0
+    ],
+    "CreateNew": false,
+    "DCWebUrl": "https://x19qadcweb.nie.netease.com",
+    "EditAddOnPaths": [
+
+    ],
+    "EditLogFilePath": "C:\\MCStudioDownload\\work\\editor\\edit.log",
+    "EditMaterialPaths": [
+
+    ],
+    "EditName": "tntpk",
+    "EditType": 1,
+    "EditorResourcePackPath": "C:\\Program Files (x86)\\Netease\\MCStudio\\data\\inner_res",
+    "ElkUrl": "https://x19mclexpr.nie.netease.com/client-log",
+    "GameType": 2,
+    "Id": null,
+    "IsMap": true,
+    "SaveBackAddOnPath": "",
+    "SaveBackMapPath": "C:\\MCStudioDownload\\work\\aqs_mgg@163.com\\Cpp\\Map\\4e3718ddee86407c9c81e38db8ffcf0c",
+    "Seed": "299176058",
+    "ServerName": "EXPR",
+    "ShowGpuDriverTips": false,
+    "ShowGuide": false,
+    "StudioPort": 11718,
+    "StudioTempPath": "C:\\MCStudioDownload\\temp\\editorTemp",
+    "UserId": "33198",
+    "UserName": "Mr_Tam",
+    "WorldType": 2
+}

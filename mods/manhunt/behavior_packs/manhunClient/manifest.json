@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "3456abd7-58e6-4335-9297-6c0afca737f6",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "hinter",
+    "uuid": "90d79708-9f74-4c01-81a8-a425a7f2c8af",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

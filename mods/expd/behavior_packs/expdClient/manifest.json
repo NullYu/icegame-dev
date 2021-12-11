@@ -1,0 +1,17 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "by 0Kurome",
+        "name": "expd",
+        "uuid": "2da04d3a-11ed-44b6-bc2b-642da14d928e",
+        "version": [0, 0, 1]
+    },
+    "modules": [
+        {
+            "description": "by dev",
+            "type": "data",
+            "uuid": "c39d5c70-8d20-488a-9e7f-d3e5b9beee97",
+            "version": [0, 0, 1]
+        }
+    ]
+}

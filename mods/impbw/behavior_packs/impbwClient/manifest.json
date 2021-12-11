@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "1e6efafa-c82f-4534-bbeb-353698667c5a",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "imposter bw",
+    "uuid": "e251aad4-e75e-4c82-88cb-6a5bb80618f2",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

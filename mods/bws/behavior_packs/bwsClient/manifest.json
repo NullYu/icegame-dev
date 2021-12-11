@@ -1,0 +1,17 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "by 0Kurome",
+        "name": "bws - bedwars shop",
+        "uuid": "164c107e-5f81-4e88-8b22-cd7b14f21e2d",
+        "version": [0, 0, 1]
+    },
+    "modules": [
+        {
+            "description": "by dev",
+            "type": "data",
+            "uuid": "dc2a3609-dbeb-45ef-a2f8-18967202e14c",
+            "version": [0, 0, 1]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By kurome",
+      "type": "resources",
+      "uuid": "72003feb-0335-44b9-b24f-0824f3ffc038",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "guns daemon",
+    "uuid": "03ba964c-15de-45df-8b29-fa54c02a7927",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

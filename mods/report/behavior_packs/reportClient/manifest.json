@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "b347c513-6e87-4d30-b6f2-1c3fac50c104",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "REPORT utils",
+    "uuid": "a2c5fe34-6ace-4958-a92d-42cb66cab6ed",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

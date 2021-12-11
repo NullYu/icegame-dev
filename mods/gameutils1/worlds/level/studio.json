@@ -1,0 +1,38 @@
+{
+    "Account": "xie18229822201@163.com",
+    "AssertCacheDir": "F:\\MCStudioDownload\\EngineAssert",
+    "BlockNums": [
+        0,
+        0
+    ],
+    "BornPoint": [
+        0,
+        0,
+        0
+    ],
+    "CreateNew": false,
+    "DCWebUrl": "https://x19qadcweb.nie.netease.com",
+    "EditAddOnPaths": [
+
+    ],
+    "EditLogFilePath": "F:\\MCStudioDownload\\work\\editor\\edit.log",
+    "EditMaterialPaths": [
+
+    ],
+    "EditName": "roompvp",
+    "EditType": 1,
+    "ElkUrl": "https://x19mclexpr.nie.netease.com/client-log",
+    "GameType": 1,
+    "Id": null,
+    "IsMap": true,
+    "SaveBackAddOnPath": "",
+    "SaveBackMapPath": "F:\\MCStudioDownload\\work\\xie18229822201@163.com\\Cpp\\Map\\649df290e714417ab1733e6ae627c4d7",
+    "Seed": "2037391799",
+    "ServerName": "EXPR",
+    "ShowGpuDriverTips": false,
+    "ShowGuide": false,
+    "StudioPort": 9055,
+    "UserId": "12022",
+    "UserName": "Tik指令工作室",
+    "WorldType": 2
+}

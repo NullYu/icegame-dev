@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "resources",
+      "uuid": "6a63d269-70e1-45c4-a6d1-c15c5894798e",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "utils",
+    "uuid": "ce6c593b-50c0-4eea-a0b6-5cfafb58a5b3",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

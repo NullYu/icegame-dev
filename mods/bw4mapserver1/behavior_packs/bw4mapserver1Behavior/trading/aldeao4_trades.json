@@ -1,0 +1,123 @@
+{
+  "tiers": [
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 16,
+                "max": 16
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:ender_pearl",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 20,
+                "max": 20
+              }             
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:tnt",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": {
+                "min": 1,
+                "max": 1
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:flint_and_steel",
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:emrald",
+              "quantity": {
+                "min": 12,
+                "max": 20
+              }
+            },
+            {
+              "item": "minecraft:compass",
+              "quantity": 1
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:mp",
+              "functions": [
+                {
+                  "function": "exploration_map",
+                  "destination": "monument"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emeald",
+              "quantity": {
+                "min": 16,
+                "max": 28
+              }
+            },
+            {
+              "item": "minecraft:compss",
+              "quantity": 1
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:mp",
+              "functions": [
+                {
+                  "function": "exploration_map",
+                  "destination": "mansion"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

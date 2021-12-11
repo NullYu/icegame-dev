@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "d6a90eb6-c34b-4132-a49e-75901f282b94",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "queue - the ultimate money machine",
+    "uuid": "6005a20c-4c1b-48bd-9246-a31308520c54",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

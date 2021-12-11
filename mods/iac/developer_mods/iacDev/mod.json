@@ -1,0 +1,13 @@
+{
+  "netgame_mod_name": "IceAntiCheat",
+  "netgame_mod_version": "1.0.0",
+  "min_app_version": null,
+  "author": "1chan - ICE_GAME,inc",
+  "module_names": null,
+  "support_server_type": [
+    "game",
+    "lobby"
+  ],
+  "unsupport_app_version": null,
+  "CustomPath": "D:\\MCStudioDownload\\Apollo\\aqs_mgg@163.com\\3299\\mods\\report"
+}

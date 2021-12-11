@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "f4207619-0f24-4d38-935e-8cceb48576f6",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "lobby ffa",
+    "uuid": "6994e337-e1a4-4b14-8360-3f0fc21e4ba3",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

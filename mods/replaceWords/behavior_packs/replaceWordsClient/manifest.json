@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "replace words for ice game - for global use",
+      "type": "data",
+      "uuid": "37bd84fd-f15a-4447-866c-ab5a53ff512e",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "replace words for ice game - for global use",
+    "name": "replaceWords",
+    "uuid": "454bd980-c610-4b55-a121-ab1f3c0ab869",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "netgame_mod_name": "tntpk1mapserver1",
+  "netgame_mod_version": "1.0.0",
+  "min_app_version": null,
+  "author": null,
+  "module_names": null,
+  "support_server_type": [
+    "game",
+    "lobby"
+  ],
+  "unsupport_app_version": null,
+  "CustomPath": null
+}

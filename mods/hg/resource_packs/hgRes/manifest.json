@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "resources",
+      "uuid": "eab922a4-bd8e-406a-bcff-c7304644edb3",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "hg",
+    "uuid": "11c6c6a9-c746-4b0d-96b3-4484266eab7b",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

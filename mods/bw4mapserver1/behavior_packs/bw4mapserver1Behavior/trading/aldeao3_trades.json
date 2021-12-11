@@ -1,0 +1,180 @@
+{
+  "tiers": [
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:iron_ingot",
+              "quantity": {
+                "min": 8,
+                "max": 8
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:wooden_sword"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:iron_ingot",
+              "quantity": {
+                "min": 16,
+                "max": 16
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:leather_chestplate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades":[
+      {
+        "wants": [
+          {
+            "item": "minecraft:iron_ingot",
+            "quantity": {
+              "min": 10,
+              "max": 10
+            }
+          }
+        ],
+        "gives": [
+          {
+            "item": "minecraft:wooden_pickaxe"
+          }
+        ]
+      },
+      {
+        "wants": [
+          {
+            "item": "minecraft:diamond",
+            "quantity": {
+              "min": 5,
+              "max": 5
+            }
+          }
+        ],
+        "gives": [
+          {
+            "item": "minecraft:iron_sword"
+          }
+        ]
+      }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 10,
+                "max": 10
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:iron_chestplate"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 8,
+                "max": 8
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:iron_pickaxe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:gold_ingot",
+              "quantity": {
+                "min": 16,
+                "max": 16
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:bow"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:gold_ingot",
+              "quantity": {
+                "min": 5,
+                "max": 5
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:arrow"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerld",
+              "quantity": {
+                "min": 5,
+                "max": 7
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:chainmail_helmet"
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:eerald",
+              "quantity": {
+                "min": 11,
+                "max": 15
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:chainmail_chestplate"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

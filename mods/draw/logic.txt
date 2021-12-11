@@ -1,0 +1,39 @@
+Draw System Logic
+
+Database:
+
+-- table for recording per-player records
+CREATE TABLE draw(
+-- player id in db, per player
+`id` int not null primary key auto_increment,
+`uid` bigint not null,
+-- combo of non level-0 item
+`combo` int not null default 0,
+`lastDraw` bigint not null default 0);
+
+-- table for individual draw records
+CREATE TABLE drawData(
+-- draw id in db, multiple per player
+`id` int not null primary key auto_increment,
+`uid` bigint not null,
+-- time of draw
+`date` bigint not null,
+-- draw level for item
+`level` int not null default 3,
+-- 1=ten combo; 0=single
+`isTen` int not null default 0);
+
+Script:
+
+Only api is provided for draw.
+On api call:
+1. send data to client - include: money and last draws
+On draw:
+1. client sends request to server
+2. server checks if request valid
+3. server generates a result and send to client
+4. client displays the result
+
+Pools:
+1 - label pool
+2 - misc pool

@@ -1,0 +1,12 @@
+{
+  "netgame_mod_name": "game1",
+  "netgame_mod_version": "1.0.0",
+  "min_app_version": null,
+  "author": null,
+  "module_names": null,
+  "support_server_type": [
+    "game"
+  ],
+  "unsupport_app_version": null,
+  "CustomPath": null
+}

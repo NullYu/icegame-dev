@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By 0Kurome",
+      "type": "resources",
+      "uuid": "c27ca335-81d9-4280-802b-7ead948f1ca7",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "music",
+    "uuid": "e17b79aa-583e-4778-b070-f6fa5f39bbb2",
+    "version": [
+      0,
+      0,
+      3
+    ]
+  }
+}

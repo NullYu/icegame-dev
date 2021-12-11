@@ -1,0 +1,202 @@
+{
+  "dy_load_list":[
+    "sounds/customSound/1",
+    "sounds/customSound/2",
+    "sounds/customSound/sasigei",
+    "sounds/customSound/pikachu",
+    "sounds/customSound/jiangnan",
+    "sounds/customSound/flowers",
+    "sounds/customSound/nb",
+    "sounds/customSound/beeper_default",
+    "sounds/customSound/thatgirl",
+    "sounds/customSound/baobaobao",
+    "sounds/customSound/386",
+    "sounds/customSound/tashahe",
+    "sounds/customSound/monika",
+    "sounds/customSound/animals",
+    "sounds/customSound/hg_cannon",
+    "sounds/customSound/start_sig",
+    "sounds/customSound/huijia",
+    "sounds/customSound/shanzhashu"
+],
+  "sfx.generic.start": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/start_sig",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.hg.cannon": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/hg_cannon",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.hg.anthem": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/hg_anthem",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.dj.free.1": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/huijia",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.dj.free.2": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/shanzhashu",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.1": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/1",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.2": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/2",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.3": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/sasigei",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.4": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/pikaqiu",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.5": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/jiangnan",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.6": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/flowers",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.7": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/nb",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.8": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/thatgirl",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.9": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/baobaobao",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.10": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/386",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.11": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/tashanhe",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.12": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/monika",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "music.mvp.13": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/animals",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  }
+}

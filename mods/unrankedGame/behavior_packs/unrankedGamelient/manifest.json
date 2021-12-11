@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "285ec4a9-fe7e-44e7-89f5-3b3819f6e79c",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "unranked match for lobby",
+    "uuid": "b530d8e8-3985-41d7-ba0a-5fb25a10d828",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

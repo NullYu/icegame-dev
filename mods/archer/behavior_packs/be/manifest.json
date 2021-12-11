@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "header": {
+    "description": "这里没有简介",
+    "name": "",
+    "uuid": "av1f32f1-f6e3-40e7-9d56-9a4738168b8a",
+    "version": [
+      1,
+      8,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      8,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "这里没有简介",
+      "type": "data",
+      "uuid": "0dd9ae7b-0a2b-4613-88da-f04612ef4ab7",
+      "version": [
+        1,
+        8,
+        0
+      ]
+    }
+  ],
+  "dependencies": null
+}

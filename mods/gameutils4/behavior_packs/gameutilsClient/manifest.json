@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "d05cb60d-5cc3-424d-929a-be28432306db",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "lobby utils",
+    "uuid": "d8d7b0dd-75a6-48e3-8a56-33bd1b5ac373",
+    "version": [
+      0,
+      1,
+      2
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "c2ea0cd2-8d0b-4bbe-8841-c0d05411d8fd",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "hello",
+    "uuid": "d10175ad-6be6-47e6-967c-263920ef3bd7",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

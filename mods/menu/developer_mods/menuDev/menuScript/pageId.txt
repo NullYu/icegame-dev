@@ -1,0 +1,7 @@
+1=main_menu
+2=solo_unranked
+3=solo_ranked
+4=5v_ranked
+5=interact
+6=tournaments
+7=settings

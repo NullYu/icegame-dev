@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "8a7a607c-2047-4277-9b4a-388192185f17",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "cmd",
+    "uuid": "a861a993-c016-477c-8277-64e34a4697a1",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

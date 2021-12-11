@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By netease",
+      "type": "data",
+      "uuid": "9ab5388a-83ef-45fa-afe1-a72147516846",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By netease",
+    "name": "neteaseNpc",
+    "uuid": "f8e74353-d8c7-4ab3-a627-1d2147516846",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

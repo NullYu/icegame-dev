@@ -1,0 +1,23 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "trocas",
+        "name": "trocas",
+        "uuid": "5b43996c-068f-11e7-93ae-92361f002671",
+        "version": [0, 0, 1]
+    },
+    "modules": [
+        {
+            "description": "trocas",
+            "type": "data",
+            "uuid": "6a439c8c-068f-11e7-93ae-92361f002671",
+            "version": [0, 0, 1]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "6a439e76-068f-11e7-93ae-92361f002671",
+            "version": [0, 0, 1]
+        }
+    ]
+}

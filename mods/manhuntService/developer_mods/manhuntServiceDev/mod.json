@@ -1,0 +1,15 @@
+{
+  "netgame_mod_name": "manhuntService",
+  "netgame_mod_version": "1.0.0",
+  "min_app_version": null,
+  "author": null,
+  "module_names": null,
+  "support_server_type": [
+    "service"
+  ],
+  "unsupport_app_version": null,
+  "CustomPath": "Y:\\Desktop\\ice_game\\apollodev\\queue\\unrankedService",
+  "module_names": [
+    "manhunt"
+  ]
+}

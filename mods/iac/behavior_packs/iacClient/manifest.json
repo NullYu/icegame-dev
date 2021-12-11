@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "ff7d0977-3973-410d-8691-f6a7bc858f46",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "iac",
+    "uuid": "d35f01ad-2c02-40b1-a01b-94b4c380bdb9",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

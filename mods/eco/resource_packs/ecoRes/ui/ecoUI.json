@@ -1,0 +1,1539 @@
+{
+   "button0@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/view",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/view1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 2,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, -34.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 259, 46 ],
+      "visible" : true
+   },
+   "button1@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/create",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/create1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 6,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -1.50, 15.50 ],
+      "propagate_alpha" : false,
+      "size" : [ 259, 46 ],
+      "visible" : true
+   },
+   "button2@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/lock",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/lock1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 10,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 69 ],
+      "propagate_alpha" : false,
+      "size" : [ 259, 46 ],
+      "visible" : true
+   },
+   "button3@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/prev_hover",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/prev_press",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 16,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -163, -115 ],
+      "propagate_alpha" : false,
+      "size" : [ 24, 16 ],
+      "visible" : true
+   },
+   "button4@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/prev_hover",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/prev_press",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 40,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -163.0, -115.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 24, 16 ],
+      "visible" : true
+   },
+   "button5@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/lockconf",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/lockconf1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 46,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 2.0, 34.50 ],
+      "propagate_alpha" : false,
+      "size" : [ 176, 32 ],
+      "visible" : true
+   },
+   "button6@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/cancel_normal",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/cancel_hover",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 70,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 34, 34.50 ],
+      "propagate_alpha" : false,
+      "size" : [ 19, 19 ],
+      "visible" : true
+   },
+   "button7@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/ok_normal",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/ok_hover",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 75,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -34, 34.50 ],
+      "propagate_alpha" : false,
+      "size" : [ 18, 19 ],
+      "visible" : true
+   },
+   "button8@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/prev_hover",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/prev_press",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 25,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -163, -115 ],
+      "propagate_alpha" : false,
+      "size" : [ 24, 16 ],
+      "visible" : true
+   },
+   "button9@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/confirm",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/confirm1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 35,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 34.50 ],
+      "propagate_alpha" : false,
+      "size" : [ 176, 32 ],
+      "visible" : true
+   },
+   "button_label" : {
+      "alpha" : "$control_alpha",
+      "color" : "$label_color",
+      "font_scale_factor" : "$label_font_scale_factor",
+      "font_size" : "$label_font_size",
+      "font_type" : "smooth",
+      "layer" : "$label_layer",
+      "max_size" : [ "100%", "100%" ],
+      "offset" : "$label_offset",
+      "shadow" : false,
+      "text" : "$label_text",
+      "text_alignment" : "center",
+      "type" : "label"
+   },
+   "changekey@common.text_edit_box" : {
+      "$edit_box_default_texture" : "textures/ui/ecoUI/input",
+      "$edit_box_hover_texture" : "textures/ui/ecoUI/input1",
+      "$font_scale_factor" : 1.0,
+      "$is_new_nine_slice" : false,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$place_holder_text" : "",
+      "$place_holder_text_color" : [ 0.50, 0.50, 0.50 ],
+      "$text_background_default" : "ecoUI.edit_box_background_default",
+      "$text_background_hover" : "ecoUI.edit_box_background_hover",
+      "$text_box_name" : "%ecoUI.message_text_edit_box0",
+      "$text_box_text_color" : [ 1, 1, 1 ],
+      "$text_edit_box_content_binding_name" : "#ecoUI.message_content_text_edit_box0",
+      "alpha" : 1.0,
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "enabled_newline" : false,
+      "layer" : 31,
+      "max_length" : 512,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 74.50, -32.0 ],
+      "propagate_alpha" : true,
+      "size" : [ 131, 24 ],
+      "visible" : true
+   },
+   "close_btn@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/close_hover",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/close_press",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 52,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 115.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 36, 19 ],
+      "visible" : true
+   },
+   "confirmpanel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "image3@ecoUI.image3" : {}
+         },
+         {
+            "labelconfirm@ecoUI.labelconfirm" : {}
+         },
+         {
+            "button6@ecoUI.button6" : {}
+         },
+         {
+            "label2@ecoUI.label2" : {}
+         },
+         {
+            "button7@ecoUI.button7" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 67,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 179, 108 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "default" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$default_texture",
+      "type" : "image"
+   },
+   "edit_box_background_default" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$edit_box_default_texture",
+      "type" : "image"
+   },
+   "edit_box_background_hover" : {
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$edit_box_hover_texture",
+      "type" : "image"
+   },
+   "err_closebtn@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/close_hover",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/close_press",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 63,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 34.50 ],
+      "propagate_alpha" : false,
+      "size" : [ 100, 19 ],
+      "visible" : true
+   },
+   "errlabel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 0.3803921568627451, 0.3803921568627451, 0.3803921568627451 ],
+      "enabled" : true,
+      "font_scale_factor" : 0.9399999976158142,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 62,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, -1.0 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 170, 40 ],
+      "text" : "出现未知错误，请提交至管理员。",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "errpanel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "image0@ecoUI.image0" : {}
+         },
+         {
+            "errlabel@ecoUI.errlabel" : {}
+         },
+         {
+            "err_closebtn@ecoUI.err_closebtn" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 60,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -1.0, 0.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 179, 108 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "help_btn@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/ecoUI/help_normal",
+      "$hover_texture" : "textures/netease/common/button/hover",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%ecoUI.click",
+      "$pressed_texture" : "textures/ui/ecoUI/help_normal",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@ecoUI.default" : {}
+         },
+         {
+            "hover@ecoUI.hover" : {}
+         },
+         {
+            "pressed@ecoUI.pressed" : {}
+         },
+         {
+            "button_label@ecoUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 56,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 159.50, -114.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 27, 16 ],
+      "visible" : true
+   },
+   "hover" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$hover_texture",
+      "type" : "image"
+   },
+   "image0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : true,
+      "keep_ratio" : false,
+      "layer" : 61,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ "0.0%+1.0px", "0.0%+0.0px" ],
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "texture" : "textures/ui/ecoUI/dialog",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 350, 253 ],
+      "visible" : true
+   },
+   "image1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 20,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 13.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 276, 178 ],
+      "texture" : "textures/ui/ecoUI/viewWindow",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 807, 440 ],
+      "visible" : true
+   },
+   "image2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 45,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 13.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 276, 178 ],
+      "texture" : "textures/ui/ecoUI/lockWindow",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 807, 440 ],
+      "visible" : true
+   },
+   "image3" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : true,
+      "keep_ratio" : false,
+      "layer" : 68,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ "0.0%+0.0px", "0.0%+0.0px" ],
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "texture" : "textures/ui/ecoUI/dialog",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 350, 253 ],
+      "visible" : true
+   },
+   "image4" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 30,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 13.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 276, 178 ],
+      "texture" : "textures/ui/ecoUI/changeWindow",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 807, 440 ],
+      "visible" : true
+   },
+   "label0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 15,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 126.0, -37.0 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 100 ],
+      "text" : "§e§l查看独立密码",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "label1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 44,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 126.0, -37.0 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 100 ],
+      "text" : "§e§l更改独立密码",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "label2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 0.3803921568627451, 0.3803921568627451, 0.3803921568627451 ],
+      "enabled" : true,
+      "font_scale_factor" : 0.8199999928474426,
+      "font_size" : "large",
+      "font_type" : "smooth",
+      "layer" : 74,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, -24.0 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 170, 40 ],
+      "text" : "§l操作确认",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "label3" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 29,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 126.0, -37.0 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 100 ],
+      "text" : "§e§l更改独立密码",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "labelconfirm" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 0.3803921568627451, 0.3803921568627451, 0.3803921568627451 ],
+      "enabled" : true,
+      "font_scale_factor" : 0.9399999976158142,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 69,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, -1.0 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 170, 40 ],
+      "text" : "出现未知错误，请提交至管理员。",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "lastAccessLabel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 22,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 62.0, 34 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 14 ],
+      "text" : "§4§l查询出错",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "sudobg@ecoUI.sudobg" : {}
+         },
+         {
+            "close_btn@ecoUI.close_btn" : {}
+         },
+         {
+            "help_btn@ecoUI.help_btn" : {}
+         },
+         {
+            "errpanel@ecoUI.errpanel" : {}
+         },
+         {
+            "confirmpanel@ecoUI.confirmpanel" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "namespace" : "ecoUI",
+   "newpassword@common.text_edit_box" : {
+      "$edit_box_default_texture" : "textures/ui/ecoUI/input",
+      "$edit_box_hover_texture" : "textures/ui/ecoUI/input1",
+      "$font_scale_factor" : 1.0,
+      "$is_new_nine_slice" : false,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$place_holder_text" : "",
+      "$place_holder_text_color" : [ 0.50, 0.50, 0.50 ],
+      "$text_background_default" : "ecoUI.edit_box_background_default",
+      "$text_background_hover" : "ecoUI.edit_box_background_hover",
+      "$text_box_name" : "%ecoUI.message_text_edit_box0",
+      "$text_box_text_color" : [ 1, 1, 1 ],
+      "$text_edit_box_content_binding_name" : "#ecoUI.message_content_text_edit_box0",
+      "alpha" : 1.0,
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "enabled_newline" : false,
+      "layer" : 33,
+      "max_length" : 512,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 74.50, 0.0 ],
+      "propagate_alpha" : true,
+      "size" : [ 131, 24 ],
+      "visible" : true
+   },
+   "panel0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "button0@ecoUI.button0" : {}
+         },
+         {
+            "button1@ecoUI.button1" : {}
+         },
+         {
+            "button2@ecoUI.button2" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 329, 194 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel1" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "label0@ecoUI.label0" : {}
+         },
+         {
+            "button3@ecoUI.button3" : {}
+         },
+         {
+            "image1@ecoUI.image1" : {}
+         },
+         {
+            "statusLabel@ecoUI.statusLabel" : {}
+         },
+         {
+            "lastAccessLabel@ecoUI.lastAccessLabel" : {}
+         },
+         {
+            "uidLabel@ecoUI.uidLabel" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 14,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 3.0, 1.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 330, 202 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel2" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "button8@ecoUI.button8" : {}
+         },
+         {
+            "label3@ecoUI.label3" : {}
+         },
+         {
+            "image4@ecoUI.image4" : {}
+         },
+         {
+            "changekey@ecoUI.changekey" : {}
+         },
+         {
+            "newpassword@ecoUI.newpassword" : {}
+         },
+         {
+            "button9@ecoUI.button9" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 24,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, -1.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 330, 202 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel3" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "button4@ecoUI.button4" : {}
+         },
+         {
+            "label1@ecoUI.label1" : {}
+         },
+         {
+            "image2@ecoUI.image2" : {}
+         },
+         {
+            "button5@ecoUI.button5" : {}
+         },
+         {
+            "password@ecoUI.password" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 39,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 0.0 ],
+      "propagate_alpha" : false,
+      "size" : [ 330, 202 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "password@common.text_edit_box" : {
+      "$edit_box_default_texture" : "textures/ui/ecoUI/input",
+      "$edit_box_hover_texture" : "textures/ui/ecoUI/input1",
+      "$font_scale_factor" : 1.0,
+      "$is_new_nine_slice" : false,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$place_holder_text" : "",
+      "$place_holder_text_color" : [ 0.50, 0.50, 0.50 ],
+      "$text_background_default" : "ecoUI.edit_box_background_default",
+      "$text_background_hover" : "ecoUI.edit_box_background_hover",
+      "$text_box_name" : "%ecoUI.message_text_edit_box0",
+      "$text_box_text_color" : [ 1, 1, 1 ],
+      "$text_edit_box_content_binding_name" : "#ecoUI.message_content_text_edit_box0",
+      "alpha" : 1.0,
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "enabled_newline" : false,
+      "layer" : 50,
+      "max_length" : 512,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 74.50, -3 ],
+      "propagate_alpha" : true,
+      "size" : [ 131, 24 ],
+      "visible" : true
+   },
+   "pressed" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$pressed_texture",
+      "type" : "image"
+   },
+   "statusLabel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 21,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 62.0, -32.0 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 14 ],
+      "text" : "§4§l查询出错",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "sudobg" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "controls" : [
+         {
+            "panel0@ecoUI.panel0" : {}
+         },
+         {
+            "panel1@ecoUI.panel1" : {}
+         },
+         {
+            "panel2@ecoUI.panel2" : {}
+         },
+         {
+            "panel3@ecoUI.panel3" : {}
+         }
+      ],
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0.50, -0.50 ],
+      "propagate_alpha" : false,
+      "size" : [ 348, 274 ],
+      "texture" : "textures/ui/ecoUI/window",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 750, 590 ],
+      "visible" : true
+   },
+   "uidLabel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 23,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 62.0, 1 ],
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 100, 14 ],
+      "text" : "§4§l查询出错",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "58f48016-6765-42f3-b6d1-cbc5f8500622",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "login all in one",
+    "uuid": "dc2d7f2f-b40c-44f6-92d7-51f43f3a34b7",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

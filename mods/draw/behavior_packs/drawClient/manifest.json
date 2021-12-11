@@ -1,0 +1,17 @@
+{
+    "format_version": 1,
+    "header": {
+        "description": "by 0Kurome",
+        "name": "draw",
+        "uuid": "c20f749f-fce6-436d-a7fd-31db57633f81",
+        "version": [0, 0, 1]
+    },
+    "modules": [
+        {
+            "description": "by dev",
+            "type": "data",
+            "uuid": "9085387a-284b-4879-bc68-3575b12dbdb7",
+            "version": [0, 0, 1]
+        }
+    ]
+}
