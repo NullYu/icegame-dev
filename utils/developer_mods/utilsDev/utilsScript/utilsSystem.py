@@ -28,6 +28,7 @@ class utilsSystemSys(ServerSystem):
         self.ListenEvents()
 
         self.spectating = []
+        self.spectatingTarget = {}
         self.admins = []
 
         self.enderPearlCd = {}
@@ -193,6 +194,8 @@ class utilsSystemSys(ServerSystem):
             self.admins.pop(self.admins.index(playerId))
         if playerId in self.enderPearlCd:
             self.enderPearlCd.pop(playerId)
+        if playerId in self.spectatingTarget:
+            self.spectatingTarget.pop(playerId)
 
     def OnAddServerPlayer(self, args):
         playerId = args['id']
@@ -275,6 +278,38 @@ class utilsSystemSys(ServerSystem):
                     regSystem.OpenRegUi(playerId)
                 else:
                     self.sendMsg('§e请您到主城再报名！', playerId)
+        elif action == 'spec':
+            operation = args['operation']
+            if operation == 'prev':
+                self.spectatingTarget[playerId] -= 1
+                if self.spectatingTarget[playerId] < 0:
+                    self.spectatingTarget[playerId] = len(serverApi.GetPlayerList() - 1)
+                for i in range(len(serverApi.GetPlayerList())):
+                    if self.spectatingTarget[playerId] in self.spectating:
+                        self.spectatingTarget[playerId] -= 1
+                    else:
+                        break
+                response = {
+                    'index': self.spectatingTarget[playerId],
+                    'playerId': serverApi.GetPlayerList(self.spectatingTarget[playerId]),
+                    'nickname': lobbyGameApi.GetPlayerNickname(serverApi.GetPlayerList(self.spectatingTarget[playerId]))
+                }
+                self.NotifyToClient(playerId, 'ChangeSpecTargetEvent', response)
+            elif operation == 'next':
+                self.spectatingTarget[playerId] += 1
+                if self.spectatingTarget[playerId] > len(serverApi.GetPlayerList()):
+                    self.spectatingTarget[playerId] = 0
+                for i in range(len(serverApi.GetPlayerList())):
+                    if self.spectatingTarget[playerId] in self.spectating:
+                        self.spectatingTarget[playerId] -= 1
+                    else:
+                        break
+                response = {
+                    'index': self.spectatingTarget[playerId],
+                    'playerId': serverApi.GetPlayerList(self.spectatingTarget[playerId]),
+                    'nickname': lobbyGameApi.GetPlayerNickname(serverApi.GetPlayerList(self.spectatingTarget[playerId]))
+                }
+                self.NotifyToClient(playerId, 'ChangeSpecTargetEvent', response)
 
     #################################
 
@@ -311,6 +346,7 @@ class utilsSystemSys(ServerSystem):
             self.SetPlayerSpectate(playerId, True)
         else:
             self.SetPlayerSpectate(playerId, False)
+
 
     def SendPlayerToSurv(self, playerId):
         data = {
@@ -372,12 +408,13 @@ class utilsSystemSys(ServerSystem):
         }
         self.NotifyToClient(playerId, 'TextBoardEvent', data)
 
-    def SetPlayerSpectate(self, playerId, isSpectate, lightning=False, noInteract=False):
+    def SetPlayerSpectate(self, playerId, isSpectate, hasFreecam=False, lightning=False, noInteract=False):
         print 'CALL Setplayerspec'
         data = {
             'playerId': playerId,
             'value': isSpectate,
-            'interact': noInteract
+            'interact': noInteract,
+            'freecam': hasFreecam
         }
         self.NotifyToClient(playerId, "SetPlayerSpectateEvent", data)
 
@@ -386,9 +423,22 @@ class utilsSystemSys(ServerSystem):
             self.spectating.append(playerId)
             if lightning:
                 self.sendCmd("/summon lightning", playerId)
+            if not hasFreecam:
+                for i in range(serverApi.GetPlayerList()):
+                    if i not in self.spectating:
+                        self.spectatingTarget[playerId] = serverApi.GetPlayerList().index(i)
+                        response = {
+                            'isSpec': True,
+                            'index': self.spectatingTarget[playerId],
+                            'playerId': serverApi.GetPlayerList(self.spectatingTarget[playerId]),
+                            'nickname': lobbyGameApi.GetPlayerNickname(serverApi.GetPlayerList(self.spectatingTarget[playerId]))
+                        }
+                        self.NotifyToClient(playerId, 'StartSpecEvent', response)
         else:
             if playerId in self.spectating:
                 self.spectating.pop(self.spectating.index(playerId))
+            if playerId in self.spectatingTarget:
+                self.spectatingTarget.pop(playerId)
 
         comp = serverApi.GetEngineCompFactory().CreateFly(playerId)
         comp.ChangePlayerFlyState(isSpectate)

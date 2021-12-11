@@ -23,6 +23,8 @@ class utilsClient(ClientSystem):
         self.ListenForEvent('utils', 'utilsSystem', 'ShowBannerEvent', self, self.OnShowBanner)
         self.ListenForEvent('utils', 'utilsSystem', 'SetHideNameEvent', self, self.OnSetHideName)
         self.ListenForEvent('utils', 'utilsSystem', 'TextBoardEvent', self, self.OnTextBoard)
+        self.ListenForEvent('utils', 'utilsSystem', 'StartSpecEvent', self, self.OnStartSpec)
+        self.ListenForEvent('utils', 'utilsSystem', 'ChangeSpecTargetEvent', self, self.OnChangeSpecTarget)
         self.isSpectate = False
         self.isDoneLoading = False
 
@@ -58,6 +60,67 @@ class utilsClient(ClientSystem):
         nickname = data['nickname']
         music = data['musicName']
         self.utilsUINode.ShowBanner(nickname, music, bool(music), playerId == clientApi.GetLocalPlayerId())
+
+    def OnChangeSpecTarget(self, data):
+        specTarget = data['playerId']
+        camComp = clientApi.GetEngineCompFactory().CreateCamera(clientApi.GetLevelId())
+        camComp.SetCameraBindActorId(specTarget)
+
+        vcomp = clientApi.GetEngineCompFactory().CreatePlayerView(clientApi.GetLocalPlayerId())
+        vcomp.SetPerspective(0)
+
+    def OnStartSpec(self, data):
+        isSpec = data['isSpec']
+        if isSpec:
+            specTarget = data['playerId']
+
+            timerComp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+            timerComp.SetRenderLocalPlayer(False)
+
+            camComp = clientApi.GetEngineCompFactory().CreateCamera(clientApi.GetLevelId())
+            camComp.DepartCamera()
+            camComp.SetCameraBindActorId(specTarget)
+
+            vcomp = clientApi.GetEngineCompFactory().CreatePlayerView(clientApi.GetLocalPlayerId())
+            vcomp.SetPerspective(0)
+
+            comp = clientApi.GetEngineCompFactory().CreateOperation(clientApi.GetLevelId())
+            comp.SetCanDrag(False)
+            comp.SetCanJump(False)
+            comp.SetCanMove(False)
+            comp.SetCanOpenInv(False)
+            comp.SetCanPause(False)
+            comp.SetCanPerspective(False)
+
+            clientApi.HideHudGUI(True)
+            clientApi.HideInteractGui(True)
+
+            self.utilsUINode.ShowSpecUi({
+                'isSpec': True,
+                'nickname': data['nickname']
+            })
+
+        else:
+            camComp = clientApi.GetEngineCompFactory().CreateCamera(clientApi.GetLevelId())
+            camComp.UnDepartCamera()
+            camComp.SetCameraBindActorId(clientApi.GetLocalPlayerId())
+
+            comp = clientApi.GetEngineCompFactory().CreateOperation(clientApi.GetLevelId())
+            comp.SetCanDrag(True)
+            comp.SetCanJump(True)
+            comp.SetCanMove(True)
+            comp.SetCanOpenInv(True)
+            comp.SetCanPause(True)
+            comp.SetCanPerspective(True)
+            clientApi.HideHudGUI(False)
+            clientApi.HideInteractGui(False)
+
+            timerComp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+            timerComp.SetRenderLocalPlayer(True)
+
+            self.utilsUINode.ShowSpecUi({
+                'isSpec': False
+            })
 
     def OnSetPlayerSpectate(self, args):
         self.isSpectate = args['value']

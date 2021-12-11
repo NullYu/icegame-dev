@@ -30,6 +30,15 @@ class utilsScreen(ScreenNode):
         self.textPanel = '/textboard'
         self.textBoard = self.textPanel + '/text'
 
+        self.specPanel = '/specPanel'
+        self.specNextBtn = self.specPanel + '/button0'
+        self.specPrevBtn = self.specPanel + '/button1'
+        self.specReportBtn = self.specPanel + '/button3'
+        self.specTargetInd = self.specPanel + '/label4'
+
+        # TODO change this to FALSE when finished debugging
+        self.hasReported = True
+
     def Create(self):
         print '==== %s ====' % 'uiScreen Create'
 
@@ -38,6 +47,9 @@ class utilsScreen(ScreenNode):
 
         self.AddTouchEventHandler(self.dialogOkBtn, self.DialogOk, {"isSwallow": True})
         self.AddTouchEventHandler(self.dialogCancelBtn, self.DialogCancel, {"isSwallow": True})
+        self.AddTouchEventHandler(self.specNextBtn, self.SpecNext, {"isSwallow": True})
+        self.AddTouchEventHandler(self.specPrevBtn, self.SpecPrev, {"isSwallow": True})
+        self.AddTouchEventHandler(self.specReportBtn, self.SpecReport, {"isSwallow": True})
 
     def Activity1(self, args):
         event = args['TouchEvent']
@@ -97,6 +109,31 @@ class utilsScreen(ScreenNode):
         self.SetVisible(self.hubBtn, True)
         self.SetVisible(self.dialogPanel, False)
         self.SetVisible(self.textPanel, False)
+        self.SetVisible(self.specPanel, False)
+
+    def SpecNext(self, args):
+        event = args['TouchEvent']
+        if event == TouchEvent.TouchUp:
+            response = {
+                'action': 'spec',
+                'operation': 'next'
+            }
+            ClientSystem.ReturnToServer(response)
+
+    def SpecPrev(self, args):
+        event = args['TouchEvent']
+        if event == TouchEvent.TouchUp:
+            response = {
+                'action': 'spec',
+                'operation': 'prev'
+            }
+            ClientSystem.ReturnToServer(response)
+
+    def SpecReport(self, args):
+        event = args['TouchEvent']
+        if event == TouchEvent.TouchUp and not self.hasReported:
+            # TODO complete report logic
+            self.hasReported = True
 
     def ShowBanner(self, nickname, music, isMusic=False, isMvp=False):
         self.SetText(self.winName, nickname)
@@ -123,6 +160,24 @@ class utilsScreen(ScreenNode):
         self.SetVisible(self.textPanel, False)
         # clientApi.SetInputMode(1)
         # clientApi.HideSlotBarGui(True)
+
+    def ShowSpecUi(self, data):
+        self.SetVisible(self.specPanel, data['isSpec'])
+
+        imageButtonPath = self.specReportBtn
+        buttonUIControl = clientApi.GetUI('utils', 'utilsUI').GetBaseUIControl(imageButtonPath).asButton()
+        buttonDefaultUIControl = buttonUIControl.GetChildByName("default").asImage()
+        buttonHoverUIControl = buttonUIControl.GetChildByName("hover").asImage()
+        buttonPressedUIControl = buttonUIControl.GetChildByName("pressed").asImage()
+
+        if self.hasReported:
+            buttonDefaultUIControl.SetSprite("textures/ui/utilsUI/spec-instareport-disable")
+            buttonHoverUIControl.SetSprite("textures/ui/utilsUI/spec-instareport-disable")
+            buttonPressedUIControl.SetSprite("textures/ui/utilsUI/spec-instareport-disable")
+
+        if 'nickname' in data:
+            nickname = data['nickname']
+            self.SetText(self.specTargetInd, '正在观战 §l%s' % nickname)
 
     def TextBoard(self, isShow, content):
         if isShow:
