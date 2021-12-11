@@ -25,7 +25,7 @@ class utilsScreen(ScreenNode):
 
         self.winpanel = '/winpanel'
         self.winName = self.winpanel + '/name'
-        self.winMusic = self.winpanel + '/music'
+        self.winMusic = self.winpanel + '/musica'
 
         self.textPanel = '/textboard'
         self.textBoard = self.textPanel + '/text'

@@ -1,4 +1,236 @@
 {
+   "activity1@common.button" : {
+      "$control_alpha" : 0.8399999737739563,
+      "$default_texture" : "textures/ui/utilsUI/signup_combofirst1",
+      "$hover_texture" : "textures/ui/utilsUI/signup_combofirst1",
+      "$is_new_nine_slice" : true,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%utilsUI.click",
+      "$pressed_texture" : "textures/ui/utilsUI/signup_combofirst11",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0.0, 1.0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@utilsUI.default" : {}
+         },
+         {
+            "hover@utilsUI.hover" : {}
+         },
+         {
+            "pressed@utilsUI.pressed" : {}
+         },
+         {
+            "button_label@utilsUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 16,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -158.0, -113.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 58, 24 ],
+      "visible" : false
+   },
+   "button0@common.button" : {
+      "$control_alpha" : 0.8500000238418579,
+      "$default_texture" : "textures/ui/utilsUI/nav-button-next",
+      "$hover_texture" : "textures/ui/utilsUI/nav-button-next",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%utilsUI.click",
+      "$pressed_texture" : "textures/ui/utilsUI/nav-button-next",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@utilsUI.default" : {}
+         },
+         {
+            "hover@utilsUI.hover" : {}
+         },
+         {
+            "pressed@utilsUI.pressed" : {}
+         },
+         {
+            "button_label@utilsUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 30,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 50.50, 90.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 85, 41 ],
+      "visible" : true
+   },
+   "button1@common.button" : {
+      "$control_alpha" : 0.8500000238418579,
+      "$default_texture" : "textures/ui/utilsUI/nav-button-prev",
+      "$hover_texture" : "textures/ui/utilsUI/nav-button-prev",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%utilsUI.click",
+      "$pressed_texture" : "textures/ui/utilsUI/nav-button-prev",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@utilsUI.default" : {}
+         },
+         {
+            "hover@utilsUI.hover" : {}
+         },
+         {
+            "pressed@utilsUI.pressed" : {}
+         },
+         {
+            "button_label@utilsUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 34,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -50, 90.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 85, 41 ],
+      "visible" : true
+   },
+   "button2@common.button" : {
+      "$control_alpha" : 0.8500000238418579,
+      "$default_texture" : "textures/ui/utilsUI/spec-instareport",
+      "$hover_texture" : "textures/ui/utilsUI/spec-instareport-1",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%utilsUI.click",
+      "$pressed_texture" : "textures/ui/utilsUI/spec-instareport-1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@utilsUI.default" : {}
+         },
+         {
+            "hover@utilsUI.hover" : {}
+         },
+         {
+            "pressed@utilsUI.pressed" : {}
+         },
+         {
+            "button_label@utilsUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 38,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 90.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 85, 41 ],
+      "visible" : true
+   },
    "button_label" : {
       "alpha" : "$control_alpha",
       "color" : "$label_color",
@@ -66,6 +298,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 30, 30 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 19, 19 ],
       "visible" : true
@@ -98,6 +331,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 0.50, -10 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "shadow" : false,
       "size" : [ 121, 17 ],
@@ -134,10 +368,11 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 5.0, 1.50 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 136, 124 ],
       "type" : "panel",
-      "visible" : true
+      "visible" : false
    },
    "hover" : {
       "alpha" : "$control_alpha",
@@ -153,8 +388,8 @@
    },
    "hubbtn@common.button" : {
       "$control_alpha" : 0.8700000047683716,
-      "$default_texture" : "textures/ui/utilsUI/hub",
-      "$hover_texture" : "textures/ui/utilsUI/hub",
+      "$default_texture" : "textures/ui/utilsUI/lobby-button",
+      "$hover_texture" : "textures/ui/utilsUI/lobby-button",
       "$is_new_nine_slice" : true,
       "$label_color" : [ 1, 1, 1 ],
       "$label_font_scale_factor" : 1.0,
@@ -168,7 +403,7 @@
       "$nine_slice_top" : 0,
       "$nineslice_size" : [ 0, 0, 0, 0 ],
       "$pressed_button_name" : "%utilsUI.click",
-      "$pressed_texture" : "textures/ui/utilsUI/hub1",
+      "$pressed_texture" : "textures/ui/utilsUI/lobby-button1",
       "$texture_layer" : 2,
       "alpha" : 1.0,
       "anchor_from" : "center",
@@ -204,6 +439,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 150.0, -99.0 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 21, 21 ],
       "visible" : true
@@ -230,6 +466,7 @@
       "nine_slice_top" : 0,
       "nineslice_size" : [ 0, 0, 0, 0 ],
       "offset" : [ 0, 0 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 136, 124 ],
       "texture" : "textures/ui/utilsUI/dialog",
@@ -260,6 +497,7 @@
       "nine_slice_top" : 0,
       "nineslice_size" : [ 0, 0, 0, 0 ],
       "offset" : [ 0.0, -71.50 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 889, 45 ],
       "texture" : "textures/ui/utilsUI/panel04",
@@ -284,6 +522,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 0.0, -30 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "shadow" : false,
       "size" : [ 100, 17 ],
@@ -308,10 +547,11 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 51.0, -76.50 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "shadow" : false,
       "size" : [ 100, 15 ],
-      "text" : "§7获得比赛的MVP",
+      "text" : "§7获得比赛的胜利",
       "text_alignment" : "left",
       "type" : "label",
       "visible" : true
@@ -332,6 +572,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 0.0, -8.0 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "shadow" : false,
       "size" : [ 100, 100 ],
@@ -356,11 +597,37 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ -97.0, -60.0 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "shadow" : false,
       "size" : [ 221, 14 ],
       "text" : "正在向所有玩家高奏您的MVP凯歌",
       "text_alignment" : "right",
+      "type" : "label",
+      "visible" : true
+   },
+   "label4" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 1, 1, 1 ],
+      "enabled" : true,
+      "font_scale_factor" : 1.0,
+      "font_size" : "normal",
+      "font_type" : "smooth",
+      "layer" : 42,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ -0.50, 63 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 169, 11 ],
+      "text" : "正在观战 §l孙笑川",
+      "text_alignment" : "center",
       "type" : "label",
       "visible" : true
    },
@@ -375,10 +642,16 @@
             "hubbtn@utilsUI.hubbtn" : {}
          },
          {
+            "activity1@utilsUI.activity1" : {}
+         },
+         {
             "winpanel@utilsUI.winpanel" : {}
          },
          {
             "textboard@utilsUI.textboard" : {}
+         },
+         {
+            "specPanel@utilsUI.specPanel" : {}
          }
       ],
       "force_render_below" : false,
@@ -404,6 +677,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 127.0, -61.0 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "shadow" : false,
       "size" : [ 221, 14 ],
@@ -428,6 +702,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ -51.0, -78.0 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "shadow" : false,
       "size" : [ 100, 22 ],
@@ -490,6 +765,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ -30, 30 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 19, 19 ],
       "visible" : true
@@ -506,6 +782,37 @@
       "texture" : "$pressed_texture",
       "type" : "image"
    },
+   "specPanel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "bottom_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "button0@utilsUI.button0" : {}
+         },
+         {
+            "button1@utilsUI.button1" : {}
+         },
+         {
+            "button2@utilsUI.button2" : {}
+         },
+         {
+            "label4@utilsUI.label4" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 29,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, -125 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
    "text" : {
       "alpha" : 1.0,
       "anchor_from" : "center",
@@ -517,11 +824,12 @@
       "font_scale_factor" : 0.8199999928474426,
       "font_size" : "normal",
       "font_type" : "smooth",
-      "layer" : 29,
+      "layer" : 28,
       "line_padding" : 0.0,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 3.50, 0.50 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "shadow" : false,
       "size" : [ 126, 117 ],
@@ -546,6 +854,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 163.0, -3.50 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 76, 123 ],
       "type" : "panel",
@@ -582,6 +891,7 @@
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 0, 0 ],
+      "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 100, 100 ],
       "type" : "panel",
