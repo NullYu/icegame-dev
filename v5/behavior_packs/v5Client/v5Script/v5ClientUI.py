@@ -94,6 +94,9 @@ class v5Screen(ScreenNode):
             self.SetVisible(self.growthBar, False)
             self.SetVisible(self.decrBar, False)
 
+    def UpdatePrepSelectionScreen(self, data):
+        pass
+
     def PlayBottomKillfeedAnim(self):
         # positions: y 154 to 98, interval=0.008
         self.SetVisible(self.bottomKillfeed, True)
