@@ -13,93 +13,121 @@ class v5Screen(ScreenNode):
         ScreenNode.__init__(self, namespace, name, param)
         print '==== %s ====' % 'init v5Screen'
 
-        self.hpBar = '/hpbar'
-        self.extraBar = '/extrabar'
-        self.growthBar = '/growthbar'
-        self.decrBar = '/decrbar'
+        self.prepPanel = '/prepPanel'
+        self.prepChooseWeaponPanel = self.prepPanel + '/panel0'
+        self.prepChooseWeaponDisableInd = self.prepChooseWeaponPanel + '/wd'
+        self.prepChooseWeaponChosenInd = self.prepChooseWeaponPanel + '/ws'
+        self.prepChooseSkillPanel = self.prepPanel + '/panel1'
+        self.prepChooseSkillDisableInd = self.prepChooseSkillPanel + '/sd'
+        self.prepChooseSkillChosenInd = self.prepChooseSkillPanel + '/ss'
 
-        self.killIndicatorPanel = '/panel2'
-        self.killIndicatorNormal = self.killIndicatorPanel + '/image5'
-        self.killIndicatorSuicide = self.killIndicatorPanel + '/image7'
+        self.timerPanel = '/timerPanel'
+        self.timerIndPanel = self.timerPanel + '/panel2'
+        self.timerIndMinuteDigit1 = self.timerIndPanel + '/m1'
+        self.timerIndSecondDigit1 = self.timerIndPanel + '/se1'
+        self.timerIndSecondDigit2 = self.timerIndPanel + '/se2'
+        self.defuserInd = self.timerPanel + '/image5'
 
-        self.killfeedPanel = '/panel3'
-        self.bottomKillfeed = self.killfeedPanel + '/image8'
-        self.killfeedMsgNormal = self.killfeedPanel + '/image9'
-        self.killfeedKillerInd = self.killfeedMsgNormal + '/label0'
-        self.killfeedMsgSuicide = self.killfeedPanel + '/image10'
+        self.eqpPanel = '/eqpPanel'
+        self.eqpWeaponBroken = self.eqpPanel + '/image6'
+        self.eqpDur1Bar = self.eqpPanel + '/dur1'
+        self.eqpDur2Bar = self.eqpPanel + '/dur2'
+        self.eqpDur3Bar = self.eqpPanel + '/dur2'
+        self.eqpFixBar = self.eqpPanel + '/durf'
+        self.eqpFixBtn = self.eqpPanel + '/fixBtn'
+        self.eqpSlotsPanel = self.eqpPanel + '/panel3'
+        self.eqpSlotsPrimaryButton = self.eqpSlotsPanel + '/primary'
+        self.eqpSlotsSecondaryButton = self.eqpSlotsPanel + '/secondary'
+        self.eqpSlotsSkillButton = self.eqpSlotsPanel + '/skill'
 
-        self.hp = 100
-        self.randHp = 100
-        self.deltaHp = 100
-
-        self.healthNumPanel = '/panel0'
-        self.healthDigit1 = self.healthNumPanel + '/image0'
-        self.healthDigit2 = self.healthNumPanel + '/image1'
-        self.healthDigit3 = self.healthNumPanel + '/image2'
-
-        self.armorNumPanel = '/panel1'
-        self.armorDigit1 = self.armorNumPanel + '/image3'
-        self.armorDigit2 = self.armorNumPanel + '/image4'
-
-        self.mPlayAnimTimerObj = None
-        self.mPlayAnimTimerCount = 0
-
-        self.isDead = False
-
-        self.hudLoadingImg = '/image11'
+        self.selectionsData = None
 
     def SetProgressbarValue(self, path, value):
-        progressBarUIControl = clientApi.GetUI('hud', 'hudUI').GetBaseUIControl(path).asProgressBar()
+        progressBarUIControl = clientApi.GetUI('v5', 'v5UI').GetBaseUIControl(path).asProgressBar()
         progressBarUIControl.SetValue(value/100.0)
 
     def Create(self):
-        print '==== %s ====' % 'rankScreen Create'
-        # self.AddTouchEventHandler(self.closeBtn, self.ExitUi, {"isSwallow": True})
+        print '==== %s ====' % 'v5Screen Create'
+        uiNode = clientApi.GetUI('v5', 'v5UI')
+
+        self.AddTouchEventHandler(self.eqpFixBtn, self.eqpFix, {"isSwallow": False})
+        self.AddTouchEventHandler(self.eqpSlotsPrimaryButton, self.eqpPrimary, {"isSwallow": False})
+        self.AddTouchEventHandler(self.eqpSlotsSecondaryButton, self.eqpSecondary, {"isSwallow": False})
+        self.AddTouchEventHandler(self.eqpSlotsSkillButton, self.eqpSkill, {"isSwallow": False})
+
+        # register buttons from w1~w5, s1~s5
+        for i in range(5):
+            ref = i+1
+            self.AddTouchEventHandler(self.prepChooseWeaponPanel + '/w%s' % (ref,), self.weaponSelectHandle, {"isSwallow": False})
+            self.AddTouchEventHandler(self.prepChooseWeaponPanel + '/s%s' % (ref,), self.skillSelectHandle, {"isSwallow": False})
+
+        # clone disabled overlay & select indicator for w2~w5, s2~s5
+        for i in range(4):
+            ref = i+2
+            uiNode.Clone(self.prepChooseWeaponDisableInd, self.prepChooseWeaponPanel, self.prepChooseWeaponPanel + 'wd%s' % ref)
+            uiNode.GetBaseUIControl('wd%s' % ref).SetPosition(uiNode.GetBaseUIControl('w%s' % ref).GetPosition())
+
+            uiNode.Clone(self.prepChooseWeaponChosenInd, self.prepChooseWeaponPanel, self.prepChooseWeaponPanel + 'ws%s' % ref)
+            uiNode.GetBaseUIControl('ws%s' % ref).SetPosition((uiNode.GetBaseUIControl('w%s' % ref).GetPosition()[0], -4))
+
+            uiNode.Clone(self.prepChooseSkillDisableInd, self.prepChooseSkillPanel, self.prepChooseSkillPanel + 'sd%s' % ref)
+            uiNode.GetBaseUIControl('sd%s' % ref).SetPosition(uiNode.GetBaseUIControl('s%s' % ref).GetPosition())
+
+            uiNode.Clone(self.prepChooseSkillChosenInd, self.prepChooseSkillPanel, self.prepChooseSkillPanel + 'ss%s' % ref)
+            uiNode.GetBaseUIControl('ss%s' % ref).SetPosition((uiNode.GetBaseUIControl('s%s' % ref).GetPosition()[0], -97))
 
     def InitScreen(self):
-        print '==== %s ====' % 'uiScreen Init'
+        print '==== %s ====' % 'uiScreen Init V5UI'
 
         # self.SetVisible('/panel0', False)
         self.SetVisible("", True)
-        self.SetVisible(self.hpBar, False)
-        self.SetVisible(self.healthNumPanel, False)
-        self.SetVisible(self.armorNumPanel, False)
-        self.SetVisible(self.extraBar, False)
-        self.SetVisible(self.growthBar, False)
-        self.SetVisible(self.decrBar, False)
-        self.SetVisible(self.killIndicatorPanel, False)
-
-        self.SetVisible(self.killfeedPanel, False)
-        self.SetVisible(self.killfeedMsgNormal, False)
-        self.SetVisible(self.killfeedMsgSuicide, False)
-        self.SetVisible(self.killfeedKillerInd, False)
-
-        comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
-        comp.AddRepeatedTimer(0.01, self.tick)
+        self.SetVisible(self.prepPanel, False)
+        self.SetVisible(self.timerPanel, False)
+        self.SetVisible(self.eqpPanel, False)
 
     def tick(self):
-        if self.randHp < self.deltaHp:
-            self.deltaHp -= 1
-            self.SetVisible(self.growthBar, False)
-            self.SetVisible(self.decrBar, True)
-            self.SetProgressbarValue(self.decrBar, self.deltaHp)
-
-        elif self.randHp > self.deltaHp:
-            self.deltaHp += 1
-            self.SetVisible(self.growthBar, True)
-            self.SetVisible(self.decrBar, False)
-            self.SetProgressbarValue(self.hpBar, self.deltaHp)
-
-        else:
-            self.SetVisible(self.growthBar, False)
-            self.SetVisible(self.decrBar, False)
-
-    def UpdatePrepSelectionScreen(self, data):
         pass
 
-    def PlayBottomKillfeedAnim(self):
-        # positions: y 154 to 98, interval=0.008
-        self.SetVisible(self.bottomKillfeed, True)
+    def UpdatePrepSelectionScreen(self, data):
+        #   team: {
+        #         player: [weaponSelectionId, skillSelectionId]
+        #     }
+
+        selections = data['selections']
+        self.selectionsData = selections
+
+        if data['isShow']:
+            self.SetVisible(self.prepPanel, True)
+        else:
+            self.SetVisible(self.prepPanel, False)
+
+        for i in range(5):
+            ref = i+1
+            # self.SetVisible(self.prepChooseWeaponPanel + '/w%s' % ref, False)
+            self.SetVisible(self.prepChooseWeaponPanel + '/ws%s' % ref, False)
+            self.SetVisible(self.prepChooseWeaponPanel + '/wd%s' % ref, False)
+            # SetVisible(self.prepChooseSkillPanel + '/s%s' % ref, False)
+            self.SetVisible(self.prepChooseSkillPanel + '/sd%s' % ref, False)
+            self.SetVisible(self.prepChooseSkillPanel + '/ss%s' % ref, False)
+
+        for player in selections:
+            weaponSelectionId = selections[player][0]
+            skillSelectionId = selections[player][1]
+
+            if not weaponSelectionId:
+                pass
+            elif player == clientApi.GetLocalPlayerId():
+                self.SetVisible(self.prepChooseWeaponPanel + '/ws%s' % weaponSelectionId, True)
+            else:
+                self.SetVisible(self.prepChooseWeaponPanel + '/wd%s' % weaponSelectionId, True)
+
+            if not skillSelectionId:
+                pass
+            elif player == clientApi.GetLocalPlayerId():
+                self.SetVisible(self.prepChooseSkillPanel + '/ss%s' % skillSelectionId, True)
+            else:
+                self.SetVisible(self.prepChooseSkillPanel + '/sd%s' % skillSelectionId, True)
+
 
     def ShowUi(self, isEnableHud):
         # ui = clientApi.GetUI('rank', 'rankUI')

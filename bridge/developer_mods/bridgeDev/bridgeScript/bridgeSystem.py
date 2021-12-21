@@ -271,8 +271,8 @@ class bridgeServerSys(ServerSystem):
                 #     clutch[playerId] = 1
 
                 if comp.GetPos()[1] < 185:
-                    comp = serverApi.GetEngineCompFactory().CreateGame(serverApi.GetLevelId)
-                    comp.KillEntity(playerId)
+                    comp = serverApi.GetEngineCompFactory().CreateHurt(playerId)
+                    comp.Hurt(9999, serverApi.GetMinecraftEnum().ActorDamageCause.EntityAttack, None, None, False)
                     self.removeBlocks(playerId)
 
                 if blockBelow == "minecraft:emerald_block" and equipStats[playerId] == 0:

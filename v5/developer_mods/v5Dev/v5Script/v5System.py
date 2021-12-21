@@ -135,3 +135,5 @@ class v5SystemSys(ServerSystem):
                 self.teams[player] = 1
             else:
                 self.teams[player] = 0
+
+            self.selectionData[self.teams[player]][player] = [0, 0]

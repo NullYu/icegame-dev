@@ -303,7 +303,8 @@ class hgSystemSys(ServerSystem):
 
                     if footPos[1] < 73:
                         self.sendCmd('/summon lightning_bolt', player)
-                        self.sendCmd('/kill', player)
+                        comp = serverApi.GetEngineCompFactory().CreateHurt(player)
+                        comp.Hurt(9999, serverApi.GetMinecraftEnum().ActorDamageCause.EntityAttack, None, None, False)
 
             if self.timer <= c.waitTime+1:
                 for player in serverApi.GetPlayerList():

@@ -324,7 +324,8 @@ class bwServerSys(ServerSystem):
                 self.sendCmd('/effect @s levitation 5 12')
 
             if playerPos[1] < 10:
-                self.sendCmd('/kill', player)
+                comp = serverApi.GetEngineCompFactory().CreateHurt(player)
+                comp.Hurt(9999, serverApi.GetMinecraftEnum().ActorDamageCause.EntityAttack, None, None, False)
 
             self.sendCmd('/clear @s bed', player)
 

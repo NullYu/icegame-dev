@@ -297,7 +297,9 @@ class ffaSystemSys(ServerSystem):
 
     def OnScriptTickServer(self):
         li = serverApi.GetPlayerList()
-        if li: self.sendCmd('/kill @e[type=item]', li[0])
+        if li:
+            comp = serverApi.GetEngineCompFactory().CreateHurt(li[0])
+            comp.Hurt(9999, serverApi.GetMinecraftEnum().ActorDamageCause.EntityAttack, None, None, False)
         for playerId in li:
 
             # equip id:
@@ -341,4 +343,5 @@ class ffaSystemSys(ServerSystem):
                 equipStats[playerId] = 0
 
             if playerPos[1] < 10:
-                self.sendCmd('/kill', playerId)
+                comp = serverApi.GetEngineCompFactory().CreateHurt(playerId)
+                comp.Hurt(9999, serverApi.GetMinecraftEnum().ActorDamageCause.EntityAttack, None, None, False)
