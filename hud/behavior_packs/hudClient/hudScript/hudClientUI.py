@@ -195,7 +195,7 @@ class hudScreen(ScreenNode):
         displayHp = hp + data['extra']*5
         if data['extra'] > 0:
             self.SetVisible(self.extraBar, True)
-            self.SetProgressbarValue(self.extraBar, data['extra'])
+            self.SetProgressbarValue(self.extraBar, data['extra']*5)
         else:
             self.SetVisible(self.extraBar, False)
 
@@ -238,13 +238,13 @@ class hudScreen(ScreenNode):
         # digit 1
             if armor >= 10:
                 self.SetVisible(self.armorDigit1, True)
-                uiNode.GetBaseUIControl(self.armorDigit1).asImage().SetSprite('textures/ui/hudUI/a%s' % (armor // 10**1 % 10,))
+                uiNode.GetBaseUIControl(self.armorDigit1).asImage().SetSprite('textures/ui/hudUI/a%s' % (int(armor // 10**1 % 10,)))
             else:
                 self.SetVisible(self.armorDigit1, False)
             # digit 2
             if armor >= 1:
                 self.SetVisible(self.armorDigit2, True)
-                uiNode.GetBaseUIControl(self.armorDigit2).asImage().SetSprite('textures/ui/hudUI/a%s' % (armor % 10,))
+                uiNode.GetBaseUIControl(self.armorDigit2).asImage().SetSprite('textures/ui/hudUI/a%s' % (int(armor % 10,)))
             else:
                 self.SetVisible(self.armorDigit2, False)
         else:
