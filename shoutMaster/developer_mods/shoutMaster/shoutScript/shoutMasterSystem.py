@@ -20,6 +20,7 @@ class shoutMasterSystem(MasterSystem):
 
     def ListenEvent(self):
         self.ListenForEvent('shout', 'shoutSystem', 'SendBugletEvent', self, self.OnSendBuglet)
+        self.ListenForEvent('shout', 'shoutSystem', 'SendGlobalMsgEvent', self, self.OnSendGlobalMsg)
         self.ListenForEvent('ban', 'banSystem', 'RefreshBanEvent', self, self.OnRefreshBan)
         self.ListenForEvent('ban', 'banSystem', 'HlabaEvent', self, self.OnHlaba)
         self.ListenForEvent('admin', 'adminSystem', 'AnnounceBanEvent', self, self.OnAnnounceBan)
@@ -39,6 +40,13 @@ class shoutMasterSystem(MasterSystem):
 
         for server in idList:
             self.NotifyToServerNode(server, "DisplayBugletEvent", args)
+
+    def OnSendGlobalMsg(self, msg):
+        print 'CALL OnSendGlobalMsg msg' % msg
+        idList = serverManager.GetConnectedLobbyAndGameIds()
+
+        for server in idList:
+            self.NotifyToServerNode(server, "DisplayGlobalMsgEvent", msg)
 
     def OnRefreshBan(self, args):
         idList = serverManager.GetConnectedLobbyAndGameIds()

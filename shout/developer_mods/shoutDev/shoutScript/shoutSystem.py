@@ -50,6 +50,7 @@ class shoutSystemSys(ServerSystem):
                             self.OnCommand)
         self.ListenForEvent('shout', 'shoutMasterSystem', 'DisplayBugletEvent', self, self.OnDisplayBuglet)
         self.ListenForEvent('shout', 'shoutMasterSystem', 'DisplayAnnounceBanEvent', self, self.OnDisplayAnnounceBan)
+        self.ListenForEvent('shout', 'shoutMasterSystem', 'DisplayGlobalMsgEvent', self, self.OnDisplayGlobalMsg)
 
     def OnDisplayBuglet(self, data):
         print 'CALL OnDisplayBuglet data=%s' % (data,)
@@ -68,6 +69,10 @@ class shoutSystemSys(ServerSystem):
 
         for player in serverApi.GetPlayerList():
             self.sendMsg('§a§l%s@%s 因 %s 被封禁' % (nickname, sid, reason), player)
+
+    def OnDisplayGlobalMsg(self, msg):
+        for player in serverApi.GetPlayerList():
+            self.sendMsg(msg, player)
 
     def OnCommand(self, data):
         playerId = data['entityId']
@@ -111,6 +116,9 @@ class shoutSystemSys(ServerSystem):
             mysqlPool.AsyncQueryWithOrderKey('OnCommand/VerifySudo', sql, (uid,), Cb)
         else:
             return
+
+    def sendGlobalMsg(self, msg):
+        self.NotifyToMaster("SendGlobalMsgEvent", msg)
 
     # 函数名为Destroy才会被调用，在这个System被引擎回收的时候会调这个函数来销毁一些内容
     def Destroy(self):

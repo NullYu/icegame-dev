@@ -356,6 +356,12 @@ class cmdSystemSys(ServerSystem):
                             'theme': 'test',
                             'time': 900
                         })
+                    elif flag == 'event.21-22.test':
+                        eventSystem = serverApi.GetSystem('event', 'eventSystem')
+                        if msg[2] == 'reset':
+                            eventSystem.timeStamp = eventSystem.consts.originalTimestamp
+                        else:
+                            eventSystem.timeStamp = int(msg[2])
                     else:
                         self.sendMsg("ping: %s: no such facility" % (flag,), playerId)
                         return
