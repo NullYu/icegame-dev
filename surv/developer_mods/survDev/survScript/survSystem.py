@@ -97,11 +97,14 @@ class survSystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerJoinMessageEvent", self, self.OnPlayerJoinMessage)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerRespawnFinishServerEvent", self, self.OnPlayerRespawnFinishServer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerLeftMessageServerEvent", self, self.OnPlayerLeftMessageServer)
+        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "CraftItemOutputChangeServerEvent", self, self.OnCraftItemOutputChangeServer)
 
         commonNetgameApi.AddRepeatedTimer(1.0, self.tick)
 
     def tick(self):
         for player in serverApi.GetPlayerList():
+
+            self.sendCmd('/kill @e[type=npc]', player)
 
             if player in self.cd:
                 self.cd[player] -= 1
@@ -116,6 +119,77 @@ class survSystemSys(ServerSystem):
                     for enchantment in item['enchantData']:
                         if enchantment[1] > 5:
                             self.overenchantedLogic(player, 6.0)
+
+    def OnCraftItemOutputChangeServer(self, args):
+        playerId = args['playerId']
+        comp = serverApi.GetEngineCompFactory().CreateItem(playerId)
+
+        # todo 铁毡输入位
+        anvilInputItem = comp.GetOpenContainerItem(playerId, serverApi.GetMinecraftEnum().OpenContainerId.AnvilInputContainer, True)
+        anvilMaterialItem = comp.GetOpenContainerItem(playerId, serverApi.GetMinecraftEnum().OpenContainerId.AnvilMaterialContainer, True)
+
+        # todo 砂轮输入位
+        grindstoneInputItem = comp.GetOpenContainerItem(playerId, serverApi.GetMinecraftEnum().OpenContainerId.GrindstoneInputContainer, True)
+        grindstoneInput2Item = comp.GetOpenContainerItem(playerId, serverApi.GetMinecraftEnum().OpenContainerId.GrindstoneAdditionalContainer, True)
+
+        # todo 锻造台输入位
+        SmithingTableInputContainer = comp.GetOpenContainerItem(playerId, serverApi.GetMinecraftEnum().OpenContainerId.SmithingTableInputContainer, True)
+        SmithingTableInput2Container = comp.GetOpenContainerItem(playerId, serverApi.GetMinecraftEnum().OpenContainerId.SmithingTableMaterialContainer, True)
+
+        # todo 切石机输入位
+        StonecutterInputContainer = comp.GetOpenContainerItem(playerId, serverApi.GetMinecraftEnum().OpenContainerId.StonecutterInputContainer, True)
+
+        outputName = args['itemDict']['itemName']
+
+        # todo 铁毡作弊
+        if anvilInputItem != None and anvilInputItem['itemName'] != outputName:
+            args['cancel'] = True
+            self.sendCmd('/clear', playerId)
+            lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
+        # todo 砂轮作弊
+        if grindstoneInputItem != None and grindstoneInput2Item == None and grindstoneInputItem["itemName"] == "minecraft:enchanted_book" and outputName != "minecraft:book":
+            args['cancel'] = True
+            self.sendCmd('/clear', playerId)
+            lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
+        elif grindstoneInputItem == None and grindstoneInput2Item != None and grindstoneInput2Item["itemName"] == "minecraft:enchanted_book" and outputName != "minecraft:book":
+            args['cancel'] = True
+            self.sendCmd('/clear', playerId)
+            lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
+        elif grindstoneInputItem != None and grindstoneInput2Item != None and grindstoneInputItem["itemName"] != grindstoneInput2Item["itemName"] and grindstoneInputItem["itemName"] != outputName:
+            args['cancel'] = True
+            self.sendCmd('/clear', playerId)
+            lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
+
+        #todo 锻造台
+        items = {
+            "minecraft:diamond_sword": "minecraft:netherite_sword",
+            "minecraft:diamond_pickaxe": "minecraft:netherite_pickaxe",
+            "minecraft:diamond_axe": "minecraft:netherite_axe",
+            "minecraft:diamond_shovel": "minecraft:netherite_shovel",
+            "minecraft:diamond_hoe": "minecraft:netherite_hoe",
+
+            "minecraft:diamond_helmet": "minecraft:netherite_helmet",
+            "minecraft:diamond_chestplate": "minecraft:netherite_chestplate",
+            "minecraft:diamond_leggings": "minecraft:netherite_leggings",
+            "minecraft:diamond_boots": "minecraft:netherite_boots"
+        }
+        # todo 锻造台输入1口不包含以上物品
+        if SmithingTableInputContainer != None and SmithingTableInputContainer["itemName"] not in items:
+            args['cancel'] = True
+            self.sendCmd('/clear', playerId)
+            lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
+        elif SmithingTableInputContainer != None and SmithingTableInputContainer["itemName"] in items and SmithingTableInput2Container["itemName"] != "minecraft:netherite_ingot":
+            args['cancel'] = True
+            self.sendCmd('/clear', playerId)
+            lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
+        elif SmithingTableInputContainer != None and SmithingTableInputContainer["itemName"] in items and SmithingTableInput2Container["itemName"] == "minecraft:netherite_ingot" and outputName != items[SmithingTableInputContainer["itemName"]]:
+            args['cancel'] = True
+            self.sendCmd('/clear', playerId)
+            lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
+
+        # todo 切石机取消生成
+        if StonecutterInputContainer != None:
+            args['cancel'] = True
 
     def OnActuallyHurtServer(self, data):
         playerId = data['srcId']
@@ -215,6 +289,14 @@ class survSystemSys(ServerSystem):
         elif cmd == 'hub':
             transData = {'position': [1, 2, 3]}
             lobbyGameApi.TransferToOtherServer(playerId, 'auth', json.dumps(transData))
+        elif cmd == 'list':
+            msg = ''
+            for player in serverApi.GetPlayerList():
+                nickname = lobbyGameApi.GetPlayerNickname(player)
+                uid = lobbyGameApi.GetPlayerUid(player)
+                msg = msg + '%s-----%s §l§c| §r' % (nickname, uid)
+            self.sendMsg(msg, playerId)
+
         elif cmd in ['t', 'w', 'msg', 'tell']:
             if len(msg) < 3:
                 self.sendMsg('§6/%s <player> <msg...' % cmd, playerId)

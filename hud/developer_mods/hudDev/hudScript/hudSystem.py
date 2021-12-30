@@ -79,7 +79,9 @@ class hudSystemSys(ServerSystem):
         def a():
             self.NotifyToClient(playerId, 'SetEnableHudEvent', True)
             print 'set hudenable'
-        commonNetgameApi.AddTimer(14.5, a)
+
+        for i in range(7, 25):
+            commonNetgameApi.AddTimer(i, a)
         return
 
         def Cb(args):
@@ -99,6 +101,8 @@ class hudSystemSys(ServerSystem):
         self.NotifyToClient(playerId, 'ResetHudEvent', None)
         if playerId in self.nearDeathPlayers:
             self.nearDeathPlayers.pop(self.nearDeathPlayers.index(playerId))
+
+        self.sendCmd('/effect @s clear')
 
     def OnDisplayDeathDone(self, playerId):
         print 'death done for %s' % playerId
@@ -138,7 +142,7 @@ class hudSystemSys(ServerSystem):
                     'attacker': attackerId
                 })
 
-            self.sendCmd('/effect @s invisibility 99999 1 true', victimId)
+            self.sendCmd('/effect @s invisibility 20 1 true', victimId)
 
             response = {
                 'isSuicide': not(attackerId != victimId and attackerId in serverApi.GetPlayerList()),
