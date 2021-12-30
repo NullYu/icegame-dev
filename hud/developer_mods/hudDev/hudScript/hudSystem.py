@@ -79,7 +79,7 @@ class hudSystemSys(ServerSystem):
         def a():
             self.NotifyToClient(playerId, 'SetEnableHudEvent', True)
             print 'set hudenable'
-        commonNetgameApi.AddTimer(10.0, a)
+        commonNetgameApi.AddTimer(14.5, a)
         return
 
         def Cb(args):
