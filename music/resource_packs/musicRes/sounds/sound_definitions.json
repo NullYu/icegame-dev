@@ -1,15 +1,9 @@
 {
   "dy_load_list":[
-    "sounds/customSound/awp",
-    "sounds/customSound/bolt",
-    "sounds/customSound/death",
-    "sounds/customSound/hit",
-    "sounds/customSound/whizz",
-    "sounds/customSound/fire_auto",
-    "sounds/customSound/fire_manual",
-    "sounds/customSound/empty",
-    "sounds/customSound/reload",
-    "sounds/customSound/taser"
+    "sounds/customSound/huashu",
+    "sounds/customSound/baobaobashi",
+    "sounds/customSound/fireworks",
+    "sounds/customSound/happynewyear"
 ],
   "sfx.generic.start": {
     "category": "music",
@@ -288,6 +282,46 @@
         "name": "sounds/customSound/fire_manual",
         "pitch": 1,
         "volume": 1
+      }
+    ]
+  },
+  "music.event.huashu": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/huashu",
+        "pitch": 1,
+        "volume": 0.5
+      }
+    ]
+  },
+  "music.event.baobaobashi": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/baobaobashi",
+        "pitch": 1,
+        "volume": 0.5
+      }
+    ]
+  },
+  "music.event.happynewyear": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/happynewyear",
+        "pitch": 1,
+        "volume": 0.5
+      }
+    ]
+  },
+  "music.event.fireworks": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/fireworks",
+        "pitch": 1,
+        "volume": 0.3
       }
     ]
   }

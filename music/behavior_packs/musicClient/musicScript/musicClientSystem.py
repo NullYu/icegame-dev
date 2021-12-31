@@ -36,7 +36,7 @@ class musicClientSys(ClientSystem):
             auComp.StopCustomMusic("music.beeper.default", 0)
         auComp.DisableOriginMusic(stopOrigin)
 
-        if self.bMusicId:
+        if self.bMusicId and not args['keepOrigin']:
             auComp.StopCustomMusicById(self.bMusicId, 0.5)
 
         comp = clientApi.GetEngineCompFactory().CreatePos(playerId)

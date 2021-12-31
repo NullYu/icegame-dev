@@ -61,7 +61,7 @@ class eventScreen(ScreenNode):
 
         if timer <= 0:
             self.SetText(self.timerCaptionInd, "§l§c祝§f各§2位§c玩§f家")
-            self.SetText(self.timerInd, "§l§f元旦快乐！！！")
+            self.SetText(self.timerInd, "§l§f新年快乐！！！")
         else:
             self.SetText(self.timerInd, "%s" % datetime.timedelta(seconds=int(timer)))
             if timer % 2 == 0:

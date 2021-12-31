@@ -118,10 +118,13 @@ class hudSystemSys(ServerSystem):
         attackerId = data['srcId']
         victimId = data['entityId']
         damage = data['damage']
+        cause = data['cause']
+        serverType = commonNetgameApi.GetServerType()
 
         if victimId not in serverApi.GetPlayerList():
             return
-
+        if 'bwBomb' in serverType and cause == 'fall':
+            return
         if victimId in self.nearDeathPlayers:
             data['damage'] = 0
             return

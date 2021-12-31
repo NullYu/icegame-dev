@@ -59,11 +59,12 @@ class musicServerSystem(ServerSystem):
 
     # ###Music API ### #
 
-    def PlayMusicToPlayer(self, playerId, musicId):
+    def PlayMusicToPlayer(self, playerId, musicId, keepOrigin=False):
         print 'CALL PlayMusicToPlayer playerId=%s musicId=%s type=%s' % (playerId, musicId, type)
         args = {
             'playerId': playerId,
             'musicId': musicId,
+            'keepOrigin': keepOrigin
         }
         self.NotifyToClient(playerId, "PlayMusicEvent", args)
 
