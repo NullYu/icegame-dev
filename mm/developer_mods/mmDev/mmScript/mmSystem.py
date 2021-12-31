@@ -666,6 +666,8 @@ class mmServerSys(ServerSystem):
 
         self.updateServerStatus(self.status)
 
+        self.sendCmd('/effect @a saturation 5 255 true', serverApi.GetPlayerList()[0])
+
     def start(self):
         self.timer = 0
         for player in self.waiting:

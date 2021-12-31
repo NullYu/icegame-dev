@@ -263,7 +263,7 @@ class ecoSystemSys(ServerSystem):
                     data = self.bank[playerId]
                     neko = str(data[0])
                     high = str(data[1])
-                    self.sendMsg("\n§b§l我的钱包余额\n§rNEKO: §e"+neko+"\n§fCREDITS: §e"+high+"\n§f使用§b/eco -h§f查看帮助\n\n", playerId)
+                    self.sendMsg("\n§b§l我的钱包余额\n§rNEKO: §e"+neko+"\n§fCREDITS: §e"+high+"\n§f使用§b/eco -help§f获得帮助\n\n", playerId)
             elif msg[1] == "-h":
                 self.sendMsg("§beco - 玩家经济\n§r§l/eco -dt [selectorData] [selectorData2] [selectorData3] [extraFlag] [extraFlag2]\n§r§b访问t.im/commands了解详情", playerId)
             else:
