@@ -1,0 +1,9 @@
+{
+    "resource_pack_name": "vanilla",
+    "texture_data": {
+        "v5:defuser_texture": {
+            "textures": "textures/blocks/v5Beh/defuser_texture"
+        }
+    },
+    "texture_name": "atlas.terrain"
+}
