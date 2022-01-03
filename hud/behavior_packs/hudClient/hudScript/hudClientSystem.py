@@ -24,8 +24,8 @@ class hudClient(ClientSystem):
         self.ListenForEvent('hud', 'hudSystem', 'DisplayKillIndicatorEvent', self, self.OnDisplayKillIndicator)
         self.ListenForEvent('hud', 'hudSystem', 'DisplayDeathEvent', self, self.OnDisplayDeath)
         self.ListenForEvent('hud', 'hudSystem', 'ResetHudEvent', self, self.OnResetHud)
-        self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'OnScriptTickClient', self,
-                            self.tick)
+        self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'OnScriptTickClient', self, self.tick)
+        self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'OnLocalPlayerStopLoading', self, self.OnLocalPlayerStopLoading)
         self.hudUINode = None
 
         self.hp = 100
@@ -41,6 +41,12 @@ class hudClient(ClientSystem):
         if self.hudUINode:
             self.hudUINode.InitScreen()
             print 'hudUINODE.InitScreen node=', str(self.hudUINode)
+
+            self.ReturnToServer({
+                'action': 'notify'
+            })
+            print 'done loading (hud mod)'
+
         else:
             print 'FAILED TO hudUINODE.InitScreen!!! hudUINODE=', str(self.hudUINode)
 
@@ -58,6 +64,12 @@ class hudClient(ClientSystem):
 
     def UpdateHp(self, hp):
         self.hp = hp
+
+    def OnLocalPlayerStopLoading(self, data):
+        self.ReturnToServer({
+            'action': 'notify'
+        })
+        print 'done loading (hud mod)'
 
     def OnResetHud(self, args):
         print '----RESET----'

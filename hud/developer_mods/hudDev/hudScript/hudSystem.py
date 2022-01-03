@@ -38,7 +38,7 @@ class hudSystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "DamageEvent", self, self.OnDamage)
         self.ListenForEvent('hud', 'hudClient', "DisplayDeathDoneEvent", self, self.OnDisplayDeathDone)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerRespawnFinishServerEvent", self, self.OnPlayerRespawnFinishServer)
-        # self.ListenForEvent('utils', 'utilsClient', 'ActionEvent', self, self.OnClientAction)
+        self.ListenForEvent('hud', 'hudClient', 'ActionEvent', self, self.OnClientAction)
         pass
     ##############UTILS##############
 
@@ -72,21 +72,28 @@ class hudSystemSys(ServerSystem):
     def OnAddServerPlayer(self, data):
         playerId = data['id']
         uid = lobbyGameApi.GetPlayerUid(playerId)
-        sql = 'SELECT hudOverride FROM userSettings WHERE uid=%s AND hudOverride=1;'
+
         self.playerData[playerId] = None
 
-        # TODO remove debug
-        def a():
-            self.NotifyToClient(playerId, 'SetEnableHudEvent', True)
-            print 'set hudenable'
+    def OnClientAction(self, data):
+        playerId = data['playerId']
+        action = data['action']
 
-        for i in range(7, 25):
-            commonNetgameApi.AddTimer(i, a)
-        return
+        if action == 'notify':
+            sql = 'SELECT hudOverride FROM userSettings WHERE uid=%s AND hudOverride=1;'
 
-        def Cb(args):
-            commonNetgameApi.AddTimer(5.0, lambda a: self.NotifyToClient(a, 'SetEnableHudEvent', bool(args)), playerId)
-        mysqlPool.AsyncQueryWithOrderKey('cioasud89u123klk', sql, (uid,), Cb)
+            def a():
+                self.NotifyToClient(playerId, 'SetEnableHudEvent', True)
+                print 'set hudenable'
+
+            a()
+            return
+
+            def Cb(args):
+                commonNetgameApi.AddTimer(5.0, lambda a: self.NotifyToClient(a, 'SetEnableHudEvent', bool(args)),
+                                          playerId)
+
+            mysqlPool.AsyncQueryWithOrderKey('cioasud89u123klk', sql, (uid,), Cb)
 
     def OnDelServerPlayer(self, data):
         playerId = data['id']
