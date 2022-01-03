@@ -97,8 +97,16 @@ class eventSystemSys(ServerSystem):
                 self.sendMsgToAll("§l§c元旦§f庆典 §e将在§660§e分钟后开始！！！")
             elif t == -1800:
                 self.sendMsgToAll("§l§c元旦§f庆典 §e将在§630§e分钟后开始！！！")
+                self.musicRoutine()
+
+            elif t == -1200:
+                self.sendMsgToAll("§l§c元旦§f庆典 §e将在§620§e分钟后开始！！！")
+                self.musicRoutine()
+
             elif t == -600:
                 self.sendMsgToAll("§l§c元旦§f庆典 §e将在§610§e分钟后开始！！！")
+                self.musicRoutine()
+
             elif t == -180:
                 self.sendMsgToAll("§l§c元旦§f庆典 §e将在§63§e分钟后开始！！！请尽快进入大厅服！")
             elif t == -60:
