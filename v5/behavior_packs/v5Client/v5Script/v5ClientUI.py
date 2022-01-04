@@ -41,6 +41,11 @@ class v5Screen(ScreenNode):
         self.eqpSlotsSecondaryButton = self.eqpSlotsPanel + '/secondary'
         self.eqpSlotsSkillButton = self.eqpSlotsPanel + '/skill'
 
+        self.reinforcementPanel = '/reinforcementPanel'
+        self.reinfCounterDigit1 = self.reinforcementPanel + '/image8'
+        self.reinfCounterDigit2 = self.reinforcementPanel + '/image9'
+        self.reinfCounterDigit3 = self.reinforcementPanel + '/image10'
+
         self.selectionsData = None
 
         self.defuserTimer = 44
@@ -58,6 +63,8 @@ class v5Screen(ScreenNode):
         self.fixProgress = 0
         self.fixStarted = False
         self.currentEquipped = 0
+
+        self.reinfsLeft = 0
 
     def SetProgressbarValue(self, path, value):
         progressBarUIControl = clientApi.GetUI('v5', 'v5UI').GetBaseUIControl(path).asProgressBar()
@@ -112,6 +119,7 @@ class v5Screen(ScreenNode):
         self.SetVisible(self.prepPanel, False)
         self.SetVisible(self.timerPanel, False)
         self.SetVisible(self.eqpPanel, False)
+        self.SetVisible(self.reinforcementPanel, False)
         self.resetPrepPanel()
 
         comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
@@ -274,6 +282,34 @@ class v5Screen(ScreenNode):
         clientApi.HideSlotBarGui(isShow)
         if isReset:
             pass
+
+    def UpdateReinfPanel(self, data):
+        self.reinfsLeft = data['count']
+        if 'isShow' in data:
+            isShow = data['isShow']
+            self.SetVisible(self.reinforcementPanel, isShow)
+            clientApi.HideSlotBarGui(isShow)
+        self.UpdateReinfCount(self.reinfsLeft)
+
+    def UpdateReinfCount(self, count):
+        self.reinfsLeft = count
+        uiNode = clientApi.GetUI('v5', 'v5UI')
+        # set hp sprites
+        # digit 1
+        if count >= 100:
+            self.SetVisible(self.reinfCounterDigit1, True)
+            uiNode.GetBaseUIControl(self.reinfCounterDigit1).asImage().SetSprite('textures/ui/v5UI/%s' % (int(count // 10 ** 2 % 10),))
+        else:
+            self.SetVisible(self.reinfCounterDigit1, False)
+        # digit 2
+        if count >= 10:
+            self.SetVisible(self.reinfCounterDigit2, True)
+            uiNode.GetBaseUIControl(self.reinfCounterDigit2).asImage().SetSprite('textures/ui/v5UI/%s' % (int(count // 10 ** 1 % 10),))
+        else:
+            self.SetVisible(self.reinfCounterDigit2, False)
+        # digit 3
+        self.SetVisible(self.reinfCounterDigit3, True)
+        uiNode.GetBaseUIControl(self.reinfCounterDigit3).asImage().SetSprite('textures/ui/v5UI/%s' % (int(count % 10),))
 
     def weaponSelectHandle(self, args):
         event = args['TouchEvent']

@@ -70,9 +70,12 @@ class v5SystemSys(ServerSystem):
         self.roundTimer = c.roundTime
         self.defuserPlanted = False
         self.timerTicking = False
+        self.reinfLeft = 0
 
         self.teams = {}
         self.waiting = []
+        self.defenders = []
+        self.attackers = []
 
         self.status = 0
 
@@ -85,6 +88,7 @@ class v5SystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "CommandEvent", self, self.OnCommand)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "OnCarriedNewItemChangedServerEvent", self, self.OnOnCarriedNewItemChangedServer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerAttackEntityEvent", self, self.OnPlayerAttackEntity)
+        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "ServerEntityTryPlaceBlockEvent", self, self.OnServerEntityTryPlaceBlock)
 
         # self.ListenForEvent('hud', 'hudClient', "DisplayDeathDoneEvent", self, self.OnDisplayDeathDone)
         # self.ListenForEvent('music', 'musicSystem', 'CreateMusicIdEvent', self, self.OnCreateMusicId)
@@ -310,6 +314,15 @@ class v5SystemSys(ServerSystem):
                 elif keyword == 'set':
                     self.GivePlayerKit(playerId, int(msg[3]), int(msg[4]))
 
+            elif flag == 'reinf':
+                if keyword == 'show':
+                    self.UpdateReinfCount(playerId, self.reinfLeft, True)
+                elif keyword == 'init':
+                    self.reinfLeft = 180
+                    self.defenders.append(playerId)
+                elif keyword == 'exit':
+                    self.UpdateReinfCount(playerId, self.reinfLeft, False)
+
             elif flag == 'cmd':
                 self.sendCmd(data['command'].replace('/v5debug cmd ', ''), playerId)
 
@@ -463,6 +476,24 @@ class v5SystemSys(ServerSystem):
         }
         self.NotifyToClient(playerId, 'UpdateKitDurabilityEvent', response)
 
+    def UpdateReinfCount(self, playerId, count, isShow=True):
+        self.reinfLeft = count
+        data = {
+            'count': count,
+            'isShow': isShow
+        }
+        self.NotifyToClient(playerId, 'UpdateReinfPanelEvent', data)
+
+        if self.reinfLeft > 0:
+            def a(p):
+                self.sendCmd('/replaceitem entity @s slot.hotbar 0 destroy v5:hard_wall 10 0 {"minecraft:can_place_on":{"blocks":["concrete"]}}', p)
+            commonNetgameApi.AddTimer(0.05, a, playerId)
+            comp = serverApi.GetEngineCompFactory().CreatePlayer(playerId)
+            comp.ChangeSelectSlot(0)
+        else:
+            self.sendCmd('/clear @s v5:hard_wall', playerId)
+
+
     # ################# TICK TIMERS ###############
     u"""
         This section contains all the timers
@@ -482,7 +513,7 @@ class v5SystemSys(ServerSystem):
     def OnPlayerInventoryOpenScriptServer(self, data):
         playerId = data['playerId']
 
-        lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
+        # lobbyGameApi.TryToKickoutPlayer(playerId, "§6与服务器断开连接")
 
     def OnAddServerPlayer(self, data):
         playerId = data['id']
@@ -502,6 +533,16 @@ class v5SystemSys(ServerSystem):
         if newSlotId != oldSlotId and newSlotId != 4:
             comp = serverApi.GetEngineCompFactory().CreatePlayer(playerId)
             comp.ChangeSelectSlot(oldSlotId)
+
+    def OnServerEntityTryPlaceBlock(self, data):
+        playerId = data['entityId']
+        if data['fullName'] == 'v5:hard_wall':
+            if self.reinfLeft <= 0:
+                data['cancel'] = True
+            else:
+                self.reinfLeft -= 1
+            for player in self.defenders:
+                self.UpdateReinfCount(player, self.reinfLeft)
 
     def OnPlayerAttackEntity(self, data):
         playerId = data['playerId']

@@ -3,6 +3,21 @@
     "texture_data": {
         "v5:defuser_texture": {
             "textures": "textures/blocks/v5Beh/defuser_texture"
+        },
+        "v5:texture_hard_wall": {
+            "textures": "textures/blocks/v5Beh/texture_hard_wall"
+        },
+        "v5:bomb1": {
+            "textures": "textures/blocks/bomb1"
+        },
+        "v5:bomb2": {
+            "textures": "textures/blocks/bomb2"
+        },
+        "v5:bomb3": {
+            "textures": "textures/blocks/bomb3"
+        },
+        "v5:bomb4": {
+            "textures": "textures/blocks/bomb4"
         }
     },
     "texture_name": "atlas.terrain"

@@ -7,5 +7,13 @@
     "v5:defuser": {
         "netease_model": "v5:defuser",
         "sound": "stone"
+    },
+    "v5:hard_wall": {
+        "netease_model": "v5:hardwall",
+        "sound": "metal"
+    },
+    "v5:bomb": {
+        "netease_model": "jmkdi:bomb",
+        "sound": "normal"
     }
 }

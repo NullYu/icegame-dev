@@ -27,11 +27,13 @@ class v5Client(ClientSystem):
         self.ListenForEvent('v5', 'v5System', 'TimerUpdateEvent', self, self.OnTimerUpdate)
         self.ListenForEvent('v5', 'v5System', 'UpdateKitDurabilityEvent', self, self.OnUpdateKitDurability)
         self.ListenForEvent('v5', 'v5System', 'SetEqpDataEvent', self, self.OnSetEqpData)
+        self.ListenForEvent('v5', 'v5System', 'UpdateReinfPanelEvent', self, self.OnUpdateReinfPanel)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'ClientPlayerInventoryOpenEvent', self, self.OnClientPlayerInventoryOpen)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'OnScriptTickClient', self, self.tick)
         self.v5UINode = None
 
     def OnClientPlayerInventoryOpen(self, data):
+        return 
         data['cancel'] = True
         self.ReturnToServer({
             'operation': 'kickout'
@@ -65,6 +67,9 @@ class v5Client(ClientSystem):
 
     def OnUpdateKitDurability(self, data):
         self.v5UINode.UpdateKitDurability(data)
+
+    def OnUpdateReinfPanel(self, data):
+        self.v5UINode.UpdateReinfPanel(data)
 
     def ReturnToServer(self, args):
         response = args
