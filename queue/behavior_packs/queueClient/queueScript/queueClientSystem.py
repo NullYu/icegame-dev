@@ -9,25 +9,18 @@ ClientSystem = clientApi.GetClientSystemCls()
 
 
 # 在modMain中注册的Client System类
-class shoutClient(ClientSystem):
+class queueClient(ClientSystem):
     # ServerSystem的初始化函数
     def __init__(self, namespace, systemName):
         # 首先调用父类的初始化函数
         ClientSystem.__init__(self, namespace, systemName)
-        print "====reportClientSystem Init ===="
-        # 定义一个event,下面可以通过这个event给服务端发送消息。
-        self.DefineEvent('TestRequest')
-        # 给服务端发送消息
-        self.TestRequest()
+        print "====queueClientSystem Init ===="
+        self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(),
+                            'UiInitFinished', self, self.OnUIInitFinished)
 
-    def TestRequest(self, args):
-        # 创建自定义事件的数据。data其实是个dict。
-        #data = self.CreateEventData()  # 等价于:data = {}
-        #data['test1'] = 'value1'
-        #data['test2'] = 'value2'
-        # 给服务端发送消息。服务端通过监听TestRequest事件处理消息，消息内容是data。
-        #self.NotifyToServer('TestRequest', data)
-        pass
+    def OnUIInitFinished(self):
+        utilsClient = clientApi.GetSystem('utils', 'utilsClient')
+        utilsClient.OnSetHideName(True)
 
     # 函数名为Destroy才会被调用，在这个System被引擎回收的时候会调这个函数来销毁一些内容
     def Destroy(self):

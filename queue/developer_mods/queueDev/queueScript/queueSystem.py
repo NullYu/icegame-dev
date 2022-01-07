@@ -4,7 +4,6 @@
 # 这行import到的是引擎服务端的API模块
 import server.extraServerApi as serverApi
 import time
-import random
 import datetime, math
 import json
 import queueScript.queueConsts as c
@@ -23,9 +22,8 @@ class queueSystemSys(ServerSystem):
         ServerSystem.__init__(self, namespace, systemName)
         self.ListenEvents()
 
-        # self.queue[0],[1] normal,prio respectively
-        self.queue = [[], []]
-        self.targetPlayers = 30
+        self.queue = []
+        self.targetPlayers = 20
         self.playerLeaveBuffer = 0
 
         self.maxSlots = c.slots
@@ -84,14 +82,8 @@ class queueSystemSys(ServerSystem):
         playerId = data['id']
         uid = lobbyGameApi.GetPlayerUid(playerId)
 
-        sql = 'SELECT * FROM prioq WHERE uid=%s AND (expire < 0 OR expire > %s);'
-        def Cb(args):
-            if args:
-                self.queue[1].append(playerId)
-            else:
-                self.queue[0].append(playerId)
-        mysqlPool.AsyncQueryWithOrderKey('checkQueuePriority', sql, (uid, time.time()), Cb)
-
+        self.queue.append(playerId)
+        print 'aaaaaa2', uid, playerId
 
         commonNetgameApi.AddTimer(7.0, lambda p: self.sendMsg('§6这个服务器满了', p), playerId)
 
@@ -100,42 +92,39 @@ class queueSystemSys(ServerSystem):
 
     def OnDelServerPlayer(self, data):
         playerId = data['id']
-        if playerId in self.queue[0]:
-            self.queue[0].pop(self.queue[0].index(playerId))
-        else:
-            self.queue[1].pop(self.queue[1].index(playerId))
+        print 'aaaaaa3', lobbyGameApi.GetPlayerUid(playerId), playerId
+        self.queue.pop(self.queue.index(playerId))
         if self.playerLeaveBuffer > 0:
             self.playerLeaveBuffer -= 1
 
     def tick(self):
-        for queue in self.queue:
-            for player in queue:
-                self.sendCmd('/effect @s instant_health 21 255 true', player)
-                pos = queue.index(player)+1
-                self.sendMsg('§6您在队伍中的位置: §l%s' % pos, player)
-                msg = """§l§7§oFACK
-CRAFT
+        utilsSystem = serverApi.GetSystem('utils', 'utilsSystem')
+        for player in self.queue:
+            self.sendCmd('/effect @s instant_health 11 255 true', player)
+            pos = self.queue.index(player)+1
+            self.sendMsg('§6您在队伍中的位置: §l%s' % pos, player)
+            msg = """§l§7§oICE
+GAME
 
 §r§6生存服满了
 §r§6您在队伍中的位置: §l%s
 §r§6预计排队时长: §l%s
 
-§r§6您可以选择捐赠以获得优先队列状态。点击左上角商店按钮了解更多。
+§r§6您可以选择捐赠以获得优先队列
+状态。点击左上角商店按钮了解更多。
 """ % (pos, datetime.timedelta(seconds=int(math.floor(pos*90))))
-                comp = serverApi.GetEngineCompFactory().CreateGame(player)
-                comp.SetOneTipMessage(player, msg)
+            utilsSystem.TextBoard(player, True, msg)
 
     def halfTick(self):
         data = {
             'sid': lobbyGameApi.GetServerId(),
-            'type': 'sc'
+            'type': 'game_surv'
         }
         self.NotifyToMaster("GetServerStat", data)
 
-        for queue in self.queue:
-            for player in queue:
-                self.setPos(player, (0.5, 4, 0.5))
-                self.sendCmd('/effect @s invisibility 999 1 true', player)
+        for player in self.queue:
+            self.setPos(player, (0.5, 4, 0.5))
+            self.sendCmd('/effect @s invisibility 999 1 true', player)
 
     def GetServerStatRet(self, count):
 
@@ -156,17 +145,9 @@ CRAFT
         if count < self.targetPlayers and self.countUnlocked:
             print 'trying to send player from queue'
             allocate = self.targetPlayers-count
-            if random.randint(0, 100) < 65:
-                for i in range(allocate):
-                    try:
-                        transData = {'position': [1, 2, 3]}
-                        lobbyGameApi.TransferToOtherServer(self.queue[1][i], 'sc', json.dumps(transData))
-                    except IndexError:
-                        break
-            else:
-                for i in range(allocate):
-                    try:
-                        transData = {'position': [1, 2, 3]}
-                        lobbyGameApi.TransferToOtherServer(self.queue[0][i], 'sc', json.dumps(transData))
-                    except IndexError:
-                        break
+            for i in range(allocate):
+                try:
+                    transData = {'position': [1, 2, 3]}
+                    lobbyGameApi.TransferToOtherServer(self.queue[i], 'game_surv', json.dumps(transData))
+                except IndexError:
+                    break

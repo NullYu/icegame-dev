@@ -8,6 +8,7 @@ import random
 import ujson as json
 import apolloCommon.commonNetgameApi as commonNetgameApi
 import lobbyGame.netgameApi as lobbyGameApi
+import survScript.survConsts as c
 import apolloCommon.mysqlPool as mysqlPool
 cooldown = {}
 
@@ -105,6 +106,7 @@ class survSystemSys(ServerSystem):
         for player in serverApi.GetPlayerList():
 
             self.sendCmd('/kill @e[type=npc]', player)
+            self.sendCmd('/kill @e[type=wither]', player)
 
             if player in self.cd:
                 self.cd[player] -= 1
@@ -216,6 +218,23 @@ class survSystemSys(ServerSystem):
         nick = data['name']
         data['message'] = '§7%s 加入了' % nick
 
+        # 软封禁
+        shadowBanList = c.shadowBanUsernames
+        isBan = False
+        for name in shadowBanList:
+            if name in nick:
+                isBan = True
+                break
+
+        if isBan:
+            chance = c.shadowBanChance
+            if random.randint(1, 100) <= chance:
+                delay = random.randint(30, 120)
+                print 'shadowban! delay=', delay
+                def a(p):
+                    lobbyGameApi.TryToKickoutPlayer(p, "§6与服务器断开连接")
+                commonNetgameApi.AddTimer(delay, a, data['id'])
+
     def OnPlayerLeftMessageServer(self, data):
         nick = data['name']
         data['message'] = '§7%s 退出了' % nick
@@ -249,7 +268,8 @@ class survSystemSys(ServerSystem):
         comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
         pos = comp.GetFootPos()
 
-        self.RandomPos(playerId, pos[1])
+        if abs(pos[0]) < 1000 and abs(pos[2]) < 1000:
+            self.RandomPos(playerId, pos[1])
 
     def RandomPos(self, playerId, y=256):
         x = random.randint(-1024, 1024)
@@ -271,14 +291,6 @@ class survSystemSys(ServerSystem):
 
         return (x, y, z)
 
-    def OnServerPlayerBornPos(self, data):
-        print 'RESPAWN EVENT'
-        uid = data['userId']
-        playerId = lobbyGameApi.GetPlayerIdByUid(uid)
-
-        if playerId and data['xpos'] < 100 and data['zpos'] < 100:
-            self.RandomPos(playerId, data['ypos'])
-
     def OnCommand(self, data):
         playerId = data['entityId']
         msg = data['command'].split()
@@ -296,6 +308,7 @@ class survSystemSys(ServerSystem):
                 uid = lobbyGameApi.GetPlayerUid(player)
                 msg = msg + '%s-----%s §l§c| §r' % (nickname, uid)
             self.sendMsg(msg, playerId)
+            print '=== surv player exe list ===', msg
 
         elif cmd in ['t', 'w', 'msg', 'tell']:
             if len(msg) < 3:

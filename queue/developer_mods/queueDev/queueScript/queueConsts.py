@@ -1,2 +1,2 @@
 # Maximum slots in server
-slots = 30
+slots = 20
