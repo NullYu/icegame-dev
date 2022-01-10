@@ -62,7 +62,7 @@ class survSystemSys(ServerSystem):
                 if item:
                     enchantData = item['enchantData']
                     for enchantItem in enchantData:
-                        if enchantItem[1] > 5:
+                        if enchantItem[1] > 5 or enchantItem[1] < 0:
                             slot = items.index(item)
                             comp.SpawnItemToPlayerInv({
                                 'itemName': 'minecraft:dirt',
@@ -77,7 +77,7 @@ class survSystemSys(ServerSystem):
                 if item:
                     enchantData = item['enchantData']
                     for enchantItem in enchantData:
-                        if enchantItem[1] > 5:
+                        if enchantItem[1] > 5 or enchantItem[1] < 0:
                             slot = items.index(item)
                             comp.SpawnItemToPlayerInv({
                                 'itemName': 'minecraft:dirt',
@@ -119,7 +119,7 @@ class survSystemSys(ServerSystem):
             for item in items:
                 if item and 'enchantData' in item:
                     for enchantment in item['enchantData']:
-                        if enchantment[1] > 5:
+                        if enchantment[1] > 5 or enchantment[1] < 0:
                             self.overenchantedLogic(player, 6.0)
 
     def OnCraftItemOutputChangeServer(self, args):
@@ -264,6 +264,33 @@ class survSystemSys(ServerSystem):
 
     def OnPlayerRespawnFinishServer(self, data):
         playerId = data['playerId']
+
+        comp = serverApi.GetEngineCompFactory().CreateItem(playerId)
+        items = comp.GetPlayerAllItems(serverApi.GetMinecraftEnum().ItemPosType.INVENTORY)
+
+        for item in items:
+            if item:
+                slot = items.index(item)
+                comp.SpawnItemToPlayerInv({
+                    'itemName': 'minecraft:dirt',
+                    'count': 0,
+                    'auxValue': 0
+                }, playerId, slot)
+                commonNetgameApi.AddTimer(2.5, lambda p: lobbyGameApi.TryToKickoutPlayer(p, "§6与服务器断开连接"),
+                                          playerId)
+
+        items = comp.GetPlayerAllItems(serverApi.GetMinecraftEnum().ItemPosType.ARMOR)
+
+        for item in items:
+            if item:
+                slot = items.index(item)
+                comp.SpawnItemToPlayerInv({
+                    'itemName': 'minecraft:dirt',
+                    'count': 0,
+                    'auxValue': 0
+                }, playerId, slot)
+                commonNetgameApi.AddTimer(2.5, lambda p: lobbyGameApi.TryToKickoutPlayer(p, "§6与服务器断开连接"),
+                                          playerId)
 
         comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
         pos = comp.GetFootPos()

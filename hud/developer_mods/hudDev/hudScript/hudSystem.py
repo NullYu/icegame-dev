@@ -35,7 +35,7 @@ class hudSystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "DelServerPlayerEvent", self, self.OnDelServerPlayer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "OnScriptTickServer", self, self.OnScriptTickServer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerAttackEntityEvent", self, self.OnPlayerAttackEntity)
-        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "DamageEvent", self, self.OnDamage)
+        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "ActuallyHurtServerEvent", self, self.OnDamage)
         self.ListenForEvent('hud', 'hudClient', "DisplayDeathDoneEvent", self, self.OnDisplayDeathDone)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerRespawnFinishServerEvent", self, self.OnPlayerRespawnFinishServer)
         self.ListenForEvent('hud', 'hudClient', 'ActionEvent', self, self.OnClientAction)
@@ -142,6 +142,22 @@ class hudSystemSys(ServerSystem):
         if damage >= victimHp:
             # server custom death logic FIRST
             print 'damage enough to kill'
+
+            self.BroadcastEvent("PlayerDeathEvent", {
+                'playerId': victimId,
+                'attackerId': attackerId
+            })
+
+            excemptList = ['5v', 'lobby']
+            serverType = commonNetgameApi.GetServerType()
+            isExcempt = False
+            for type in excemptList:
+                if type in serverType:
+                    isExcempt = True
+                    break
+            if isExcempt:
+                return
+
             self.nearDeathPlayers.append(victimId)
             data['damage'] = 0
 
