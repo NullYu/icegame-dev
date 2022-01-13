@@ -52,10 +52,14 @@ class musicServerSystem(ServerSystem):
 
     def ListenEvents(self):
         self.ListenForEvent('music', 'musicClient', 'CheckClientConn', self, self.ClientConn)
+        self.ListenForEvent('music', 'musicClient', 'MusicIdReturnEvent', self, self.OnMusicIdReturn)
 
     def ClientConn(self, args):
         print 'CALL ClientConn CLIENT STATUS GREEN! args=%s' % (args,)
 
+    def OnMusicIdReturn(self, data):
+        print 'OnMusicIdReturn'
+        self.BroadcastEvent("CreateMusicIdEvent", data)
 
     # ###Music API ### #
 
@@ -71,6 +75,9 @@ class musicServerSystem(ServerSystem):
     def StopBgm(self):
         for player in serverApi.GetPlayerList():
             self.NotifyToClient(player, "StopMusicEvent", None)
+
+    def StopMusicById(self, playerId, id):
+        self.NotifyToClient(playerId, "StopMusicIdEvent", id)
 
     def Destroy(self):
         # self.UnListenForEvent("q", "qClient", 'TestRequest', self, self.OnTestRequest)

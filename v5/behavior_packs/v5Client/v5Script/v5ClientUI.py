@@ -28,6 +28,10 @@ class v5Screen(ScreenNode):
         self.timerIndSecondDigit2 = self.timerIndPanel + '/se2'
         self.defuserBar = self.timerPanel + '/defuserBar'
         self.defuserActiveInd = self.timerPanel + '/image5'
+        self.defuserPlantPanel = self.timerPanel + '/panel4'
+        self.defuserPlantBtn = self.defuserPlantPanel + '/button0'
+        self.counterDefuseBtn = self.defuserPlantPanel + '/button1'
+        self.defuserPlantBar = self.defuserPlantPanel + '/plantBar'
 
         self.eqpPanel = '/eqpPanel'
         self.eqpWeaponBrokenInd = self.eqpPanel + '/image6'
@@ -63,7 +67,9 @@ class v5Screen(ScreenNode):
         self.fixProgress = 0
         self.fixStarted = False
         self.currentEquipped = 0
-
+        
+        self.defuserPlantProgress = 0
+        
         self.reinfsLeft = 0
 
     def SetProgressbarValue(self, path, value):
@@ -102,6 +108,9 @@ class v5Screen(ScreenNode):
         self.AddTouchEventHandler(self.eqpSlotsPrimaryButton, self.eqpPrimary, {"isSwallow": False})
         self.AddTouchEventHandler(self.eqpSlotsSecondaryButton, self.eqpSecondary, {"isSwallow": False})
         self.AddTouchEventHandler(self.eqpSlotsSkillButton, self.eqpSkill, {"isSwallow": False})
+        
+        self.AddTouchEventHandler(self.defuserPlantBtn, self.defuserPlant, {"isSwallow": False})
+        self.AddTouchEventHandler(self.counterDefuseBtn, self.counterDefuse, {"isSwallow": False})
 
         # register buttons from w1~w5, s1~s5
         for i in range(5):
@@ -120,6 +129,7 @@ class v5Screen(ScreenNode):
         self.SetVisible(self.timerPanel, False)
         self.SetVisible(self.eqpPanel, False)
         self.SetVisible(self.reinforcementPanel, False)
+        self.SetVisible(self.defuserPlantPanel, False)
         self.resetPrepPanel()
 
         comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
@@ -283,6 +293,20 @@ class v5Screen(ScreenNode):
         if isReset:
             pass
 
+    def ShowDefuserButtons(self, data):
+        print 'rcv ShowDefuserButtons data=', data
+        self.SetVisible(self.defuserPlantPanel, data['isShow'])
+        self.SetVisible(self.defuserPlantBar, False)
+        self.SetProgressbarValue(self.defuserPlantBar, 0.0)
+        
+        if data['isShow']:
+            self.SetVisible(self.defuserPlantBtn, False)
+            self.SetVisible(self.counterDefuseBtn, False)
+            if data['type'] == 'plant':
+                self.SetVisible(self.defuserPlantBtn, True)
+            else:
+                self.SetVisible(self.counterDefuseBtn, True)
+        
     def UpdateReinfPanel(self, data):
         self.reinfsLeft = data['count']
         if 'isShow' in data:
@@ -369,7 +393,6 @@ class v5Screen(ScreenNode):
             comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
             self.bEqpFixTimer = comp.AddRepeatedTimer(0.02, lambda timerComp: a(timerComp), comp)
 
-
     def eqpPrimary(self, args):
         event = args['TouchEvent']
         path = args['ButtonPath']
@@ -415,7 +438,52 @@ class v5Screen(ScreenNode):
                 'operation': 'useSkill'
             }
             ClientSystem.ReturnToServer(response)
+    
+    def defuserPlant(self, args):
+        event = args['TouchEvent']
+        if event == TouchEvent.TouchDown:
+            print 'defuser button down'
+            response = {
+                'operation': 'defuserPlant',
+                'stage': 'start'
+            }
+            ClientSystem.ReturnToServer(response)
+            self.SetVisible(self.defuserPlantBar, True)
+            self.defuserPlantProgress = 0
 
+            def a(timerComp):
+                self.defuserPlantProgress += 1
+                self.SetProgressbarValue(self.defuserPlantBar, self.defuserPlantProgress / 100.0)
+                if self.defuserPlantProgress >= 100:
+                    timerComp.CancelTimer(self.bDefuserPlantTimer)
+                    self.SetVisible(self.defuserPlantPanel, False)
+                    response = {
+                        'opration': 'defusePlant',
+                        'stage': 'finish'
+                    }
+                    ClientSystem.ReturnToServer(response)
+
+            comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+            self.bDefuserPlantTimer = comp.AddRepeatedTimer(0.075, lambda timerComp: a(timerComp), comp)
+
+        elif event == TouchEvent.TouchUp:
+            if not self.GetVisible(self.defuserPlantPanel):
+                return
+
+            print 'defuser button up'
+            self.SetVisible(self.defuserPlantBar, False)
+            if self.bDefuserPlantTimer:
+                comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+                comp.CancelTimer(self.bDefuserPlantTimer)
+            response = {
+                'operation': 'defuserPlant',
+                'stage': 'stop'
+            }
+            ClientSystem.ReturnToServer(response)
+
+    def counterDefuse(self, args):
+        pass
+    
     def ShowUi(self, isEnableHud):
         # ui = clientApi.GetUI('rank', 'rankUI')
         # mPath = '/panel0/scroll_view0'
@@ -478,7 +546,7 @@ class v5Screen(ScreenNode):
                 self.SetVisible(self.defuserActiveInd, False)
 
             print 'UNTIL DEFUSE: ', self.defuserTimer
-            if self.defuserTimer:
+            if self.defuserTimer <= 0:
                 self.defuseStarted = False
                 self.SetVisible(self.timerPanel, False)
 

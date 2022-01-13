@@ -1,9 +1,13 @@
 {
   "dy_load_list":[
-    "sounds/customSound/huashu",
-    "sounds/customSound/baobaobashi",
-    "sounds/customSound/fireworks",
-    "sounds/customSound/happynewyear"
+    "sounds/customSound/v5_defuse",
+    "sounds/customSound/v5_plant",
+    "sounds/customSound/v5_elim",
+    "sounds/customSound/v5game_start",
+    "sounds/customSound/v5round_prep",
+    "sounds/customSound/v5round_comm",
+    "sounds/customSound/v5round_win",
+    "sounds/customSound/v5round_loss"
 ],
   "sfx.generic.start": {
     "category": "music",
@@ -322,6 +326,86 @@
         "name": "sounds/customSound/fireworks",
         "pitch": 1,
         "volume": 0.3
+      }
+    ]
+  },
+  "sfx.v5.plant": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5_plant",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.v5.defuse": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5_defuse",
+        "pitch": 1,
+        "volume": 0.5
+      }
+    ]
+  },
+  "sfx.v5.elim": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5_elim",
+        "pitch": 1,
+        "volume": 0.3
+      }
+    ]
+  },
+  "sfx.v5.game.start": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5game_start",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.v5.round.comm": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5round_comm",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.v5.round.prep": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5round_prep",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.v5.round.win": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5round_win",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.v5.round.loss": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5round_loss",
+        "pitch": 1,
+        "volume": 1
       }
     ]
   }

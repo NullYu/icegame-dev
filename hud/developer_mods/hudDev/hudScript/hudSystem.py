@@ -155,7 +155,7 @@ class hudSystemSys(ServerSystem):
                 if type in serverType:
                     isExcempt = True
                     break
-            if isExcempt:
+            if not isExcempt:
                 return
 
             self.nearDeathPlayers.append(victimId)

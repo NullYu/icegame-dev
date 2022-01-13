@@ -63,6 +63,7 @@ class v5SystemSys(ServerSystem):
 
         self.playerEquips = {}
         self.playerIsFixing = {}
+        self.playerNearSite = {}
 
         self.timers = {}
         self.defuserPlanting = False
@@ -76,8 +77,24 @@ class v5SystemSys(ServerSystem):
         self.waiting = []
         self.defenders = []
         self.attackers = []
+        self.currentSite = []
+        self.defuserDropPos = ()
 
         self.status = 0
+        self.phase = 0
+        self.countdown = 60
+        self.defuserCarrier = None
+
+        self.wins = {
+            0: 0,
+            1: 0
+        }
+        self.alivePlayers = {
+            0: 5,
+            1: 5
+        }
+        self.roundNum = 1
+        self.roundSiteIndex = 0
 
         # 0=t, 1=ct
 
@@ -89,13 +106,18 @@ class v5SystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "OnCarriedNewItemChangedServerEvent", self, self.OnOnCarriedNewItemChangedServer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerAttackEntityEvent", self, self.OnPlayerAttackEntity)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "ServerEntityTryPlaceBlockEvent", self, self.OnServerEntityTryPlaceBlock)
+        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "OnScriptTickServer", self, self.OnScriptTickServer)
 
         # self.ListenForEvent('hud', 'hudClient', "DisplayDeathDoneEvent", self, self.OnDisplayDeathDone)
         # self.ListenForEvent('music', 'musicSystem', 'CreateMusicIdEvent', self, self.OnCreateMusicId)
 
         self.ListenForEvent('v5', 'v5Client', 'ActionEvent', self, self.OnClientAction)
 
+        self.ListenForEvent('hud', 'hudSystem', 'PlayerDeathEvent', self, self.HudPlayerDeathEvent)
+
         commonNetgameApi.AddRepeatedTimer(1.0, self.roundTick)
+        if not c.debugMode:
+            commonNetgameApi.AddRepeatedTimer(1.0, self.tick)
 
     ##############UTILS##############
 
@@ -125,12 +147,25 @@ class v5SystemSys(ServerSystem):
         comp = serverApi.GetEngineCompFactory().CreateMsg(playerId)
         comp.NotifyOneMessage(playerId, msg, "§f")
 
+    def setPos(self, playerId, pos):
+        comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
+        re = comp.SetFootPos(pos)
+        return re
+
     def getCountInDict(self, key, dic):
         ret = 0
         for item in dic:
             if dic[item] == key:
                 ret += 1
         return ret
+
+    def dist(self, x1, y1, z1, x2, y2, z2):
+        """
+        运算3维空间距离，返回float
+        """
+        p = ((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2) ** 0.5
+        re = float('%.1f' % p)
+        return re
 
     def reset_selectionData(self):
         self.selectionData = {
@@ -256,6 +291,20 @@ class v5SystemSys(ServerSystem):
                 comp.ChangeSelectSlot(self.playerEquips[playerId] - 1)
             commonNetgameApi.AddTimer(1.5, a)
 
+        elif operation == 'defuserPlant':
+            if data['stage'] == 'start':
+                self.StartDefuserPlant()
+            elif data['stage'] == 'finish':
+                for player in serverApi.GetPlayerList():
+                    self.sendTitle('§l拆弹器已部署', 1, player)
+                    self.playerNearSite[player] = True
+                    response = {
+                        'isShow': False
+                    }
+                    self.NotifyToClient(player, 'ShowDefuserButtonsEvent', response)
+            elif data['stage'] == 'stop':
+                self.InterruptDefuserPlant()
+
     def OnCommand(self, data):
         data['cancel'] = True
         playerId = data['entityId']
@@ -332,6 +381,15 @@ class v5SystemSys(ServerSystem):
                 elif keyword == 'stop':
                     self.status = 0
 
+            elif flag == 'plant':
+                if keyword == 'init':
+                    self.sendMsg('exec', playerId)
+                    self.phase = 2
+                    self.defuserCarrier = playerId
+                    self.currentSite = [(int(msg[3]), int(msg[4]), int(msg[5])), (int(msg[3]), int(msg[4]), int(msg[5]))]
+                    self.sendCmd('/setblock ~~~ v5:bomb', playerId)
+                    self.sendMsg('suc', playerId)
+
     # ################## UI INTERFACES #####################
     u"""
         This section contains UI interface functions.
@@ -383,6 +441,13 @@ class v5SystemSys(ServerSystem):
             self.NotifyToClient(player, 'StartDefuserProgressEvent', None)
 
         self.timers['defuserProgressTimer'] = commonNetgameApi.AddTimer(44.0, self.DefuserSuccess)
+
+        comp = serverApi.GetEngineCompFactory().CreatePos(self.defuserCarrier)
+        pos = comp.GetFootPos()
+        self.defuserDropPos = pos
+        self.sendCmd('/setblock ~~~ v5:defuser', self.defuserCarrier)
+        self.defuserCarrier = None
+        self.nextPhase()
 
     def DefuserSuccess(self):
         print '=== DEFUSE SUCCESS! ATK wins ==='
@@ -500,10 +565,14 @@ class v5SystemSys(ServerSystem):
     """
 
     def roundTick(self):
-        if self.timerTicking and not self.defuserPlanted:
+        if self.timerTicking and not self.defuserPlanted and self.roundTimer < 0 and self.phase < 4:
             self.roundTimer -= 1
             for player in serverApi.GetPlayerList():
                 self.NotifyToClient(player, 'TimerUpdateEvent', str(datetime.timedelta(seconds=int(self.roundTimer))))
+
+            if self.roundTimer == 0:
+                self.nextPhase()
+                return
 
     # ################# SERVER CODE ###############
     u"""
@@ -519,11 +588,23 @@ class v5SystemSys(ServerSystem):
         playerId = data['id']
         self.playerEquips[playerId] = 0
         self.playerIsFixing[playerId] = False
+        self.playerNearSite[playerId] = False
+
+        if self.status == 0:
+            self.waiting.append(playerId)
+        elif self.status == 1:
+            lobbyGameApi.TryToKickoutPlayer(playerId, "§eMatch already started")
 
     def OnDelServerPlayer(self, data):
         playerId = data['id']
         self.playerEquips.pop(playerId)
         self.playerIsFixing.pop(playerId)
+        self.playerNearSite.pop(playerId)
+
+        if self.status == 0:
+            self.waiting.pop(self.waiting.index(playerId))
+        elif self.status == 1:
+            pass
 
     def OnOnCarriedNewItemChangedServer(self, data):
         playerId = data['playerId']
@@ -593,6 +674,78 @@ class v5SystemSys(ServerSystem):
 
             self.UpdateKitDurability(playerId)
 
+    def HudPlayerDeathEvent(self, data):
+        playerId = data['playerId']
+        attackerId = data['attackerId']
+
+        # ➔
+        self.ElimPlayer(playerId)
+
+        teamsColorCode = {
+            0: '§b',
+            1: '§6'
+        }
+        for player in serverApi.GetPlayerList():
+            if attackerId in self.teams:
+                msg = '§l%s%s §f➔ %s%s' % (
+                    teamsColorCode[self.teams[attackerId]],
+                    attackerId,
+                    teamsColorCode[self.teams[playerId]],
+                    playerId
+                )
+                self.sendMsg(msg, player)
+            else:
+                msg = '§l§f➔ %s%s' % (
+                    teamsColorCode[self.teams[playerId]],
+                    playerId
+                )
+                self.sendMsg(msg, player)
+
+    def OnScriptTickServer(self):
+        if self.status == 0:
+            pass
+        elif self.status == 1:
+            if self.currentSite and self.phase == 2:
+                for player in serverApi.GetPlayerList():
+                    comp = serverApi.GetEngineCompFactory().CreatePos(player)
+                    pos = comp.GetFootPos()
+                    dist = self.dist(pos[0], pos[1], pos[2], self.currentSite[0][0], self.currentSite[0][1], self.currentSite[0][2]) or self.dist(pos[0], pos[1], pos[2], self.currentSite[1][0], self.currentSite[1][1], self.currentSite[1][2])
+                    # print 'dist is', dist
+
+                    if not self.playerNearSite[player] and dist < 5:
+                        self.playerNearSite[player] = True
+                        response = {
+                            'isShow': True,
+                            'type': 'plant'
+                        }
+                        self.NotifyToClient(player, 'ShowDefuserButtonsEvent', response)
+                        # print 'notify 1'
+                    if self.playerNearSite[player] and dist > 5:
+                        response = {
+                            'isShow': False
+                        }
+                        self.NotifyToClient(player, 'ShowDefuserButtonsEvent', response)
+                        # print 'notify 2'
+                        self.playerNearSite[player] = False
+
+            if self.phase == 3:
+                pass
+
+    def ElimPlayer(self, playerId):
+        self.alivePlayers[self.teams[playerId]] -= 1
+
+        if self.alivePlayers[self.teams[playerId]] <= 0 and self.phase == 2:
+            self.roundEnd(self.alivePlayers[0] <= 0)
+        elif self.alivePlayers[0] <= 0 and self.phase == 3:
+            self.roundEnd(True)
+        else:
+            for player in self.attackers:
+                if player != playerId:
+                    self.sendTitle('§l%s VS %s' % (self.alivePlayers[1], self.alivePlayers[0]), 1, playerId)
+            for player in self.defenders:
+                if player != playerId:
+                    self.sendTitle('§l%s VS %s' % (self.alivePlayers[0], self.alivePlayers[1]), 1, playerId)
+
     def newRoundInit(self):
         self.roundTimer = c.roundTime
         self.defuserPlanting = False
@@ -600,7 +753,192 @@ class v5SystemSys(ServerSystem):
         self.roundTimer = c.roundTime
         self.defuserPlanted = False
         self.timerTicking = False
+        self.currentSite = []
         self.reset_selectionData()
+        self.defuserDropPos = ()
+
+        # self.playerEquips[playerId] = 0
+        # self.playerIsFixing[playerId] = False
+        # self.playerNearSite[playerId] = False
+        for player in self.teams:
+            self.playerEquips[player] = 0
+            self.playerIsFixing[player] = False
+            self.playerNearSite = False
+
+        self.roundTimer = 0
+        self.phase = 0
+        self.roundSiteIndex = random.randint(0, c.totalSites - 1)
+        self.alivePlayers = {
+            0: 5,
+            1: 5
+        }
+
+        self.attackers = self.defenders = []
+
+        for player in self.teams:
+            if self.teams[player] == 0:
+                self.defenders.append(player)
+            else:
+                self.attackers.append(player)
+
+        for player in self.defenders:
+            self.setPos(player, c.defendersSpawn[self.roundSiteIndex])
+        for player in self.attackers:
+            self.setPos(player, c.attackersSpawn)
+
+        for player in self.teams:
+            self.sendTitle('§l第 %s 局' % self.roundNum, 1, player)
+        for player in self.defenders:
+            self.sendTitle('§l§6防守', 2, player)
+        for player in self.attackers:
+            self.sendTitle('§l§b防守', 2, player)
+
+        if self.wins[0] == 2 or self.wins[1] == 2:
+            def a():
+                if self.wins[0] == 2 and self.wins[1] == 2:
+                    msg = '§l最终局'
+                elif self.wins[0] == 2 or self.wins[1] == 2:
+                    msg = '§l赛点'
+                for player in self.teams:
+                    self.sendTitle(msg, 1, player)
+            commonNetgameApi.AddTimer(2.0, a)
+
+        # Start round setup
+        self.roundTimer = c.phaseTimes[self.phase]
+        self.reset_selectionData()
+        for player in self.teams:
+            self.selectionData[self.teams[player]][player] = [0, 0]
+            self.ShowPrepSelectionScreen(True)
+
+    def nextPhase(self):
+        """
+        Phases:
+        0 = choose eqp
+        1 = prep
+        2 = battle
+        3 = defuser planted
+        """
+
+        print 'prep phase finish'
+
+        if self.phase >= 2:
+            return
+
+        self.phase += 1
+        self.roundTimer = c.phaseTimes[self.phase]
+
+        if c.debugMode:
+            return
+
+        if self.phase == 1:
+            for player in self.teams:
+                self.ShowPrepSelectionScreen(False)
+
+                self.sendTitle('§l交流阶段', 1, player)
+                self.sendTitle('与队友沟通战术，并保护目标点', 2, player)
+
+            sites = c.bombSites[self.roundSiteIndex][0]
+            self.currentSite.append(sites)
+            self.sendCmd('/setblock %s %s %s v5:bomb' % (sites[0], sites[1], sites[2]), self.defenders[0])
+            sites = c.bombSites[self.roundSiteIndex][1]
+            self.currentSite.append(sites)
+            self.sendCmd('/setblock %s %s %s v5:bomb' % (sites[0], sites[1], sites[2]), self.defenders[0])
+
+            self.reinfLeft = 180
+            for player in self.defenders:
+                self.UpdateReinfCount(player, self.reinfLeft, True)
+
+        elif self.phase == 2:
+            for player in self.teams:
+                self.sendTitle('§l行动阶段', 1, player)
+            for player in self.defenders:
+                self.sendTitle('消灭敌人或拆除已部署的拆弹器', 2, player)
+            for player in self.attackers:
+                self.sendTitle('消灭敌人或部署拆弹器', 2, player)
+
+            for team in self.selectionData:
+                for player in self.selectionData[team]:
+                    self.GivePlayerKit(player, self.selectionData[team][player][0], self.selectionData[team][player][1])
+
+            for player in self.teams:
+                self.NotifyToClient(player, 'ShowEqpPanelEvent', (True, True))
+
+            comp = serverApi.GetEngineCompFactory().CreateBlockInfo(serverApi.GetLevelId())
+            for pos in c.mapBlockers:
+                comp.SetBlockNew(pos, {
+                    'name': 'minecraft:air'
+                }, 0, 0)
+
+        elif self.phase == 3 and not self.defuserPlanted:
+            self.roundEnd(False)
+
+    def roundEnd(self, isAttackersWin):
+        self.phase = 4
+        for player in self.team:
+            self.NotifyToClient(player, 'ShowEqpPanelEvent', (False, True))
+
+        if isAttackersWin:
+            self.wins[1] += 1
+            for player in self.attackers:
+                self.sendTitle('§l§b第%s局胜利' % self.roundNum, 1, player)
+                self.sendTitle('%s : %s' % (self.wins[1], self.wins[0]), 2, player)
+            for player in self.defenders:
+                self.sendTitle('§l§6第%s局落败' % self.roundNum, 1, player)
+                self.sendTitle('%s : %s' % (self.wins[0], self.wins[1]), 2, player)
+        else:
+            self.wins[0] += 1
+            for player in self.defenders:
+                self.sendTitle('§l§b第%s局胜利' % self.roundNum, 1, player)
+                self.sendTitle('%s : %s' % (self.wins[0], self.wins[1]), 2, player)
+            for player in self.attackers:
+                self.sendTitle('§l§6第%s局落败' % self.roundNum, 1, player)
+                self.sendTitle('%s : %s' % (self.wins[1], self.wins[0]), 2, player)
+
+        if self.roundNum == 2:
+            for player in self.teams:
+                if self.teams[player] == 0:
+                    self.teams[player] = 1
+                else:
+                    self.teams[player] = 0
+
+            winsDict = self.wins
+            self.wins[0] = winsDict[1]
+            self.wins[1] = winsDict[0]
+
+        def a():
+            self.newRoundInit()
+        commonNetgameApi.AddTimer(10.0, a)
+
+    def tick(self):
+        count = len(serverApi.GetPlayerList())
+
+        if self.status == 0:
+            print 'countdown=%s' % self.countdown
+            self.roundTimer = c.roundTime
+            self.phase = 0
+            enough = c.enoughPlayers
+            if count < c.startCountdown:
+                pass
+            elif c.startCountdown <= count <= enough:
+                self.countdown -= 1
+                for player in serverApi.GetPlayerList():
+                    self.sendTitle("§e§l%s" % self.countdown, 1, player)
+                    self.sendTitle("游戏即将开始", 2, player)
+            if count == enough and self.countdown > 15:
+                self.countdown = 15
+            if self.countdown < 60 and count < c.startCountdown:
+                self.sendMsgToAll("§c§l人数不够，比赛已被取消，请重新匹配")
+                self.countdown = 60
+
+                def a():
+                    rebootSystem = serverApi.GetSystem('reboot', 'rebootSystem')
+                    rebootSystem.DoReboot(False)
+                commonNetgameApi.AddTimer(2.0, a)
+
+            if self.countdown == 0:
+                print 'starting!'
+                self.start()
+                self.status = 1
 
     def start(self):
         for player in self.waiting:

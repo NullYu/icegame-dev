@@ -19,9 +19,12 @@ class musicClientSys(ClientSystem):
         self.ListenEvent()
         self.bMusicId = None
 
+        self.musics = {}
+
     def ListenEvent(self):
         self.ListenForEvent('music', 'musicSystem', 'PlayMusicEvent', self, self.OnPlayMusic)
         self.ListenForEvent('music', 'musicSystem', 'StopMusicEvent', self, self.OnStopMusic)
+        self.ListenForEvent('music', 'musicSystem', 'StopMusicIdEvent', self, self.OnStopMusicId)
 
         data = 'ok'
         self.NotifyToServer('CheckClientConn', data)
@@ -43,11 +46,22 @@ class musicClientSys(ClientSystem):
         pos = comp.GetPos()
         self.bMusicId = auComp.PlayCustomMusic(musicId, pos, volume, 1, False, playerId)
 
+        self.musics[musicId] = self.bMusicId
+
+
     def OnStopMusic(self, args):
         playerId = clientApi.GetLocalPlayerId()
         auComp = compFactory.CreateCustomAudio(playerId)
         if self.bMusicId:
             auComp.StopCustomMusicById(self.bMusicId, 0.5)
+
+    def OnStopMusicId(self, id):
+        print 'stopping instance', id
+        auComp = compFactory.CreateCustomAudio(clientApi.GetLocalPlayerId())
+        if id in self.musics:
+            auComp.StopCustomMusicById(self.musics[id], 0.5)
+        else:
+            print 'stop music fail'
 
     # 函数名为Destroy才会被调用，在这个System被引擎回收的时候会调这个函数来销毁一些内容
     def Destroy(self):

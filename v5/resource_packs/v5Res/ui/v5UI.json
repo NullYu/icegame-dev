@@ -1,4 +1,120 @@
 {
+   "button0@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/plant-defuser",
+      "$hover_texture" : "textures/ui/v5UI/plant-defuser1",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/plant-defuser1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 63,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, -0.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 23 ],
+      "visible" : true
+   },
+   "button1@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/v5UI/counter-defuse",
+      "$hover_texture" : "textures/ui/v5UI/counter-defuse1",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%v5UI.click",
+      "$pressed_texture" : "textures/ui/v5UI/counter-defuse1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@v5UI.default" : {}
+         },
+         {
+            "hover@v5UI.hover" : {}
+         },
+         {
+            "pressed@v5UI.pressed" : {}
+         },
+         {
+            "button_label@v5UI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 67,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, -0.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 23 ],
+      "visible" : false
+   },
    "button_label" : {
       "alpha" : "$control_alpha",
       "color" : "$label_color",
@@ -85,7 +201,7 @@
          }
       ],
       "enabled" : true,
-      "layer" : 80,
+      "layer" : 92,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ -75, 218 ],
@@ -120,7 +236,7 @@
          }
       ],
       "enabled" : true,
-      "layer" : 83,
+      "layer" : 95,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 0, 218 ],
@@ -155,7 +271,7 @@
          }
       ],
       "enabled" : true,
-      "layer" : 89,
+      "layer" : 101,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 75, 218 ],
@@ -190,7 +306,7 @@
          }
       ],
       "enabled" : true,
-      "layer" : 86,
+      "layer" : 98,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 130, 218 ],
@@ -238,7 +354,7 @@
          }
       ],
       "enabled" : true,
-      "layer" : 62,
+      "layer" : 74,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 0.0, 130.0 ],
@@ -246,7 +362,7 @@
       "propagate_alpha" : false,
       "size" : [ "default", "default" ],
       "type" : "panel",
-      "visible" : false
+      "visible" : true
    },
    "filled_progress_bar" : {
       "clip_direction" : "$clip_direction",
@@ -311,7 +427,7 @@
       "draggable" : "not_draggable",
       "enabled" : true,
       "is_handle_button_move_event" : true,
-      "layer" : 64,
+      "layer" : 76,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 130.0, 82.0 ],
@@ -407,7 +523,7 @@
       "grayscale" : false,
       "is_new_nine_slice" : false,
       "keep_ratio" : true,
-      "layer" : 97,
+      "layer" : 109,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "nine_slice_buttom" : 0,
@@ -562,7 +678,7 @@
       "grayscale" : false,
       "is_new_nine_slice" : false,
       "keep_ratio" : true,
-      "layer" : 92,
+      "layer" : 104,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "nine_slice_buttom" : 0,
@@ -593,7 +709,7 @@
       "grayscale" : false,
       "is_new_nine_slice" : false,
       "keep_ratio" : true,
-      "layer" : 94,
+      "layer" : 106,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "nine_slice_buttom" : 0,
@@ -624,7 +740,7 @@
       "grayscale" : false,
       "is_new_nine_slice" : false,
       "keep_ratio" : true,
-      "layer" : 95,
+      "layer" : 107,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "nine_slice_buttom" : 0,
@@ -655,7 +771,7 @@
       "grayscale" : false,
       "is_new_nine_slice" : false,
       "keep_ratio" : true,
-      "layer" : 96,
+      "layer" : 108,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "nine_slice_buttom" : 0,
@@ -898,13 +1014,76 @@
          }
       ],
       "enabled" : true,
-      "layer" : 63,
+      "layer" : 75,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 0, -50.0 ],
       "priority" : 0,
       "propagate_alpha" : false,
       "size" : [ 224, 100 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "panel4" : {
+      "alpha" : 1.0,
+      "anchor_from" : "top_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "button0@v5UI.button0" : {}
+         },
+         {
+            "button1@v5UI.button1" : {}
+         },
+         {
+            "plantBar@v5UI.plantBar" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 62,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 1.0, 185.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 23 ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "plantBar" : {
+      "$clip_direction" : "left",
+      "$clip_ratio" : 0.0,
+      "$is_new_nine_slice" : true,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$progress_bar_empty_texture" : "textures/ui/v5UI/progressbar-nothing",
+      "$progress_bar_filled_texture" : "textures/ui/v5UI/progressbar-bg",
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "empty_progress_bar@v5UI.empty_progress_bar" : {}
+         },
+         {
+            "filled_progress_bar@v5UI.filled_progress_bar" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 71,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 14.0 ],
+      "priority" : 0,
+      "propagate_alpha" : true,
+      "size" : [ 69, 3 ],
       "type" : "panel",
       "visible" : true
    },
@@ -1003,7 +1182,7 @@
       "draggable" : "not_draggable",
       "enabled" : true,
       "is_handle_button_move_event" : true,
-      "layer" : 68,
+      "layer" : 80,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ -75.0, 32.50 ],
@@ -1033,7 +1212,7 @@
          }
       ],
       "enabled" : true,
-      "layer" : 93,
+      "layer" : 105,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 14.50, 235.0 ],
@@ -1041,7 +1220,7 @@
       "propagate_alpha" : false,
       "size" : [ 253, 30 ],
       "type" : "panel",
-      "visible" : true
+      "visible" : false
    },
    "s1@common.button" : {
       "$control_alpha" : 1.0,
@@ -1475,7 +1654,7 @@
       "draggable" : "not_draggable",
       "enabled" : true,
       "is_handle_button_move_event" : true,
-      "layer" : 72,
+      "layer" : 84,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 0.0, 32.50 ],
@@ -1533,7 +1712,7 @@
       "draggable" : "not_draggable",
       "enabled" : true,
       "is_handle_button_move_event" : true,
-      "layer" : 76,
+      "layer" : 88,
       "max_size" : [ 0, 0 ],
       "min_size" : [ 0, 0 ],
       "offset" : [ 75.0, 32.50 ],
@@ -1588,6 +1767,9 @@
          },
          {
             "image5@v5UI.image5" : {}
+         },
+         {
+            "panel4@v5UI.panel4" : {}
          }
       ],
       "enabled" : true,
@@ -1599,7 +1781,7 @@
       "propagate_alpha" : false,
       "size" : [ "default", "default" ],
       "type" : "panel",
-      "visible" : false
+      "visible" : true
    },
    "w1@common.button" : {
       "$control_alpha" : 1.0,

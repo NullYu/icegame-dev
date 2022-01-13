@@ -28,6 +28,7 @@ class v5Client(ClientSystem):
         self.ListenForEvent('v5', 'v5System', 'UpdateKitDurabilityEvent', self, self.OnUpdateKitDurability)
         self.ListenForEvent('v5', 'v5System', 'SetEqpDataEvent', self, self.OnSetEqpData)
         self.ListenForEvent('v5', 'v5System', 'UpdateReinfPanelEvent', self, self.OnUpdateReinfPanel)
+        self.ListenForEvent('v5', 'v5System', 'ShowDefuserButtonsEvent', self, self.OnShowDefuserButtons)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'ClientPlayerInventoryOpenEvent', self, self.OnClientPlayerInventoryOpen)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'OnScriptTickClient', self, self.tick)
         self.v5UINode = None
@@ -70,6 +71,9 @@ class v5Client(ClientSystem):
 
     def OnUpdateReinfPanel(self, data):
         self.v5UINode.UpdateReinfPanel(data)
+
+    def OnShowDefuserButtons(self, data):
+        self.v5UINode.ShowDefuserButtons(data)
 
     def ReturnToServer(self, args):
         response = args
