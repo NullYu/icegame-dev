@@ -67,7 +67,7 @@ class v5Screen(ScreenNode):
         self.fixProgress = 0
         self.fixStarted = False
         self.currentEquipped = 0
-        
+
         self.defuserPlantProgress = 0
         
         self.reinfsLeft = 0
@@ -482,7 +482,46 @@ class v5Screen(ScreenNode):
             ClientSystem.ReturnToServer(response)
 
     def counterDefuse(self, args):
-        pass
+        event = args['TouchEvent']
+        if event == TouchEvent.TouchDown:
+            print 'defuser button down'
+            response = {
+                'operation': 'defuserDestroy',
+                'stage': 'start'
+            }
+            ClientSystem.ReturnToServer(response)
+            self.SetVisible(self.defuserPlantBar, True)
+            self.defuserPlantProgress = 0
+
+            def a(timerComp):
+                self.defuserPlantProgress += 1
+                self.SetProgressbarValue(self.defuserPlantBar, self.defuserPlantProgress / 100.0)
+                if self.defuserPlantProgress >= 100:
+                    timerComp.CancelTimer(self.bDefuserPlantTimer)
+                    self.SetVisible(self.defuserPlantPanel, False)
+                    response = {
+                        'opration': 'defuserDestroy',
+                        'stage': 'finish'
+                    }
+                    ClientSystem.ReturnToServer(response)
+
+            comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+            self.bDefuserPlantTimer = comp.AddRepeatedTimer(0.075, lambda timerComp: a(timerComp), comp)
+
+        elif event == TouchEvent.TouchUp:
+            if not self.GetVisible(self.defuserPlantPanel):
+                return
+
+            print 'defuser button up'
+            self.SetVisible(self.defuserPlantBar, False)
+            if self.bDefuserPlantTimer:
+                comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+                comp.CancelTimer(self.bDefuserPlantTimer)
+            response = {
+                'operation': 'defuserDestroy',
+                'stage': 'stop'
+            }
+            ClientSystem.ReturnToServer(response)
     
     def ShowUi(self, isEnableHud):
         # ui = clientApi.GetUI('rank', 'rankUI')
@@ -561,21 +600,42 @@ class v5Screen(ScreenNode):
             uiNode.GetBaseUIControl(self.timerIndSecondDigit1).asImage().SetSprite('textures/ui/v5UI/%s' % int(self.timerText[5]))
             uiNode.GetBaseUIControl(self.timerIndSecondDigit2).asImage().SetSprite('textures/ui/v5UI/%s' % int(self.timerText[6]))
 
+    def reset(self):
+        self.selectionsData = None
+
+        self.defuserTimer = 44
+        self.defuseStarted = False
+        self.timerText = '0:02:50'
+
+        self.eqpDur1 = 20
+        self.eqpDur2 = 20
+        self.eqpDur2Max = 20
+        self.eqpDur3 = 0
+        self.eqpDur3Max = 0
+        self.slot1 = None
+        self.slot2 = None
+        self.slotSkill = None
+        self.fixProgress = 0
+        self.fixStarted = False
+        self.currentEquipped = 0
+
+        self.defuserPlantProgress = 0
+
+        self.reinfsLeft = 0
+
+        self.SetVisible("", True)
+        self.SetVisible(self.prepPanel, False)
+        self.SetVisible(self.timerPanel, False)
+        self.SetVisible(self.eqpPanel, False)
+        self.SetVisible(self.reinforcementPanel, False)
+        self.SetVisible(self.defuserPlantPanel, False)
+        self.resetPrepPanel()
+
     def ExitUi(self, args):
         print 'UISCRIPT CALL ExitUi args=%s' % (args,)
         event = args['TouchEvent']
         if event == TouchEvent.TouchUp:
             self.close()
-
-    def ResetHud(self):
-        self.hp = 100
-        self.randHp = 100
-        self.deltaHp = 100
-        self.mPlayAnimTimerObj = None
-        self.mPlayAnimTimerCount = 0
-
-        self.ShowUi(True)
-        self.SetVisible(self.bottomKillfeed, False)
 
     def close(self):
         self.SetVisible("", False)

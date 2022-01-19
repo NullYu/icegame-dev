@@ -105,6 +105,17 @@ class hudSystemSys(ServerSystem):
 
     def OnPlayerRespawnFinishServer(self, data):
         playerId = data['playerId']
+
+        exemptList = ['5v', 'lobby']
+        serverType = commonNetgameApi.GetServerType()
+        isExempt = False
+        for type in exemptList:
+            if type in serverType:
+                isExempt = True
+                break
+        if not isExempt:
+            return
+
         self.NotifyToClient(playerId, 'ResetHudEvent', None)
         if playerId in self.nearDeathPlayers:
             self.nearDeathPlayers.pop(self.nearDeathPlayers.index(playerId))
@@ -148,14 +159,14 @@ class hudSystemSys(ServerSystem):
                 'attackerId': attackerId
             })
 
-            excemptList = ['5v', 'lobby']
+            exemptList = ['5v', 'lobby']
             serverType = commonNetgameApi.GetServerType()
-            isExcempt = False
-            for type in excemptList:
+            isExempt = False
+            for type in exemptList:
                 if type in serverType:
-                    isExcempt = True
+                    isExempt = True
                     break
-            if not isExcempt:
+            if not isExempt:
                 return
 
             self.nearDeathPlayers.append(victimId)

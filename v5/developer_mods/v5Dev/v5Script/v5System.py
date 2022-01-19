@@ -67,6 +67,7 @@ class v5SystemSys(ServerSystem):
 
         self.timers = {}
         self.defuserPlanting = False
+        self.defuserDestroying = False
         self.defuserActive = False
         self.roundTimer = c.roundTime
         self.defuserPlanted = False
@@ -305,6 +306,19 @@ class v5SystemSys(ServerSystem):
             elif data['stage'] == 'stop':
                 self.InterruptDefuserPlant()
 
+        elif operation == 'defuserDestroy':
+            if data['stage'] == 'start':
+                self.StartDefuserDestroy()
+            elif data['stage'] == 'finish':
+                self.DefuserDestroySuccess()
+                for player in serverApi.GetPlayerList():
+                    response = {
+                        'isShow': False
+                    }
+                    self.NotifyToClient(player, 'ShowDefuserButtonsEvent', response)
+            elif data['stage'] == 'stop':
+                self.InterruptDefuserDestroy()
+
     def OnCommand(self, data):
         data['cancel'] = True
         playerId = data['entityId']
@@ -451,8 +465,37 @@ class v5SystemSys(ServerSystem):
 
     def DefuserSuccess(self):
         print '=== DEFUSE SUCCESS! ATK wins ==='
-        self.sendMsgToAll('Debug: Bomb has been defused. ATK wins')
+        # self.sendMsgToAll('Debug: Bomb has been defused. ATK wins')
         self.defuserActive = False
+        self.roundEnd(True)
+
+    def StartDefuserDestroy(self):
+
+        if self.defuserDestroying:
+            print 'invalid StartDefuserDestroy!!! Destroy already in progress'
+            return
+
+        musicSystem = serverApi.GetSystem('music', 'musicSystem')
+        self.defuserDestroying = True
+
+        for player in serverApi.GetPlayerList():
+            musicSystem.PlayMusicToPlayer(player, 'sfx.v5.counter-defuse', True)
+
+    def InterruptDefuserDestroy(self):
+        musicSystem = serverApi.GetSystem('music', 'musicSystem')
+
+        self.defuserDestroying = False
+        for player in serverApi.GetPlayerList():
+            musicSystem.StopMusicById(player, 'sfx.v5.counter-defuse')
+
+    def DefuserDestroySuccess(self):
+        musicSystem = serverApi.GetSystem('music', 'musicSystem')
+
+        self.defuserDestroying = False
+        self.defuserActive = False
+        for player in serverApi.GetPlayerList():
+            musicSystem.StopMusicById(player, 'sfx.v5.counter-defuse')
+        self.roundEnd(False)
     
     def GivePlayerKit(self, playerId, weaponId, skillId):
         weaponData = c.weaponPresets[weaponId]
@@ -558,6 +601,40 @@ class v5SystemSys(ServerSystem):
         else:
             self.sendCmd('/clear @s v5:hard_wall', playerId)
 
+    def DropDefuser(self, isElimination=False):
+        if not self.defuserDropPos and self.defuserCarrier:
+            self.sendCmd('/setblock ~~~ v5:defuser', self.defuserCarrier)
+            comp = serverApi.GetEngineCompFactory().CreatePos(self.defuserCarrier)
+            self.defuserDropPos = comp.GetFootPos()
+            self.defuserCarrier = None
+
+            if isElimination:
+                for player in self.attackers:
+                    self.sendTitle('§l拆弹器已被放下', 2, player)
+            else:
+                for player in self.attackers:
+                    self.sendTitle('§l拆弹器已被放下', 1, player)
+                    self.sendTitle('§e坐标 %s %s %s' % (self.defuserDropPos[0], self.defuserDropPos[1], self.defuserDropPos[2]), 2, player)
+
+            for player in self.attackers:
+                self.sendMsg('§l§e拆弹器已被放下，坐标为 §6%s %s %s' % (self.defuserDropPos[0], self.defuserDropPos[1], self.defuserDropPos[2]), player)
+
+    def PickupDefuser(self, playerId):
+        if self.defuserDropPos and not self.defuserCarrier and playerId in self.attackers:
+            for player in self.attackers:
+                self.sendTitle('§l拆弹器已被捡起', 2, player)
+                self.sendTitle('§e坐标 %s %s %s' % (self.defuserDropPos[0], self.defuserDropPos[1], self.defuserDropPos[2]), 2, player)
+                self.sendMsg('§e§l%s捡起了拆弹器' % lobbyGameApi.GetPlayerNickname(playerId), player)
+
+            blockDict = {
+                'name': 'minecraft:air',
+                'aux': 0
+            }
+            comp = serverApi.GetEngineCompFactory().CreateBlockInfo(serverApi.GetLevelId())
+            comp.SetBlockNew(self.defuserDropPos, blockDict, 0, 0)
+
+            self.defuserDropPos = ()
+            self.defuserCarrier = playerId
 
     # ################# TICK TIMERS ###############
     u"""
@@ -706,30 +783,67 @@ class v5SystemSys(ServerSystem):
             pass
         elif self.status == 1:
             if self.currentSite and self.phase == 2:
-                for player in serverApi.GetPlayerList():
+
+                if self.defuserCarrier:
+                    for player in [self.defuserCarrier]:
+                        comp = serverApi.GetEngineCompFactory().CreatePos(player)
+                        pos = comp.GetFootPos()
+                        dist = [self.dist(pos[0], pos[1], pos[2], self.currentSite[0][0], self.currentSite[0][1], self.currentSite[0][2]), self.dist(pos[0], pos[1], pos[2], self.currentSite[1][0], self.currentSite[1][1], self.currentSite[1][2])]
+                        # print 'dist is', dist
+
+                        if not self.playerNearSite[player] and (dist[0] < 5 or dist[1] < 5):
+                            self.playerNearSite[player] = True
+                            response = {
+                                'isShow': True,
+                                'type': 'plant'
+                            }
+                            self.NotifyToClient(player, 'ShowDefuserButtonsEvent', response)
+                            # print 'notify 1'
+                        if self.playerNearSite[player] and (dist[0] > 5 or dist[1] > 5):
+                            response = {
+                                'isShow': False
+                            }
+                            self.NotifyToClient(player, 'ShowDefuserButtonsEvent', response)
+                            # print 'notify 2'
+                            self.playerNearSite[player] = False
+                else:
+                    for player in self.attackers:
+                        comp = serverApi.GetEngineCompFactory().CreatePos(player)
+                        pos = comp.GetFootPos()
+                        dist = self.dist(pos[0], pos[1], pos[2], self.defuserDropPos[0], self.defuserDropPos[1], self.defuserDropPos[2])
+
+                        if dist <= 1:
+                            self.PickupDefuser(player)
+
+            if self.phase == 3:
+                for player in self.attackers:
+                    if self.playerNearSite[player]:
+                        self.playerNearSite[player] = False
+
+                for player in self.defenders:
                     comp = serverApi.GetEngineCompFactory().CreatePos(player)
                     pos = comp.GetFootPos()
-                    dist = self.dist(pos[0], pos[1], pos[2], self.currentSite[0][0], self.currentSite[0][1], self.currentSite[0][2]) or self.dist(pos[0], pos[1], pos[2], self.currentSite[1][0], self.currentSite[1][1], self.currentSite[1][2])
+                    dist = [self.dist(pos[0], pos[1], pos[2], self.currentSite[0][0], self.currentSite[0][1],
+                                      self.currentSite[0][2]),
+                            self.dist(pos[0], pos[1], pos[2], self.currentSite[1][0], self.currentSite[1][1],
+                                      self.currentSite[1][2])]
                     # print 'dist is', dist
 
-                    if not self.playerNearSite[player] and dist < 5:
+                    if not self.playerNearSite[player] and (dist[0] < 5 or dist[1] < 5):
                         self.playerNearSite[player] = True
                         response = {
                             'isShow': True,
-                            'type': 'plant'
+                            'type': 'defuse'
                         }
                         self.NotifyToClient(player, 'ShowDefuserButtonsEvent', response)
                         # print 'notify 1'
-                    if self.playerNearSite[player] and dist > 5:
+                    if self.playerNearSite[player] and (dist[0] > 5 or dist[1] > 5):
                         response = {
                             'isShow': False
                         }
                         self.NotifyToClient(player, 'ShowDefuserButtonsEvent', response)
                         # print 'notify 2'
                         self.playerNearSite[player] = False
-
-            if self.phase == 3:
-                pass
 
     def ElimPlayer(self, playerId):
         self.alivePlayers[self.teams[playerId]] -= 1
@@ -746,10 +860,14 @@ class v5SystemSys(ServerSystem):
                 if player != playerId:
                     self.sendTitle('§l%s VS %s' % (self.alivePlayers[0], self.alivePlayers[1]), 1, playerId)
 
+        if playerId == self.defuserCarrier:
+            self.DropDefuser(True)
+
     def newRoundInit(self):
         self.roundTimer = c.roundTime
         self.defuserPlanting = False
         self.defuserActive = False
+        self.defuserDestroying = False
         self.roundTimer = c.roundTime
         self.defuserPlanted = False
         self.timerTicking = False
@@ -764,6 +882,8 @@ class v5SystemSys(ServerSystem):
             self.playerEquips[player] = 0
             self.playerIsFixing[player] = False
             self.playerNearSite = False
+
+            self.NotifyToClient(player, 'ResetEvent', None)
 
         self.roundTimer = 0
         self.phase = 0
@@ -847,6 +967,13 @@ class v5SystemSys(ServerSystem):
             self.reinfLeft = 180
             for player in self.defenders:
                 self.UpdateReinfCount(player, self.reinfLeft, True)
+
+            self.defuserCarrier = random.choice(self.attackers)
+            for player in self.attackers:
+                if player == self.defuserCarrier:
+                    self.sendMsg('§l§e你持有拆弹器。将其部署在任意目标点。', player)
+                else:
+                    self.sendMsg('§l§e%s持有拆弹器，将其护送至A或B目标点，并安全部署。' % lobbyGameApi.GetPlayerNickname(self.defuserCarrier), player)
 
         elif self.phase == 2:
             for player in self.teams:
