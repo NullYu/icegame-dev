@@ -106,15 +106,15 @@ class hudSystemSys(ServerSystem):
     def OnPlayerRespawnFinishServer(self, data):
         playerId = data['playerId']
 
-        exemptList = ['5v', 'lobby']
-        serverType = commonNetgameApi.GetServerType()
-        isExempt = False
-        for type in exemptList:
-            if type in serverType:
-                isExempt = True
-                break
-        if not isExempt:
-            return
+        # exemptList = ['5v']
+        # serverType = commonNetgameApi.GetServerType()
+        # isExempt = False
+        # for type in exemptList:
+        #     if type in serverType:
+        #         isExempt = True
+        #         break
+        # if not isExempt:
+        #     return
 
         self.NotifyToClient(playerId, 'ResetHudEvent', None)
         if playerId in self.nearDeathPlayers:
@@ -159,7 +159,8 @@ class hudSystemSys(ServerSystem):
                 'attackerId': attackerId
             })
 
-            exemptList = ['5v', 'lobby']
+            # in exemptList are the server types which death replay will be applied to.
+            exemptList = ['5v']
             serverType = commonNetgameApi.GetServerType()
             isExempt = False
             for type in exemptList:

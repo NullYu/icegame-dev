@@ -26,12 +26,12 @@ class NpcServerSystem(ServerSystem):
             rot = (0, 180)
             dimensionId = 0
 
-            self.RegisterExtraNpc(identifier, "§l§2纯净生存服\n§r§6队列系统测试中\n§c漏洞补丁测试中", dimensionId, (105.5, 188, 87.5), rot,
+            self.RegisterExtraNpc(identifier, "§l§2纯净生存服\n§r§6队列系统测试中\n§c漏洞补丁测试中", dimensionId, (105.5, 188, 123.5), rot,
                                   self.CbManhunt)
-            self.RegisterExtraNpc(identifier, "§l§e起床战争§r§b点击进入大厅", dimensionId, (109.5, 188, 87.5), rot,
+            self.RegisterExtraNpc(identifier, "§l§e起床战争§r§b点击进入大厅", dimensionId, (109.5, 188, 123.5), rot,
                                   self.CbBwEntrance)
-            self.RegisterExtraNpc(identifier, "§l§e密室§d杀手§r§b[测试版]", dimensionId, (101.5, 188, 87.5), rot, self.CbMm)
-            self.RegisterExtraNpc(identifier, "§l§cTNT§4跑酷§r§b[测试版]", dimensionId, (116.5, 188, 88.5), rot, self.CbTntr)
+            self.RegisterExtraNpc(identifier, "§l§e密室§d杀手§r§b[测试版]", dimensionId, (98.5, 188, 125.5), rot, self.CbMm)
+            self.RegisterExtraNpc(identifier, "§l§cTNT§4跑酷§r§b[测试版]", dimensionId, (116.5, 188,125.5), rot, self.CbTntr)
 
             self.RegisterExtraNpc(identifier, "§l§b经典模式\n§r§e点击游玩", dimensionId, (1000.5, 202, 10.5), rot, self.CbBw)
             self.RegisterExtraNpc(identifier, "§l§6炮爷模式\n§r§b点击游玩", dimensionId, (995.5, 202, 9.5), rot, self.CbBwBomb)
@@ -39,7 +39,7 @@ class NpcServerSystem(ServerSystem):
                                   rot, self.CbBw2)
 
             self.RegisterExtraNpc(identifier, "§l§c返回主城", dimensionId, (1000.5, 201, -8.5), (180, 180), self.lobby)
-            self.RegisterExtraNpc(identifier, "§l§6Duels§b练习", dimensionId, (98.5, 188, 88.5), rot, self.CbDuelsEntrance)
+            self.RegisterExtraNpc(identifier, "§l§6Duels§1Practice", dimensionId, (120.5, 188, 123.5), rot, self.CbDuelsEntrance)
 
     # lobby @ 107, 188, 105
 
@@ -52,7 +52,7 @@ class NpcServerSystem(ServerSystem):
         })
 
     def lobby(self, a, p):
-        self.setPos(p, (0, 176, 0))
+        self.setPos(p, (107, 188, 105))
 
     def setPos(self, playerId, pos):
         comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
@@ -60,7 +60,7 @@ class NpcServerSystem(ServerSystem):
         return re
 
     def CbBwEntrance(self, a, p):
-        self.setPos(p, (107, 188, 105))
+        self.setPos(p, (1000, 201, 0))
 
     def CbDuelsEntrance(self, a, playerId):
         menuSystem = serverApi.GetSystem('menu', 'menuSystem')

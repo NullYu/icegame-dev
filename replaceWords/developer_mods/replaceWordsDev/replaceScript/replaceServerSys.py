@@ -187,7 +187,7 @@ class replaceWordServerSys(ServerSystem):
                     msgOk = commonNetgameApi.CheckWordsValid(args["message"])
                     print 'OnServerChat/CheckWordsValid playerId='+playerNickname+' message='+msg+' pass='+str(msgOk)
                     if msgOk:
-                        self.reformatMsg(msg.replace('§', ''), playerNickname, self.db[playerId][0], self.db[playerId][1], self.db[playerId][2])
+                        self.reformatMsg(msg.replace('§', '§3'), playerNickname, self.db[playerId][0], self.db[playerId][1], self.db[playerId][2])
                         self.cd[playerId] = time.time()+3
                     else:
                         comp = serverApi.GetEngineCompFactory().CreateMsg(playerId)
