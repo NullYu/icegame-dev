@@ -202,7 +202,7 @@ class lobbyutilsSystem(ServerSystem):
         playerId = data['entityId']
         comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
         playerPos = comp.GetPos()
-        if playerPos[1] >= 151:
+        if playerPos[1] >= 175:
             data['damage'] = 0
 
     def OnCommand(self, data):

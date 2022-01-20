@@ -26,20 +26,20 @@ class NpcServerSystem(ServerSystem):
             rot = (0, 180)
             dimensionId = 0
 
-            self.RegisterExtraNpc(identifier, "§l§2纯净生存服\n§r§6队列系统测试中\n§c漏洞补丁测试中", dimensionId, (5.5, 176, 7.5), rot,
+            self.RegisterExtraNpc(identifier, "§l§2纯净生存服\n§r§6队列系统测试中\n§c漏洞补丁测试中", dimensionId, (105.5, 188, 87.5), rot,
                                   self.CbManhunt)
-            self.RegisterExtraNpc(identifier, "§l§e起床战争§r§b点击进入大厅", dimensionId, (0.5, 176, 8.5), rot,
+            self.RegisterExtraNpc(identifier, "§l§e起床战争§r§b点击进入大厅", dimensionId, (109.5, 188, 87.5), rot,
                                   self.CbBwEntrance)
-            self.RegisterExtraNpc(identifier, "§l§e密室§d杀手§r§b[测试版]", dimensionId, (-5.5, 176, 7.5), rot, self.CbMm)
-            self.RegisterExtraNpc(identifier, "§l§cTNT§4跑酷§r§b[测试版]", dimensionId, (-7.5, 176, 5.5), rot, self.CbTntr)
+            self.RegisterExtraNpc(identifier, "§l§e密室§d杀手§r§b[测试版]", dimensionId, (101.5, 188, 87.5), rot, self.CbMm)
+            self.RegisterExtraNpc(identifier, "§l§cTNT§4跑酷§r§b[测试版]", dimensionId, (116.5, 188, 88.5), rot, self.CbTntr)
 
-            self.RegisterExtraNpc(identifier, "§l§b经典模式\n§r§e点击游玩", dimensionId, (1034.5, 197, 0.5), rot, self.CbBw)
-            self.RegisterExtraNpc(identifier, "§l§6炮爷模式\n§r§b点击游玩", dimensionId, (1033.5, 197, 3.5), rot, self.CbBwBomb)
-            self.RegisterExtraNpc(identifier, "§l§e2队8人§c世纪大战§r§7[测试版]\n§r§b点击游玩", dimensionId, (1033.5, 197, -3.5),
+            self.RegisterExtraNpc(identifier, "§l§b经典模式\n§r§e点击游玩", dimensionId, (1000.5, 202, 10.5), rot, self.CbBw)
+            self.RegisterExtraNpc(identifier, "§l§6炮爷模式\n§r§b点击游玩", dimensionId, (995.5, 202, 9.5), rot, self.CbBwBomb)
+            self.RegisterExtraNpc(identifier, "§l§e2队8人§c世纪大战§r§7[测试版]\n§r§b点击游玩", dimensionId, (1005.5, 202, 9.5),
                                   rot, self.CbBw2)
 
-            self.RegisterExtraNpc(identifier, "§l§c返回主城", dimensionId, (988.5, 201, 0.5), (180, 180), self.lobby)
-            self.RegisterExtraNpc(identifier, "§l§6Duels§b练习", dimensionId, (8.5, 176, 4.5), rot, self.CbDuelsEntrance)
+            self.RegisterExtraNpc(identifier, "§l§c返回主城", dimensionId, (1000.5, 201, -8.5), (180, 180), self.lobby)
+            self.RegisterExtraNpc(identifier, "§l§6Duels§b练习", dimensionId, (98.5, 188, 88.5), rot, self.CbDuelsEntrance)
 
     # lobby @ 107, 188, 105
 
@@ -60,7 +60,7 @@ class NpcServerSystem(ServerSystem):
         return re
 
     def CbBwEntrance(self, a, p):
-        self.setPos(p, (1000, 200, 0))
+        self.setPos(p, (107, 188, 105))
 
     def CbDuelsEntrance(self, a, playerId):
         menuSystem = serverApi.GetSystem('menu', 'menuSystem')

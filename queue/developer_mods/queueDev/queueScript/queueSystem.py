@@ -23,7 +23,7 @@ class queueSystemSys(ServerSystem):
         self.ListenEvents()
 
         self.queue = []
-        self.targetPlayers = 20
+        self.targetPlayers = 35
         self.playerLeaveBuffer = 0
 
         self.maxSlots = c.slots

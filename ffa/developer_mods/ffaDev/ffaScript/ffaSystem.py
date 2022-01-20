@@ -314,7 +314,7 @@ class ffaSystemSys(ServerSystem):
 
             comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
             playerPos = comp.GetFootPos()
-            if playerPos[1] <= 168 and equipStats[playerId]==0:
+            if playerPos[1] <= 175 and equipStats[playerId]==0:
                 print 'trig 1'
                 uid = lobbyGameApi.GetPlayerUid(playerId)
 
@@ -327,7 +327,7 @@ class ffaSystemSys(ServerSystem):
                             self.sendTitle("您因逃逸被禁止加入至§b%s" % (self.epoch2Datetime(date)), 2, playerId)
                             self.sendMsg('§c§l不妙！你被禁止FFA了！§r等不及了？使用§b/ransom ffa§r支付赎金立刻解除！\n§e需要支付 1024NEKO 或 32CREDITS （优先使用NEKO）。', playerId)
                             comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
-                            comp.SetFootPos((0, 176, 0))
+                            comp.SetFootPos((107, 188, 105))
                             return
 
                 # redisPool.AsyncGet("ffa-antilog-%s" % (uid,), Cb)
@@ -335,7 +335,7 @@ class ffaSystemSys(ServerSystem):
                 self.giveKit(playerId)
                 equipStats[playerId] = 1
 
-            elif playerPos[1] >= 169 and equipStats[playerId]==1:
+            elif playerPos[1] >= 176 and equipStats[playerId]==1:
                 print 'trig 2'
                 menuSystem = serverApi.GetSystem('menu', 'menuSystem')
                 menuSystem.giveMenu(1, playerId)
