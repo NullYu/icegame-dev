@@ -297,9 +297,9 @@ class ffaSystemSys(ServerSystem):
 
     def OnScriptTickServer(self):
         li = serverApi.GetPlayerList()
-        if li:
-            comp = serverApi.GetEngineCompFactory().CreateHurt(li[0])
-            comp.Hurt(9999, serverApi.GetMinecraftEnum().ActorDamageCause.EntityAttack, None, None, False)
+        # if li:
+        #     comp = serverApi.GetEngineCompFactory().CreateHurt(li[0])
+        #     comp.Hurt(9999, serverApi.GetMinecraftEnum().ActorDamageCause.EntityAttack, None, None, False)
         for playerId in li:
 
             # equip id:

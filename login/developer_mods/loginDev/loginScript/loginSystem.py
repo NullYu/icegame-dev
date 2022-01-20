@@ -116,7 +116,7 @@ class loginSystemSys(ServerSystem):
             comp = serverApi.GetEngineCompFactory().CreatePos(player)
             pos = comp.GetPos()
 
-            if abs(pos[0] - 500) > 1 or abs(pos[2] - 500) > 1:
+            if abs(pos[0]) > 1 or abs(pos[2]) > 1:
                 self.OnLogin(player)
 
     def OnDoneLoading(self, playerId):
@@ -140,7 +140,7 @@ class loginSystemSys(ServerSystem):
         redisPool.AsyncGet("login-cd-%s" % uid, Cb)
 
         comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
-        comp.SetFootPos((500, 70, 500))
+        comp.SetFootPos((0, 4, 0))
 
         self.timer[playerId] = 45
 

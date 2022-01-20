@@ -140,7 +140,7 @@ class lobbyutilsSystem(ServerSystem):
         mysqlPool.AsyncQueryWithOrderKey('z98d7a09d8s', sql, (uid,), Cb)
 
         comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
-        comp.SetFootPos((0, 176, 0))
+        comp.SetFootPos((107, 188, 105))
         comp = serverApi.GetEngineCompFactory().CreateCommand(serverApi.GetLevelId())
         comp.SetCommand("/effect @s clear", playerId)  # 传送指令
         comp = serverApi.GetEngineCompFactory().CreateGame(playerId)
