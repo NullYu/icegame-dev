@@ -1,0 +1,48 @@
+{
+    "Account": "aqs_mgg@163.com",
+    "AssertCacheDir": "D:\\MCStudioDownload\\EngineAssert",
+    "BlockNums": [
+        0,
+        0
+    ],
+    "BornPoint": [
+        0,
+        0,
+        0
+    ],
+    "CreateNew": true,
+    "CreateVersion": "2.0.0.155168",
+    "DCWebUrl": "https://x19qadcweb.nie.netease.com",
+    "EditAddOnPaths": [
+
+    ],
+    "EditLogFilePath": "D:\\MCStudioDownload\\work\\editor\\edit.log",
+    "EditMaterialPaths": [
+
+    ],
+    "EditName": "v5mapserver0",
+    "EditType": 1,
+    "EditVersion": "2.0.0.155168",
+    "EditorResourcePackPath": "D:\\MCStudio\\data\\inner_res",
+    "ElkUrl": "https://x19mclexpr.nie.netease.com/client-log",
+    "GameType": 0,
+    "Id": "26634153349c4015897f5319cac1ed3b",
+    "IsMap": true,
+    "NewEditCount": 1,
+    "OldComponents": [
+
+    ],
+    "OldEditCount": 0,
+    "SaveBackAddOnPath": "",
+    "SaveBackMapPath": "D:\\MCStudioDownload\\work\\aqs_mgg@163.com\\Cpp\\Map\\26634153349c4015897f5319cac1ed3b",
+    "Seed": "",
+    "ServerName": "EXPR",
+    "ShowGpuDriverTips": false,
+    "ShowGuide": false,
+    "Source": "空白地图",
+    "StudioPort": 10209,
+    "StudioTempPath": "D:\\MCStudioDownload\\temp\\editorTemp",
+    "UserId": "33198",
+    "UserName": "Mr_Tam",
+    "WorldType": 2
+}

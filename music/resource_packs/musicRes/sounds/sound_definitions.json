@@ -7,7 +7,9 @@
     "sounds/customSound/v5round_prep",
     "sounds/customSound/v5round_comm",
     "sounds/customSound/v5round_win",
-    "sounds/customSound/v5round_loss"
+    "sounds/customSound/v5round_loss",
+    "sounds/customSound/v5match_start",
+    "sounds/customSound/v5match_timeout"
 ],
   "sfx.generic.start": {
     "category": "music",
@@ -385,7 +387,7 @@
       {
         "name": "sounds/customSound/v5round_prep",
         "pitch": 1,
-        "volume": 1
+        "volume": 0.2
       }
     ]
   },
@@ -404,6 +406,26 @@
     "sounds": [
       {
         "name": "sounds/customSound/v5round_loss",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.v5.round.timeout": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5round_timeout",
+        "pitch": 1,
+        "volume": 1
+      }
+    ]
+  },
+  "sfx.v5match.start": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "sounds/customSound/v5match_start",
         "pitch": 1,
         "volume": 1
       }

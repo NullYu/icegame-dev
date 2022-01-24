@@ -138,7 +138,7 @@ class replaceWordServerSys(ServerSystem):
         exclude = ['testui']
 
         print 'server=%s' % commonNetgameApi.GetServerType()
-        if 'bw' in commonNetgameApi.GetServerType():
+        if 'bw' in commonNetgameApi.GetServerType() or 'v5' in commonNetgameApi.GetServerType():
             print 'no msg for bw'
             return
 

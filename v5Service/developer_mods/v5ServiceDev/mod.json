@@ -1,0 +1,14 @@
+{
+  "netgame_mod_name": "v5Service",
+  "netgame_mod_version": "1.0.0",
+  "min_app_version": null,
+  "author": null,
+  "support_server_type": [
+    "service"
+  ],
+  "unsupport_app_version": null,
+  "CustomPath": "Y:\\Desktop\\ice_game\\apollodev\\queue\\unrankedService",
+  "module_names": [
+    "v5"
+  ]
+}

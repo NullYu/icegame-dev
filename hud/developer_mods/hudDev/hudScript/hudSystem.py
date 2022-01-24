@@ -160,7 +160,7 @@ class hudSystemSys(ServerSystem):
             })
 
             # in exemptList are the server types which death replay will be applied to.
-            exemptList = ['5v']
+            exemptList = ['none']
             serverType = commonNetgameApi.GetServerType()
             isExempt = False
             for type in exemptList:

@@ -173,8 +173,8 @@ class ffaSystemSys(ServerSystem):
                 'enchantData': [(9, 5), (17, 3)]
             }, player, 0)
             comp.SpawnItemToPlayerInv({
-                'itemName': 'minecraft:golden_carrot',
-                'count': 64,
+                'itemName': 'minecraft:ender_pearl',
+                'count': 16,
                 'auxValue': 0
             }, player, 1)
             comp.SpawnItemToPlayerInv({

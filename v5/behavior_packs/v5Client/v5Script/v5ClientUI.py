@@ -82,27 +82,27 @@ class v5Screen(ScreenNode):
 
         # clone disabled overlay & select indicator for w2~w5, s2~s5
         # manual locations
-        locations = {
-            1: [(149, 36.5), (223, 36.5), (297, 36.5), (371, 36.5)],
-            2: [(164, 119.5), (238, 119.5), (312, 119.5), (386, 119.5)],
-            3: [(149, 36.5), (223, 36.5), (297, 36.5), (371, 36.5)],
-            4: [(164, 26.5), (238, 26.5), (312, 26.5), (386, 26.5)]
-        }
+        # locations = {
+        #     1: [(149, 36.5), (223, 36.5), (297, 36.5), (371, 36.5)],
+        #     2: [(164, 119.5), (238, 119.5), (312, 119.5), (386, 119.5)],
+        #     3: [(149, 36.5), (223, 36.5), (297, 36.5), (371, 36.5)],
+        #     4: [(164, 26.5), (238, 26.5), (312, 26.5), (386, 26.5)]
+        # }
 
-        for i in range(4):
-            ref = i+2
-            uiNode.Clone(self.prepChooseWeaponDisableInd, self.prepChooseWeaponPanel, 'wd%s' % ref)
-            uiNode.GetBaseUIControl(self.prepChooseWeaponPanel + '/wd%s' % ref).SetPosition(locations[1][i])
-            print 'moving wd%s@%s to %s' % (ref, uiNode.GetBaseUIControl(self.prepChooseWeaponPanel + '/wd%s' % ref).GetPosition(), uiNode.GetBaseUIControl(self.prepChooseWeaponPanel + '/w%s' % ref).GetPosition())
-
-            uiNode.Clone(self.prepChooseWeaponChosenInd, self.prepChooseWeaponPanel, 'ws%s' % ref)
-            uiNode.GetBaseUIControl(self.prepChooseWeaponPanel + '/ws%s' % ref).SetPosition(locations[2][i])
-
-            uiNode.Clone(self.prepChooseSkillDisableInd, self.prepChooseSkillPanel, 'sd%s' % ref)
-            uiNode.GetBaseUIControl(self.prepChooseSkillPanel + '/sd%s' % ref).SetPosition(locations[3][i])
-
-            uiNode.Clone(self.prepChooseSkillChosenInd, self.prepChooseSkillPanel, 'ss%s' % ref)
-            uiNode.GetBaseUIControl(self.prepChooseSkillPanel + '/ss%s' % ref).SetPosition(locations[4][i])
+        # for i in range(4):
+        #     ref = i+2
+        #     uiNode.Clone(self.prepChooseWeaponDisableInd, self.prepChooseWeaponPanel, 'wd%s' % ref)
+        #     uiNode.GetBaseUIControl(self.prepChooseWeaponPanel + '/wd%s' % ref).SetPosition(locations[1][i])
+        #     print 'moving wd%s@%s to %s' % (ref, uiNode.GetBaseUIControl(self.prepChooseWeaponPanel + '/wd%s' % ref).GetPosition(), uiNode.GetBaseUIControl(self.prepChooseWeaponPanel + '/w%s' % ref).GetPosition())
+        #
+        #     uiNode.Clone(self.prepChooseWeaponChosenInd, self.prepChooseWeaponPanel, 'ws%s' % ref)
+        #     uiNode.GetBaseUIControl(self.prepChooseWeaponPanel + '/ws%s' % ref).SetPosition(locations[2][i])
+        #
+        #     uiNode.Clone(self.prepChooseSkillDisableInd, self.prepChooseSkillPanel, 'sd%s' % ref)
+        #     uiNode.GetBaseUIControl(self.prepChooseSkillPanel + '/sd%s' % ref).SetPosition(locations[3][i])
+        #
+        #     uiNode.Clone(self.prepChooseSkillChosenInd, self.prepChooseSkillPanel, 'ss%s' % ref)
+        #     uiNode.GetBaseUIControl(self.prepChooseSkillPanel + '/ss%s' % ref).SetPosition(locations[4][i])
 
         self.AddTouchEventHandler(self.eqpFixBtn, self.eqpFix, {"isSwallow": False})
         self.AddTouchEventHandler(self.eqpSlotsPrimaryButton, self.eqpPrimary, {"isSwallow": False})
@@ -500,7 +500,7 @@ class v5Screen(ScreenNode):
                     timerComp.CancelTimer(self.bDefuserPlantTimer)
                     self.SetVisible(self.defuserPlantPanel, False)
                     response = {
-                        'opration': 'defuserDestroy',
+                        'operation': 'defuserDestroy',
                         'stage': 'finish'
                     }
                     ClientSystem.ReturnToServer(response)
