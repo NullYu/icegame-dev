@@ -136,7 +136,7 @@ class adminSystemSys(ServerSystem):
                     return
 
                 duration = data['duration']
-                if data['type'] == 0 or data['type'] == 1:
+                if data['type'] == 0 or data['type'] == 1 or data['type'] == 3:
                     if duration:
                         try:
                             int(duration)
@@ -174,8 +174,15 @@ class adminSystemSys(ServerSystem):
                         redisPool.AsyncSet('autokick-%s' % target, "1")
                         return
 
-                    lobbyGameApi.TryToKickoutPlayer(victimId, "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n\n再犯将导致更严重的惩罚！" % reason)
-                    self.sendMsg("§bTried to kick player. Please double-check local server player list.", playerId)
+                    # .TryToKickoutPlayer(victimId, "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n\n再犯将导致更严重的惩罚！" % reason)
+                    self.sendMsg('§l§e登录状态无效，请您重新登录', playerId)
+
+                    def a():
+                        transData = {'position': [1, 2, 3]}
+                        lobbyGameApi.TransferToOtherServer(player, 'auth', json.dumps(transData))
+
+                    commonNetgameApi.AddTimer(3.0, a)
+                    self.sendMsg("§bTried to reauth player, commencing in 3 seconds. Please double-check local server player list.", playerId)
 
                     self.NotifyToMaster('AnnounceBanEvent', {
                         'nickname': lobbyGameApi.GetPlayerNickname(victimId),
@@ -219,6 +226,47 @@ class adminSystemSys(ServerSystem):
                     msg = "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n再犯将导致更严重的惩罚！\n§e§l若要举报滥用权限请截图§r§7[%s]" % (reason, int(time.time()))
                     lobbyGameApi.TryToKickoutPlayer(lobbyGameApi.GetPlayerIdByUid(target), msg)
                     self.sendMsg("§asuc. Operation was not recorded.", playerId)
+
+                elif data['type'] == 3:
+                    try:
+                        duration = int(duration)
+                    except ValueError:
+                        duration = 120
+
+                    if perm < 96 and (isPerm or duration > 30):
+                        self.sendMsg(
+                            'Operation not permitted',
+                            playerId)
+                        return
+
+                    if isPerm:
+                        duration = -1
+                    else:
+                        duration = time.time()+0+duration*86400
+
+                    sql = 'INSERT INTO expd (uid, startDate, endDate, reason, executorUid) VALUES (%s, %s, %s, %s, %s);'
+                    mysqlPool.AsyncExecuteWithOrderKey('asd90213nxvcfa', sql, (target, time.time()+0, duration, reason, lobbyGameApi.GetPlayerUid(playerId)))
+                    self.sendMsg("§asuc", playerId)
+
+                    victimId = lobbyGameApi.GetPlayerIdByUid(target)
+                    if not victimId:
+                        self.sendMsg("§eTarget player not in server! Auto reauth commences in no longer than 6 seconds.", playerId)
+                        redisPool.AsyncSet('autokick-%s' % target, "1")
+                        return
+
+                    # lobbyGameApi.TryToKickoutPlayer(victimId, "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n\n再犯将导致更严重的惩罚！" % reason)
+                    self.sendMsg('§l§e登录状态无效，请您重新登录', playerId)
+                    def a():
+                        transData = {'position': [1, 2, 3]}
+                        lobbyGameApi.TransferToOtherServer(player, 'auth', json.dumps(transData))
+                    commonNetgameApi.AddTimer(3.0, a)
+                    self.sendMsg("§bTried to reauth player, commencing in 3 seconds. Please double-check local server player list.", playerId)
+
+                    self.NotifyToMaster('AnnounceBanEvent', {
+                        'nickname': lobbyGameApi.GetPlayerNickname(victimId),
+                        'reason': reason,
+                        'sid': lobbyGameApi.GetServerId()
+                    })
 
             mysqlPool.AsyncQueryWithOrderKey('sdans89d70as', sql, (lobbyGameApi.GetPlayerUid(playerId), time.time()), Cb)
 

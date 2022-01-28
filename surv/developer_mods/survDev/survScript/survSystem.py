@@ -101,6 +101,7 @@ class survSystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "CraftItemOutputChangeServerEvent", self, self.OnCraftItemOutputChangeServer)
 
         commonNetgameApi.AddRepeatedTimer(1.0, self.tick)
+        commonNetgameApi.AddRepeatedTimer(300.0, self.clearItemsTick)
 
     def tick(self):
         for player in serverApi.GetPlayerList():
@@ -121,6 +122,10 @@ class survSystemSys(ServerSystem):
                     for enchantment in item['enchantData']:
                         if enchantment[1] > 5 or enchantment[1] < 0:
                             self.overenchantedLogic(player, 6.0)
+
+    def clearItemsTick(self):
+        for player in serverApi.GetPlayerList():
+            self.sendCmd('/kill @e[type=item]', player)
 
     def OnCraftItemOutputChangeServer(self, args):
         playerId = args['playerId']
