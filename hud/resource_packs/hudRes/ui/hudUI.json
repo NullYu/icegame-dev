@@ -164,6 +164,41 @@
       "type" : "panel",
       "visible" : true
    },
+   "hungerbar" : {
+      "$clip_direction" : "left",
+      "$clip_ratio" : 0.0,
+      "$is_new_nine_slice" : true,
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$progress_bar_empty_texture" : "textures/ui/hudUI/hunger-bar-bg",
+      "$progress_bar_filled_texture" : "textures/ui/hudUI/hunger-bar-fill",
+      "alpha" : 1.0,
+      "anchor_from" : "bottom_left",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "empty_progress_bar@hudUI.empty_progress_bar" : {}
+         },
+         {
+            "filled_progress_bar@hudUI.filled_progress_bar" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 17,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 229.0, -44.50 ],
+      "priority" : 0,
+      "propagate_alpha" : true,
+      "size" : [ 100, 3 ],
+      "type" : "panel",
+      "visible" : true
+   },
    "image0" : {
       "alpha" : 1.0,
       "anchor_from" : "center",
@@ -596,6 +631,9 @@
          },
          {
             "image11@hudUI.image11" : {}
+         },
+         {
+            "hungerbar@hudUI.hungerbar" : {}
          }
       ],
       "force_render_below" : false,
@@ -713,6 +751,6 @@
       "propagate_alpha" : false,
       "size" : [ "default", "default" ],
       "type" : "panel",
-      "visible" : true
+      "visible" : false
    }
 }

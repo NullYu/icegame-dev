@@ -14,6 +14,7 @@ class hudScreen(ScreenNode):
         print '==== %s ====' % 'init HudScreen'
 
         self.hpBar = '/hpbar'
+        self.hungerBar = '/hungerbar'
         self.extraBar = '/extrabar'
         self.growthBar = '/growthbar'
         self.decrBar = '/decrbar'
@@ -62,6 +63,7 @@ class hudScreen(ScreenNode):
         # self.SetVisible('/panel0', False)
         self.SetVisible("", True)
         self.SetVisible(self.hpBar, False)
+        self.SetVisible(self.hungerBar, False)
         self.SetVisible(self.healthNumPanel, False)
         self.SetVisible(self.armorNumPanel, False)
         self.SetVisible(self.extraBar, False)
@@ -112,6 +114,7 @@ class hudScreen(ScreenNode):
         self.SetVisible("", isEnableHud)
         self.SetVisible(self.extraBar, False)
         self.SetVisible(self.hpBar, True)
+        self.SetVisible(self.hungerBar, True)
         self.SetVisible(self.healthNumPanel, True)
         self.SetVisible(self.armorNumPanel, False)
         self.SetVisible(self.growthBar, False)
@@ -133,6 +136,7 @@ class hudScreen(ScreenNode):
             self.isDead = True
             self.SetVisible(self.killIndicatorSuicide, True)
             self.SetVisible(self.hpBar, False)
+            self.SetVisible(self.hungerBar, False)
             self.SetVisible(self.healthNumPanel, False)
             self.SetVisible(self.armorNumPanel, False)
             self.SetVisible(self.extraBar, False)
@@ -154,6 +158,7 @@ class hudScreen(ScreenNode):
         print 'display death, suicide=%s' % isSuicide
 
         self.SetVisible(self.hpBar, False)
+        self.SetVisible(self.hungerBar, False)
         self.SetVisible(self.healthNumPanel, False)
         self.SetVisible(self.armorNumPanel, False)
         self.SetVisible(self.extraBar, False)
@@ -209,6 +214,8 @@ class hudScreen(ScreenNode):
         # self.SetProgressbarValue(self.decrBar, hp)
         # self.SetProgressbarValue(self.growthBar, hp)
         self.SetVisible(self.healthNumPanel, True)
+
+        self.SetProgressbarValue(self.hungerBar, data['hunger']*5)
 
         # return
 

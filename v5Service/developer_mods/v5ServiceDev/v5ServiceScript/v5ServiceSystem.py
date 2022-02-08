@@ -103,26 +103,29 @@ class v5ServiceSystemSys(ServerSystem):
         for uid in self.queue:
             pos = self.queue.index(uid)
 
-            if queueLength < c.roomSize:
-                response = {
-                    'uid': uid,
-                    'status': 'wait',
-                    'count': queueLength
-                }
-                self.NotifyToServerNode(self.playerServers[uid], "UpdateMatchInfoEvent", response)
-                print 'WAIT 1'
-            elif queueLength >= c.roomSize > pos == c.roomSize - 1:
-                self.startMatch()
-                print 'START'
+            if uid in self.playerServers:
+                if queueLength < c.roomSize:
+                    response = {
+                        'uid': uid,
+                        'status': 'wait',
+                        'count': queueLength
+                    }
+                    self.NotifyToServerNode(self.playerServers[uid], "UpdateMatchInfoEvent", response)
+                    print 'WAIT 1'
+                elif queueLength >= c.roomSize > pos == c.roomSize - 1:
+                    self.startMatch()
+                    print 'START'
 
+                else:
+                    response = {
+                        'uid': uid,
+                        'status': 'wait',
+                        'count': queueLength % c.roomSize
+                    }
+                    self.NotifyToServerNode(self.playerServers[uid], "UpdateMatchInfoEvent", response)
+                    print 'WAIT2'
             else:
-                response = {
-                    'uid': uid,
-                    'status': 'wait',
-                    'count': queueLength % c.roomSize
-                }
-                self.NotifyToServerNode(self.playerServers[uid], "UpdateMatchInfoEvent", response)
-                print 'WAIT2'
+                self.queue.pop(pos)
 
     def startMatch(self):
         print 'starting match'

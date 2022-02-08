@@ -24,9 +24,13 @@ class banServerSys(ServerSystem):
         ServerSystem.__init__(self, namespace, systemName)
         self.ListenEvent()
 
+        self.roomLock = None
+
     def ListenEvent(self):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "AddServerPlayerEvent", self,
                             self.OnAddServerPlayer)
+        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "DelServerPlayerEvent", self,
+                            self.OnDelServerPlayer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "CommandEvent", self,
                             self.OnCommand)
         self.ListenForEvent('shout', 'shoutMasterSystem', 'DisplayRefreshBanEvent', self, self.OnDisplayRefreshBan)
@@ -102,6 +106,21 @@ class banServerSys(ServerSystem):
     def OnAddServerPlayer(self, data):
         playerId = data['id']
         self.CheckBan(playerId)
+
+        if self.roomLock:
+            sql = 'SELECT * FROM perms WHERE uid=%s AND type>=95 AND (endDate < 0 OR endDate > %s);'
+            def Cb(args):
+                if not args:
+                    lobbyGameApi.TryToKickoutPlayer(playerId, 'This room is not accepting new players.')
+            mysqlPool.AsyncQueryWithOrderKey('czx9ay9sd8h', sql, (lobbyGameApi.GetPlayerUid(playerId), time.time()), Cb)
+
+    def OnDelServerPlayer(self, data):
+        playerId = data['id']
+        if playerId == self.roomLock:
+            self.roomLock = None
+            utils = serverApi.GetSystem('utils', 'utilsSystem')
+            utils.CreateAdminMessage('§l§6!!! %s disabled room lock for server %s' % (
+            lobbyGameApi.GetPlayerNickname(playerId), lobbyGameApi.GetServerId()))
 
     def OnDisplayRefreshBan(self, args):
         nick = args['nick']
@@ -275,6 +294,36 @@ class banServerSys(ServerSystem):
                         self.sendMsg("§einvalid command", playerId)
 
             mysqlPool.AsyncQueryWithOrderKey("stageCommand/CheckExecutorPerms", sql, (uid, time.time()), Cb)
+
+        elif cmd == "roomlock" or cmd == "rl":
+            sql = 'SELECT * FROM perms WHERE uid=%s AND type>=95 AND (endDate<0 OR endDate>%s);'
+            def Cb(args):
+                if not args:
+                    self.sendMsg('stage: Operation not permitted', playerId)
+                    return
+                else:
+                    if len(msg) < 2:
+                        if self.roomLock:
+                            self.sendMsg('room lock enabled for this server', playerId)
+                        else:
+                            self.sendMsg('room lock NOT enabled for this server', playerId)
+                    elif msg[1] == 'on':
+                        if not self.roomLock:
+                            self.roomLock = playerId
+                            utils = serverApi.GetSystem('utils', 'utilsSystem')
+                            utils.CreateAdminMessage('§l§6!!! %s enabled room lock for server %s' % (lobbyGameApi.GetPlayerNickname(playerId), lobbyGameApi.GetServerId()))
+                        else:
+                            self.sendMsg('room lock already on!', playerId)
+
+                    elif msg[1] == 'off':
+                        if self.roomLock:
+                            self.roomLock = None
+                            utils = serverApi.GetSystem('utils', 'utilsSystem')
+                            utils.CreateAdminMessage('§l§6!!! %s disabled room lock for server %s' % (lobbyGameApi.GetPlayerNickname(playerId), lobbyGameApi.GetServerId()))
+                        else:
+                            self.sendMsg('room lock not enabled', playerId)
+
+            mysqlPool.AsyncQueryWithOrderKey("roomlockCommand/CheckExecutorPerms", sql, (uid, time.time()), Cb)
 
         elif cmd in ['transfer', 'transf', 'trans']:
             print 'player using transfer'

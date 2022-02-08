@@ -527,6 +527,11 @@ class bwServerSys(ServerSystem):
 
     def OnPlayerRespawnFinishServer(self, data):
         playerId = data['playerId']
+
+        if self.status == 0:
+            lobbyGameApi.TryToKickoutPlayer(playerId, "removed from match")
+            return
+
         if playerId in self.teams:
             self.sendCmd('/effect @s slowness 5 255 true', playerId)
             self.sendCmd('/effect @s blindness 5 1 true', playerId)

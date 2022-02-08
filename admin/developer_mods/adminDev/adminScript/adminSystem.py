@@ -174,8 +174,7 @@ class adminSystemSys(ServerSystem):
                         redisPool.AsyncSet('autokick-%s' % target, "1")
                         return
 
-                    # .TryToKickoutPlayer(victimId, "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n\n再犯将导致更严重的惩罚！" % reason)
-                    self.sendMsg('§l§e登录状态无效，请您重新登录', playerId)
+                    lobbyGameApi.TryToKickoutPlayer(victimId, "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n\n再犯将导致更严重的惩罚！" % reason)
 
                     def a():
                         transData = {'position': [1, 2, 3]}

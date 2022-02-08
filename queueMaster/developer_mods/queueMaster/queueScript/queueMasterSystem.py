@@ -58,7 +58,7 @@ class queueMasterSystem(MasterSystem):
         self.NotifyToServerNode(sid, "ChooseDestination", {
             'playerId': playerId,
             # TODO Remove debug section
-            'value': bool(count >= 32)
+            'value': bool(count >= 17)
         })
 
         print 'responded to ChooseDest'

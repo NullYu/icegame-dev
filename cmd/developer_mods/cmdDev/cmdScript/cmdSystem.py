@@ -18,7 +18,7 @@ ServerSystem = serverApi.GetServerSystemCls()
 hubConfirm = {}
 
 ##
-exclude = ["v5debug", "transf", "trans", "transfer", "again", "stats", "vk", "votekick", "vkick", "reboot", "rank", "pvp", "rp", "rb", "mute", "report", "r", "ban", "stage", "eco", "sudo", "laba", "buglet", "xiaolaba", "testui", "admin", 'hlaba', 'helperchan', 'helperlaba', 'hchan', 'hc']
+exclude = ["rl", "roomlock", "pc", "partyc", "partychat", "pchat", "p", "party", "v5debug", "transf", "trans", "transfer", "again", "stats", "vk", "votekick", "vkick", "reboot", "rank", "pvp", "rp", "rb", "mute", "report", "r", "ban", "stage", "eco", "sudo", "laba", "buglet", "xiaolaba", "testui", "admin", 'hlaba', 'helperchan', 'helperlaba', 'hchan', 'hc']
 ##
 
 # 在modMain中注册的Server System类
