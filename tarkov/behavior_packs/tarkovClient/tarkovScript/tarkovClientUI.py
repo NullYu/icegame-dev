@@ -43,6 +43,8 @@ class tarkovScreen(ScreenNode):
 
         self.evacTimer = 3600
 
+        self.fadeInTimerHandle = None
+
     def SetProgressbarValue(self, path, value):
         progressBarUIControl = clientApi.GetUI('tarkov', 'tarkovUI').GetBaseUIControl(path).asProgressBar()
         progressBarUIControl.SetValue(value)
@@ -84,6 +86,21 @@ class tarkovScreen(ScreenNode):
 
         clientApi.SetInputMode(0)
         clientApi.HideSlotBarGui(False)
+
+    def startElementFade(self, path, duration, isFadeIn):
+        comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
+        if isFadeIn:
+            self.SetAlpha(path, 0.0)
+            def a(param):
+                p = param[0]
+                d = param[1]
+                alpha = self.GetAlpha(p)
+                if alpha >= 1:
+                    comp.CancelTimer(self.fadeInTimerHandle)
+                    return 
+                else:
+                    self.SetAlpha(path, alpha + (0.01 / 1))
+
 
     def StartDeploy(self):
         self.deployHasStarted = True
