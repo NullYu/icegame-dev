@@ -56,7 +56,7 @@ class tarkovSystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "DamageEvent", self, self.OnDamage)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerAttackEntityEvent", self, self.OnPlayerAttackEntity)
 
-        # self.ListenForEvent('hud', 'hudClient', "DisplayDeathDoneEvent", self, self.OnDisplayDeathDone)
+        self.ListenForEvent('hud', 'hudClient', "DisplayDeathDoneEvent", self, self.OnDisplayDeathDone)
         # self.ListenForEvent('music', 'musicSystem', 'CreateMusicIdEvent', self, self.OnCreateMusicId)
 
         self.ListenForEvent('tarkov', 'tarkovClient', 'ActionEvent', self, self.OnClientAction)
@@ -169,7 +169,8 @@ class tarkovSystemSys(ServerSystem):
 
     def SpawnPlayer(self, playerId):
         spawnPoses = c.spawnPos
-        self.setPos(playerId, spawnPoses[self.spawnChoiceIndex])
+        # TODO Debug: un-comment this line
+        # self.setPos(playerId, spawnPoses[self.spawnChoiceIndex])
 
         if self.spawnChoiceIndex > len(spawnPoses) - 1:
             self.spawnChoiceIndex = 0
@@ -230,6 +231,34 @@ class tarkovSystemSys(ServerSystem):
         if self.status != 1 or not self.alive[playerId] or not self.alive[victimId]:
             data['cancel'] = True
 
+    def OnDisplayDeathDone(self, data):
+        playerId = data['playerId']
+        attackerId = data['attackerId']
+        comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
+        pos = comp.GetPos()
+
+        self.alive[playerId] = False
+        self.sendCmd('/effect @s invisibility 9999 1 true', playerId)
+        self.sendCmd('/clear', playerId)
+        comp = serverApi.GetEngineCompFactory().CreateItem(playerId)
+        for i in range(-1, 4):
+            comp.SpawnItemToArmor(None, playerId, i)
+
+        comp = serverApi.GetEngineCompFactory().CreateItem(playerId)
+        deathPlayerInventory = comp.GetPlayerAllItems(serverApi.GetMinecraftEnum().ItemPosType.INVENTORY, True)
+        deathPlayerArmor = comp.GetPlayerAllItems(serverApi.GetMinecraftEnum().ItemPosType.ARMOR, True)
+        comp = serverApi.GetEngineCompFactory().CreateItem(serverApi.GetLevelId())
+        for item in deathPlayerInventory:
+            comp.SpawnItemToLevel(item, 0, pos)
+        for item in deathPlayerArmor:
+            comp.SpawnItemToLevel(item, 0, pos)
+
+        response = {
+            'timer': self.timer,
+            'cause': 'kia'
+        }
+        self.NotifyToClient(playerId, 'DisplayDeathEvent', response)
+
     def tick(self):
         count = len(serverApi.GetPlayerList())
 
@@ -262,7 +291,8 @@ class tarkovSystemSys(ServerSystem):
             self.timer -= 1
 
             for player in serverApi.GetPlayerList():
-                self.NotifyToClient(player, 'UpdateEvacTimerEvent', self.timer)
+                if self.alive[player]:
+                    self.NotifyToClient(player, 'UpdateEvacTimerEvent', self.timer)
 
         self.updateServerStatus(self.status)
 

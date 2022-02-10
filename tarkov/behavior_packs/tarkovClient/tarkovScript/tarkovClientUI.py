@@ -87,19 +87,36 @@ class tarkovScreen(ScreenNode):
         clientApi.SetInputMode(0)
         clientApi.HideSlotBarGui(False)
 
-    def startElementFade(self, path, duration, isFadeIn):
+    def startElementFade(self, path, duration, OnEndCallback=None, isFadeIn=True):
         comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
         if isFadeIn:
             self.SetAlpha(path, 0.0)
             def a(param):
                 p = param[0]
                 d = param[1]
+                cb = param[2]
                 alpha = self.GetAlpha(p)
                 if alpha >= 1:
                     comp.CancelTimer(self.fadeInTimerHandle)
+                    if cb: cb()
                     return 
                 else:
-                    self.SetAlpha(path, alpha + (0.01 / 1))
+                    self.SetAlpha(path, alpha + (0.01 / d))
+        else:
+            self.SetAlpha(path, 1.0)
+            def a(param):
+                p = param[0]
+                d = param[1]
+                cb = param[2]
+                alpha = self.GetAlpha(p)
+                if alpha <= 0:
+                    comp.CancelTimer(self.fadeInTimerHandle)
+                    if cb: cb()
+                    return
+                else:
+                    self.SetAlpha(path, alpha - (0.01 / d))
+
+        comp.AddRepeatedTimer(0.01, a, (path, duration, OnEndCallback))
 
 
     def StartDeploy(self):
@@ -116,10 +133,41 @@ class tarkovScreen(ScreenNode):
             comp.CancelTimer(self.deployTimerHandle)
 
             self.SetVisible(self.gamePanel, True)
+            def a():
+                self.SetVisible(self.prepPanel, False)
+            self.startElementFade(self.prepPanel, 1.0, a, False)
+            self.startElementFade(self.overlay, 1.0, None, False)
 
     def UpdateEvacTimer(self, timer):
         self.evacTimer = timer
         self.SetText(self.gameTimerInd, time.strftime('%H:%M:%S', time.gmtime(self.evacTimer)))
+
+    def DisplayDeath(self, data):
+        timer = data['timer']
+        cause = data['cause']
+        uiNode = clientApi.GetUI('tarkov', 'tarkovUI')
+        self.SetVisible(self.gamePanel, False)
+        self.SetVisible(self.pausePanel, False)
+
+        # set the indicator
+        if cause == 'kia':
+            uiNode.GetBaseUIControl(self.deathReasonIndicator).asImage().SetSprite('textures/ui/tarkovUI/kia-indicator')
+        elif cause == 'mia':
+            uiNode.GetBaseUIControl(self.deathReasonIndicator).asImage().SetSprite('textures/ui/tarkovUI/mia-indicator')
+        elif cause == 'ee':
+            uiNode.GetBaseUIControl(self.deathReasonIndicator).asImage().SetSprite('textures/ui/tarkovUI/ee-indicator')
+        elif cause == 'suc':
+            uiNode.GetBaseUIControl(self.deathReasonIndicator).asImage().SetSprite('textures/ui/tarkovUI/suc-indicator')
+
+        # set the indicator blur and background
+        if cause == 'suc':
+            uiNode.GetBaseUIControl(self.deathIndicatorBlur).asImage().SetSprite('textures/ui/tarkovUI/suc-blur')
+            uiNode.GetBaseUIControl(self.deathIndicatorBlur).asImage().SetSprite('textures/ui/tarkovUI/deathscreen-suc')
+
+        self.SetVisible(self.overlay, True)
+        self.SetVisible(self.deathPanel, True)
+        self.startElementFade(self.overlay, 1.0, None)
+
 
     def resumeGame(self, args):
         pass

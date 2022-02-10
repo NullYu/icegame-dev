@@ -21,6 +21,7 @@ class tarkovClient(ClientSystem):
                             'UiInitFinished', self, self.OnUIInitFinished)
         self.ListenForEvent('tarkov', 'tarkovSystem', 'StartDeployEvent', self, self.OnStartDeploy)
         self.ListenForEvent('tarkov', 'tarkovSystem', 'UpdateEvacTimerEvent', self, self.OnUpdateEvacTimer)
+        self.ListenForEvent('tarkov', 'tarkovSystem', 'DisplayDeathEvent', self, self.OnDisplayDeath)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'OnScriptTickClient', self, self.tick)
         self.tarkovUINode = None
 
@@ -40,6 +41,9 @@ class tarkovClient(ClientSystem):
 
     def OnUpdateEvacTimer(self, timer):
         self.tarkovUINode.UpdateEvacTimer(timer)
+
+    def OnDisplayDeath(self, data):
+        self.tarkovUINode.DisplayDeath(data)
 
     def ReturnToServer(self, args):
         response = args
