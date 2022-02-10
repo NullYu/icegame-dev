@@ -336,7 +336,7 @@ class utilsSystemSys(ServerSystem):
         data['cancel'] = True
         playerId = data['id']
 
-        if 'game' in commonNetgameApi.GetServerType():
+        if 'game' in commonNetgameApi.GetServerType() and 'tarkov' not in commonNetgameApi.GetServerType():
             for player in serverApi.GetPlayerList():
                 self.sendMsg("§7[§a+§7] %s" % (lobbyGameApi.GetPlayerNickname(playerId)), player)
 
@@ -344,7 +344,7 @@ class utilsSystemSys(ServerSystem):
         data['cancel'] = True
         playerId = data['id']
 
-        if 'game' in commonNetgameApi.GetServerType():
+        if 'game' in commonNetgameApi.GetServerType() and 'tarkov' not in commonNetgameApi.GetServerType():
             for player in serverApi.GetPlayerList():
                 self.sendMsg("§7[§c-§7] %s" % (lobbyGameApi.GetPlayerNickname(playerId)), player)
 

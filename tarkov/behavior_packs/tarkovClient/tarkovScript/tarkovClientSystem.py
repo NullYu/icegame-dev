@@ -19,7 +19,8 @@ class tarkovClient(ClientSystem):
         print '###__init__ tarkovClient'
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(),
                             'UiInitFinished', self, self.OnUIInitFinished)
-        # self.ListenForEvent('tarkov', 'tarkovSystem', 'ShowPrepSelectionScreenEvent', self, self.OnShowPrepSelectionScreen)
+        self.ListenForEvent('tarkov', 'tarkovSystem', 'StartDeployEvent', self, self.OnStartDeploy)
+        self.ListenForEvent('tarkov', 'tarkovSystem', 'UpdateEvacTimerEvent', self, self.OnUpdateEvacTimer)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'OnScriptTickClient', self, self.tick)
         self.tarkovUINode = None
 
@@ -33,6 +34,12 @@ class tarkovClient(ClientSystem):
             print 'tarkovUINODE.InitScreen node=', str(self.tarkovUINode)
         else:
             print 'FAILED TO tarkovUINODE.InitScreen!!! tarkovUINODE=', str(self.tarkovUINode)
+
+    def OnStartDeploy(self, args):
+        self.tarkovUINode.StartDeploy()
+
+    def OnUpdateEvacTimer(self, timer):
+        self.tarkovUINode.UpdateEvacTimer(timer)
 
     def ReturnToServer(self, args):
         response = args
