@@ -118,7 +118,7 @@ class adminScreen(ScreenNode):
                 self.SetText(self.actionInd, 'BAN')
             else:
                 self.aMode += 1
-                if self.aMode > 2:
+                if self.aMode > 3:
                     self.aMode = 0
 
                 if self.aMode == 0:
@@ -127,6 +127,8 @@ class adminScreen(ScreenNode):
                     self.SetText(self.actionInd, 'MUTE')
                 elif self.aMode == 2:
                     self.SetText(self.actionInd, 'KICK')
+                elif self.aMode == 3:
+                    self.SetText(self.actionInd, 'CD')
 
     def SubmitAction(self, args):
         event = args['TouchEvent']

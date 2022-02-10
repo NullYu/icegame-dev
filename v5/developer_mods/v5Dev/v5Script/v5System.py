@@ -117,6 +117,8 @@ class v5SystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerRespawnFinishServerEvent", self, self.OnPlayerRespawnFinishServer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "ActorUseItemServerEvent", self, self.OnActorUseItemServer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "ServerChatEvent", self, self.OnServerChat)
+        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "ServerBlockUseEvent", self, self.OnServerBlockUse)
+        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerInteractServerEvent", self, self.OnPlayerInteractServer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "OnScriptTickServer", self, self.OnScriptTickServer)
 
         # self.ListenForEvent('hud', 'hudClient', "DisplayDeathDoneEvent", self, self.OnDisplayDeathDone)
@@ -150,6 +152,13 @@ class v5SystemSys(ServerSystem):
         def a():
             self.updateServerStatus(self.status, True)
         commonNetgameApi.AddTimer(10.0, a)
+
+        comp = serverApi.GetEngineCompFactory().CreateBlockUseEventWhiteList(serverApi.GetLevelId())
+        comp.AddBlockItemListenForUseEvent("minecraft:furnace")
+        comp.AddBlockItemListenForUseEvent("minecraft:crafting_table")
+        comp.AddBlockItemListenForUseEvent("minecraft:barrel")
+        comp.AddBlockItemListenForUseEvent("minecraft:brewing_stand")
+        comp.AddBlockItemListenForUseEvent("minecraft:chest")
 
     ##############UTILS##############
 
@@ -249,7 +258,7 @@ class v5SystemSys(ServerSystem):
             if not isRepeat:
                 self.selectionData[self.teams[playerId]][playerId][0] = selectionId
 
-            if self.phase == 0 and not c.debugMode:
+            if self.phase == 0:
                 self.ShowPrepSelectionScreen(True, True)
             else:
                 self.ShowPrepSelectionScreen(False, True)
@@ -275,7 +284,7 @@ class v5SystemSys(ServerSystem):
             if not isRepeat:
                 self.selectionData[self.teams[playerId]][playerId][1] = selectionId
 
-            if self.phase == 0 and not c.debugMode:
+            if self.phase == 0:
                 self.ShowPrepSelectionScreen(True, True)
             else:
                 self.ShowPrepSelectionScreen(False, True)
@@ -823,18 +832,18 @@ class v5SystemSys(ServerSystem):
                         for player2 in self.selectionData[team]:
                             if player2 != player and self.selectionData[team][player2][0] == i:
                                 isRepeat = True
-                                break
                         if not isRepeat:
                             self.selectionData[team][player][0] = i
                             break
-
+        for team in self.selectionData:
+            for player in self.selectionData[team]:
+                selections = self.selectionData[team][player]
                 if selections[1] == 0:
                     for i in range(1, 6):
                         isRepeat = False
                         for player2 in self.selectionData[team]:
                             if player2 != player and self.selectionData[team][player2][1] == i:
                                 isRepeat = True
-                                break
                         if not isRepeat:
                             self.selectionData[team][player][1] = i
                             break
@@ -927,6 +936,18 @@ class v5SystemSys(ServerSystem):
                 self.pts[playerId] += 2
             for player in self.defenders:
                 self.UpdateReinfCount(player, self.reinfLeft)
+
+    def OnServerBlockUse(self, data):
+        playerId = data['playerId']
+        name = data['blockName']
+
+        if 'door' not in name:
+            data['cancel'] = True
+
+    def OnPlayerInteractServer(self, data):
+        victimId = data['victimId']
+        if victimId not in self.teams:
+            data['cancel'] = True
 
     def OnPlayerAttackEntity(self, data):
         playerId = data['playerId']
@@ -1448,8 +1469,9 @@ class v5SystemSys(ServerSystem):
                     'name': 'minecraft:air'
                 }, 0, 0)
 
-        elif self.phase == 3 and not self.defuserPlanted:
+        elif self.phase == 2 and not self.defuserPlanted:
             self.roundEnd(False)
+
 
     def roundEnd(self, isAttackersWin):
         self.phase = 4
@@ -1703,7 +1725,7 @@ class v5SystemSys(ServerSystem):
 
         def a():
             self.status = 0
-            self.updateServerStatus(self.status)
+            self.updateServerStatus(self.status, True)
 
             rebootSystem = serverApi.GetSystem('reboot', 'rebootSystem')
             rebootSystem.DoReboot(False)
@@ -1729,4 +1751,5 @@ class v5SystemSys(ServerSystem):
 
             self.sendCmd('/spawnpoint @s %s %s %s' % (c.spectatorPos[0], c.spectatorPos[1], c.spectatorPos[2]), player)
 
+        self.reinfLeft = 180
         self.newRoundInit()

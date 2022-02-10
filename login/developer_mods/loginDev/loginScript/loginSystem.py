@@ -131,6 +131,12 @@ class loginSystemSys(ServerSystem):
         playerId = data['id']
         uid = data['uid']
 
+        isPeUser = lobbyGameApi.IsPlayerPeUser(playerId)
+        if not isPeUser:
+            lobbyGameApi.TryToKickoutPlayer(playerId, """No admission to modpc 
+            
+Email service@icegame.xyz for whitelisting""")
+
         def Cb(t):
             return
             if t:

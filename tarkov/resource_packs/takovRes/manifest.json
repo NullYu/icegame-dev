@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By dev",
+      "type": "resources",
+      "uuid": "ca340e67-5a3d-4af9-ad19-787425e84ffb",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "By dev",
+    "name": "tarkov_res",
+    "uuid": "d5634385-e491-41dc-9ad6-1c9b15025b31",
+    "version": [
+      0,
+      0,
+      1
+    ]
+  }
+}

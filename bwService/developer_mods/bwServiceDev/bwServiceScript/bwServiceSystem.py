@@ -24,8 +24,6 @@ class bwServiceSystemSys(ServerSystem):
         self.RegisterRpcMethodForMod('RecordSidEvent', self.OnRecordSid)
         self.RegisterRpcMethod("bw", 'RequestMatchmakingEvent', self.OnRequestMatchmaking)
 
-        self.totalServers = []
-
         self.ListenForEvent(serviceApi.GetEngineNamespace(), serviceApi.GetEngineSystemName(), "ServerConnectedEvent", self, self.OnServerConnected)
         self.ListenForEvent(serviceApi.GetEngineNamespace(), serviceApi.GetEngineSystemName(), "ServerDisconnectEvent", self, self.OnServerDisconnect)
 
@@ -60,10 +58,6 @@ class bwServiceSystemSys(ServerSystem):
             self.servers[sid] = [status]
 
         print('Updated/record game/unranked game server: sid='+str(sid))
-        if sid not in self.totalServers:
-            self.totalServers.append(sid)
-            random.shuffle(self.totalServers)
-            print 'booted a new server, serverid=%s' % sid
 
     def OnRequestMatchmaking(self, serverId, callbackId, data):
         playerId = data['playerId']
@@ -94,19 +88,18 @@ class bwServiceSystemSys(ServerSystem):
         else:
             threshhold = 12
 
-        for server in self.totalServers:
-            if server in self.servers:
-                params = self.servers[server]
-                if params[0] == 0 and params[1] < threshhold and mChoice > 25 and serverManager.GetServerType(server).split('T')[0] == mode:
-                    count = params[1]
-                    if not mComp or (count > mComp):
-                        mPossibleServer = server
-                        mComp = count
-                elif params[0] == 0 and params[1] < threshhold and mChoice <= 25 and serverManager.GetServerType(server).split('T')[0] == mode:
-                    count = params[1]
-                    if not mComp or (count > mComp):
-                        mPossibleServer = server
-                        mComp = count
+        for server in self.servers:
+            params = self.servers[server]
+            if params[0] == 0 and len(params) > 0 and params[1] < threshhold and mChoice > 25 and serverManager.GetServerType(server).split('T')[0] == mode:
+                count = params[1]
+                if not mComp or (count > mComp):
+                    mPossibleServer = server
+                    mComp = count
+            elif params[0] == 0 and len(params) > 0 and params[1] < threshhold and mChoice <= 25 and serverManager.GetServerType(server).split('T')[0] == mode:
+                count = params[1]
+                if not mComp or (count > mComp):
+                    mPossibleServer = server
+                    mComp = count
 
         # self.mPossibleServers = []
         # for server in self.servers:

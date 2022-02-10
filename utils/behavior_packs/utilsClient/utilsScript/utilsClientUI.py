@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import client.extraClientApi as clientApi
 
 ScreenNode = clientApi.GetScreenNodeCls()
@@ -33,7 +34,7 @@ class utilsScreen(ScreenNode):
         self.specPanel = '/specPanel'
         self.specNextBtn = self.specPanel + '/button0'
         self.specPrevBtn = self.specPanel + '/button1'
-        self.specReportBtn = self.specPanel + '/button3'
+        self.specReportBtn = self.specPanel + '/button2'
         self.specTargetInd = self.specPanel + '/label4'
 
         # TODO change this to FALSE when finished debugging

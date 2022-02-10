@@ -1,0 +1,16 @@
+{
+    "netgame_mod_name": "hziAuthDev",
+    "netgame_mod_version": "1.0.0",
+    "min_app_version": "2.0.0.release20220120",
+    "description": "Apollo联合验证系统",
+    "support_server_type": [
+        "lobby",
+        "game"
+    ],
+    "author": "HziStudio",
+    "group": "hziAuth",
+    "mysql_pool_size": 20,
+    "server_type": ["lobby"],
+    "database_host": "http://47.96.31.204",
+    "must_auth_phone": true
+}

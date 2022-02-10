@@ -29,8 +29,6 @@ class iacClient(ClientSystem):
         self.lastTap = 0
 
     def ListenEvents(self):
-        self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(),
-                            'UiInitFinished', self, self.OnUIInitFinished)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'TapBeforeClientEvent', self, self.OnTapBeforeClient)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), "ClientJumpButtonPressDownEvent", self, self.OnClientJumpButtonPressDownEvent)
         self.ListenForEvent(clientApi.GetEngineNamespace(), clientApi.GetEngineSystemName(), 'LeftClickBeforeClientEvent', self, self.OnLeftClickBeforeClient)
@@ -41,15 +39,7 @@ class iacClient(ClientSystem):
         if data['isCreative']:
             data['cancel'] = True
 
-    def OnUIInitFinished(self, args):
-        platform = clientApi.GetPlatform()
-        if platform == 0:
-            self.NotifyToServer("CaughtModpcEvent", clientApi.GetLocalPlayerId())
-
     def Update(self):
-
-        # detections for: movement.highjump
-
         # self.CheckNightView()
         if not self.mBJumping:
             return
@@ -87,8 +77,6 @@ class iacClient(ClientSystem):
                 'time': self.mJumpingTime
             }
             self.NotifyToServer("ClientVlEvent", response)
-
-        # detections for: movement.clientDesync
 
     def OnClientJumpButtonPressDownEvent(self, args):
         posComp = clientApi.GetEngineCompFactory().CreatePos(self.mLocalPlayerId)

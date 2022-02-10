@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "by dev",
+      "type": "data",
+      "uuid": "d359cd0b-7a8e-46ea-adc4-5b04f12ddcd5",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "header": {
+    "description": "by 0Kurome",
+    "name": "shout",
+    "uuid": "d60db4de-25a2-4cd2-a01a-6a506584e05a",
+    "version": [
+      0,
+      0,
+      2
+    ]
+  }
+}

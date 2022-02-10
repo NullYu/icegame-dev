@@ -259,6 +259,13 @@ class utilsSystemSys(ServerSystem):
                 self.sendCmd("/effect @s instant_health 2 255 true", player)
                 self.sendCmd("/effect @s weakness 2 255 true", player)
 
+                if player in self.spectatingTarget:
+                    try:
+                        comp = serverApi.GetEngineCompFactory().CreateRot(serverApi.GetPlayerList()[self.spectatingTarget[player]])
+                        sComp = serverApi.GetEngineCompFactory().CreateRot(player)
+                        sComp.SetRot(comp.GetRot())
+                    except IndexError:
+                        pass
 
     def OnClientAction(self, args):
         action = args['action']
@@ -421,24 +428,33 @@ class utilsSystemSys(ServerSystem):
         if isSpectate:
             self.sendCmd("/clear @s", playerId)
             self.spectating.append(playerId)
+
             if lightning:
                 self.sendCmd("/summon lightning", playerId)
             if not hasFreecam:
-                for i in range(serverApi.GetPlayerList()):
-                    if i not in self.spectating:
-                        self.spectatingTarget[playerId] = serverApi.GetPlayerList().index(i)
+                print 'no freecam'
+                for player in serverApi.GetPlayerList():
+                    if player not in self.spectating:
+                        self.spectatingTarget[playerId] = serverApi.GetPlayerList().index(player)
                         response = {
                             'isSpec': True,
                             'index': self.spectatingTarget[playerId],
-                            'playerId': serverApi.GetPlayerList(self.spectatingTarget[playerId]),
-                            'nickname': lobbyGameApi.GetPlayerNickname(serverApi.GetPlayerList(self.spectatingTarget[playerId]))
+                            'playerId': serverApi.GetPlayerList()[self.spectatingTarget[playerId]],
+                            'nickname': lobbyGameApi.GetPlayerNickname(serverApi.GetPlayerList()[self.spectatingTarget[playerId]])
                         }
                         self.NotifyToClient(playerId, 'StartSpecEvent', response)
         else:
+            print 'stop spec'
+
             if playerId in self.spectating:
                 self.spectating.pop(self.spectating.index(playerId))
             if playerId in self.spectatingTarget:
+                print 'stop spec client'
                 self.spectatingTarget.pop(playerId)
+                response = {
+                    'isSpec': False
+                }
+                self.NotifyToClient(playerId, 'StartSpecEvent', response)
 
         comp = serverApi.GetEngineCompFactory().CreateFly(playerId)
         comp.ChangePlayerFlyState(isSpectate)

@@ -1,0 +1,25 @@
+{
+  "format_version": 1,
+  "modules": [
+    {
+      "description": "By HziStudio",
+      "type": "data",
+      "uuid": "a28f0a6b-d7b2-4341-9d7f-39e3c48f0b39",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "header": {
+    "description": "By HziStudio",
+    "name": "hziAuth",
+    "uuid": "a86e547c-7173-43c0-90d9-dd8f97a38ac3",
+    "version": [
+      1,
+      0,
+      0
+    ]
+  }
+}

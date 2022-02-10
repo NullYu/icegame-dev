@@ -1,0 +1,48 @@
+{
+    "Account": "aqs_mgg@163.com",
+    "AssertCacheDir": "D:\\MCStudioDownload\\EngineAssert",
+    "BlockNums": [
+        0,
+        0
+    ],
+    "BornPoint": [
+        0,
+        0,
+        0
+    ],
+    "CreateNew": false,
+    "CreateVersion": "2.0.0.155182",
+    "DCWebUrl": "https://x19qadcweb.nie.netease.com",
+    "EditAddOnPaths": [
+
+    ],
+    "EditLogFilePath": "D:\\MCStudioDownload\\work\\editor\\edit.log",
+    "EditMaterialPaths": [
+
+    ],
+    "EditName": "mega(1)",
+    "EditType": 1,
+    "EditVersion": "2.0.0.155168",
+    "EditorResourcePackPath": "D:\\MCStudio\\data\\inner_res",
+    "ElkUrl": "https://x19mclexpr.nie.netease.com/client-log",
+    "GameType": 0,
+    "Id": "62bf3826fbde4ebdbee36fc00ab379fd",
+    "IsMap": true,
+    "NewEditCount": 1,
+    "OldComponents": [
+
+    ],
+    "OldEditCount": 4,
+    "SaveBackAddOnPath": "",
+    "SaveBackMapPath": "D:\\MCStudioDownload\\work\\aqs_mgg@163.com\\Cpp\\Map\\62bf3826fbde4ebdbee36fc00ab379fd",
+    "Seed": "1070677033",
+    "ServerName": "EXPR",
+    "ShowGpuDriverTips": false,
+    "ShowGuide": false,
+    "Source": "mega",
+    "StudioPort": 10111,
+    "StudioTempPath": "D:\\MCStudioDownload\\temp\\editorTemp",
+    "UserId": "33198",
+    "UserName": "Mr_Tam",
+    "WorldType": 1
+}

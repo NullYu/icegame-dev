@@ -1,0 +1,552 @@
+{
+   "button0@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/exit-button",
+      "$hover_texture" : "textures/ui/exit-button",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%tarkovUI.click",
+      "$pressed_texture" : "textures/ui/exit-button1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@tarkovUI.default" : {}
+         },
+         {
+            "hover@tarkovUI.hover" : {}
+         },
+         {
+            "pressed@tarkovUI.pressed" : {}
+         },
+         {
+            "button_label@tarkovUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 3,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 31.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 50, 18 ],
+      "visible" : true
+   },
+   "button1@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/disconnect-button",
+      "$hover_texture" : "textures/ui/disconnect-button",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%tarkovUI.click",
+      "$pressed_texture" : "textures/ui/disconnect-button1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@tarkovUI.default" : {}
+         },
+         {
+            "hover@tarkovUI.hover" : {}
+         },
+         {
+            "pressed@tarkovUI.pressed" : {}
+         },
+         {
+            "button_label@tarkovUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 7,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 51 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 50, 18 ],
+      "visible" : true
+   },
+   "button2@common.button" : {
+      "$control_alpha" : 1.0,
+      "$default_texture" : "textures/ui/disconnect-button",
+      "$hover_texture" : "textures/ui/disconnect-button",
+      "$is_new_nine_slice" : false,
+      "$label_color" : [ 1, 1, 1 ],
+      "$label_font_scale_factor" : 1.0,
+      "$label_font_size" : "large",
+      "$label_layer" : 3,
+      "$label_offset" : [ 0, 0 ],
+      "$label_text" : "",
+      "$nine_slice_buttom" : 0,
+      "$nine_slice_left" : 0,
+      "$nine_slice_right" : 0,
+      "$nine_slice_top" : 0,
+      "$nineslice_size" : [ 0, 0, 0, 0 ],
+      "$pressed_button_name" : "%tarkovUI.click",
+      "$pressed_texture" : "textures/ui/disconnect-button1",
+      "$texture_layer" : 2,
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "bindings" : [
+         {
+            "binding_collection_name" : "",
+            "binding_condition" : "always_when_visible",
+            "binding_type" : "collection_details"
+         }
+      ],
+      "button_mappings" : [],
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "default@tarkovUI.default" : {}
+         },
+         {
+            "hover@tarkovUI.hover" : {}
+         },
+         {
+            "pressed@tarkovUI.pressed" : {}
+         },
+         {
+            "button_label@tarkovUI.button_label" : {}
+         }
+      ],
+      "draggable" : "not_draggable",
+      "enabled" : true,
+      "is_handle_button_move_event" : true,
+      "layer" : 17,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, 74.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 66, 12 ],
+      "visible" : true
+   },
+   "button_label" : {
+      "alpha" : "$control_alpha",
+      "color" : "$label_color",
+      "font_scale_factor" : "$label_font_scale_factor",
+      "font_size" : "$label_font_size",
+      "font_type" : "smooth",
+      "layer" : "$label_layer",
+      "max_size" : [ "100%", "100%" ],
+      "offset" : "$label_offset",
+      "shadow" : false,
+      "text" : "$label_text",
+      "text_alignment" : "center",
+      "type" : "label"
+   },
+   "deathPanel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "image1@tarkovUI.image1" : {}
+         },
+         {
+            "image2@tarkovUI.image2" : {}
+         },
+         {
+            "image3@tarkovUI.image3" : {}
+         },
+         {
+            "label0@tarkovUI.label0" : {}
+         },
+         {
+            "image4@tarkovUI.image4" : {}
+         },
+         {
+            "button2@tarkovUI.button2" : {}
+         },
+         {
+            "netease_paper_doll0@tarkovUI.netease_paper_doll0" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 11,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : true
+   },
+   "default" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$default_texture",
+      "type" : "image"
+   },
+   "hover" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$hover_texture",
+      "type" : "image"
+   },
+   "image0" : {
+      "alpha" : 0.9499999880790710,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 2,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "texture" : "textures/ui/pausescreen",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 1920, 1080 ],
+      "visible" : true
+   },
+   "image1" : {
+      "alpha" : 0.9499999880790710,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 12,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "texture" : "textures/ui/deathscreen",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 1920, 1080 ],
+      "visible" : true
+   },
+   "image2" : {
+      "alpha" : 0.5199999809265137,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : true,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : false,
+      "layer" : 13,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -22.50, 15.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 61, 34 ],
+      "texture" : "textures/ui/fail-blur",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 500, 300 ],
+      "visible" : true
+   },
+   "image3" : {
+      "alpha" : 0.7200000286102295,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 14,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ -22.50, 15.50 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 47, 19 ],
+      "texture" : "textures/ui/kia-indicator",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 400, 100 ],
+      "visible" : true
+   },
+   "image4" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 16,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 25.0, 15.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 58, 12 ],
+      "texture" : "textures/ui/raidtimeindicator",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 400, 100 ],
+      "visible" : true
+   },
+   "label0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "color" : [ 0.9294117647058824, 0.9058823529411765, 0.8078431372549020 ],
+      "enabled" : true,
+      "font_scale_factor" : 0.9399999976158142,
+      "font_size" : "small",
+      "font_type" : "default",
+      "layer" : 15,
+      "line_padding" : 0.0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 20.0, 17.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "shadow" : false,
+      "size" : [ 47, 8 ],
+      "text" : "0:02:58",
+      "text_alignment" : "center",
+      "type" : "label",
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "overlay@tarkovUI.overlay" : {}
+         },
+         {
+            "pausePanel@tarkovUI.pausePanel" : {}
+         },
+         {
+            "deathPanel@tarkovUI.deathPanel" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "namespace" : "tarkovUI",
+   "netease_paper_doll0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "animation" : "idle",
+      "animation_looped" : true,
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "enabled" : true,
+      "entity_identifier" : "",
+      "init_rot_y" : 0.0,
+      "layer" : 22,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, -30 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "renderer" : "netease_paper_doll_renderer",
+      "rotation" : "gesture_x",
+      "screen_scale" : 1.0,
+      "size" : [ 60, 63 ],
+      "skeleton_model_name" : "",
+      "type" : "custom",
+      "visible" : true
+   },
+   "overlay" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : true,
+      "keep_ratio" : false,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "texture" : "textures/ui/overlay",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 1920, 1080 ],
+      "visible" : true
+   },
+   "pausePanel" : {
+      "alpha" : 1.0,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "image0@tarkovUI.image0" : {}
+         },
+         {
+            "button0@tarkovUI.button0" : {}
+         },
+         {
+            "button1@tarkovUI.button1" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", "default" ],
+      "type" : "panel",
+      "visible" : false
+   },
+   "pressed" : {
+      "alpha" : "$control_alpha",
+      "is_new_nine_slice" : "$is_new_nine_slice",
+      "layer" : "$texture_layer",
+      "nine_slice_buttom" : "$nine_slice_buttom",
+      "nine_slice_left" : "$nine_slice_left",
+      "nine_slice_right" : "$nine_slice_right",
+      "nine_slice_top" : "$nine_slice_top",
+      "nineslice_size" : "$nineslice_size",
+      "texture" : "$pressed_texture",
+      "type" : "image"
+   }
+}

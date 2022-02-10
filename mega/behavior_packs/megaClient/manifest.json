@@ -4,7 +4,7 @@
     {
       "description": "by dev",
       "type": "data",
-      "uuid": "5e876c81-6098-4d56-9d38-d22aa818eed5",
+      "uuid": "f9b29cd4-27b3-40dd-8a2d-6b1ba3bbc794",
       "version": [
         0,
         0,
@@ -14,8 +14,8 @@
   ],
   "header": {
     "description": "by 0Kurome",
-    "name": "mega (walls)",
-    "uuid": "b477165d-5bab-408d-8c2e-072c247a5fb5",
+    "name": "mega",
+    "uuid": "9652f59d-d704-4ee9-a19b-7ee2b905acf0",
     "version": [
       0,
       0,

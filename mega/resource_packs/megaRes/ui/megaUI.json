@@ -1,0 +1,71 @@
+{
+   "image0" : {
+      "alpha" : 0.8500000238418579,
+      "anchor_from" : "center",
+      "anchor_to" : "center",
+      "clip_direction" : "left",
+      "clip_offset" : [ 0, 0 ],
+      "clip_ratio" : 0.0,
+      "clips_children" : false,
+      "enabled" : true,
+      "fill" : false,
+      "grayscale" : false,
+      "is_new_nine_slice" : false,
+      "keep_ratio" : true,
+      "layer" : 1,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "nine_slice_buttom" : 0,
+      "nine_slice_left" : 0,
+      "nine_slice_right" : 0,
+      "nine_slice_top" : 0,
+      "nineslice_size" : [ 0, 0, 0, 0 ],
+      "offset" : [ 0, 0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ 100, 20 ],
+      "texture" : "textures/ui/megaUI/hint-securing",
+      "type" : "image",
+      "uv" : [ 0, 0 ],
+      "uv_size" : [ 500, 100 ],
+      "visible" : true
+   },
+   "main" : {
+      "absorbs_input" : true,
+      "always_accepts_input" : false,
+      "controls" : [
+         {
+            "panel0@megaUI.panel0" : {}
+         }
+      ],
+      "force_render_below" : false,
+      "is_showing_menu" : true,
+      "render_game_behind" : true,
+      "render_only_when_topmost" : true,
+      "should_steal_mouse" : false,
+      "type" : "screen"
+   },
+   "namespace" : "megaUI",
+   "panel0" : {
+      "alpha" : 1.0,
+      "anchor_from" : "bottom_middle",
+      "anchor_to" : "center",
+      "clip_offset" : [ 0, 0 ],
+      "clips_children" : false,
+      "controls" : [
+         {
+            "image0@megaUI.image0" : {}
+         }
+      ],
+      "enabled" : true,
+      "layer" : 0,
+      "max_size" : [ 0, 0 ],
+      "min_size" : [ 0, 0 ],
+      "offset" : [ 0.0, -194.0 ],
+      "priority" : 0,
+      "propagate_alpha" : false,
+      "size" : [ "default", 43 ],
+      "type" : "panel",
+      "visible" : true
+   }
+}

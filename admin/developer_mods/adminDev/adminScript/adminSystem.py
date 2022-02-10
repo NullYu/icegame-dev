@@ -61,6 +61,10 @@ class adminSystemSys(ServerSystem):
         comp = serverApi.GetEngineCompFactory().CreateMsg(playerId)
         comp.NotifyOneMessage(playerId, msg, "§f")
 
+    def ProxyDisconnect(self, uid):
+
+        login_net.login_failed(proxyId, uid, reason)
+
     def OnClientAction(self, data):
         print 'clientaction data=%s' % (data,)
 
@@ -176,13 +180,6 @@ class adminSystemSys(ServerSystem):
 
                     lobbyGameApi.TryToKickoutPlayer(victimId, "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n\n再犯将导致更严重的惩罚！" % reason)
 
-                    def a():
-                        transData = {'position': [1, 2, 3]}
-                        lobbyGameApi.TransferToOtherServer(player, 'auth', json.dumps(transData))
-
-                    commonNetgameApi.AddTimer(3.0, a)
-                    self.sendMsg("§bTried to reauth player, commencing in 3 seconds. Please double-check local server player list.", playerId)
-
                     self.NotifyToMaster('AnnounceBanEvent', {
                         'nickname': lobbyGameApi.GetPlayerNickname(victimId),
                         'reason': reason,
@@ -253,19 +250,7 @@ class adminSystemSys(ServerSystem):
                         redisPool.AsyncSet('autokick-%s' % target, "1")
                         return
 
-                    # lobbyGameApi.TryToKickoutPlayer(victimId, "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n\n再犯将导致更严重的惩罚！" % reason)
-                    self.sendMsg('§l§e登录状态无效，请您重新登录', playerId)
-                    def a():
-                        transData = {'position': [1, 2, 3]}
-                        lobbyGameApi.TransferToOtherServer(player, 'auth', json.dumps(transData))
-                    commonNetgameApi.AddTimer(3.0, a)
-                    self.sendMsg("§bTried to reauth player, commencing in 3 seconds. Please double-check local server player list.", playerId)
-
-                    self.NotifyToMaster('AnnounceBanEvent', {
-                        'nickname': lobbyGameApi.GetPlayerNickname(victimId),
-                        'reason': reason,
-                        'sid': lobbyGameApi.GetServerId()
-                    })
+                    lobbyGameApi.TryToKickoutPlayer(victimId, "§9§l您因违规行为被踢出服务器！\n§r§b原因：§f%s\n\n再犯将导致更严重的惩罚！" % reason)
 
             mysqlPool.AsyncQueryWithOrderKey('sdans89d70as', sql, (lobbyGameApi.GetPlayerUid(playerId), time.time()), Cb)
 

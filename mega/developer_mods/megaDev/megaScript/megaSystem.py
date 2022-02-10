@@ -28,8 +28,6 @@ class megaSystemSys(ServerSystem):
 
         self.gracePeriod = True
 
-        self.friendlyFires = {}
-
         self.consts = c
         lobbyGameApi.ShieldPlayerJoinText(True)
 
@@ -39,6 +37,11 @@ class megaSystemSys(ServerSystem):
         self.timer = 0
 
         self.kills = {}
+        self.rff = {}
+
+        self.containerStatus = {}
+        self.legacyContainerStatus = {}
+        self.containerProgress = {}
 
     ##############UTILS##############
 
@@ -54,7 +57,7 @@ class megaSystemSys(ServerSystem):
             commonNetgameApi.AddTimer(1.4, lambda p: self.sendTitle('战墙将在15分钟后倒塌', 2, p), player)
 
     def sendCmd(self, cmd, playerId):
-        comp = serverApi.GetEngineCompFactory().CreateCommand(serverApi.getLevelId())
+        comp = serverApi.GetEngineCompFactory().CreateCommand(serverApi.GetLevelId())
         comp.SetCommand(cmd, playerId)
 
     def sendTitle(self, title, type, playerId):
@@ -95,7 +98,10 @@ class megaSystemSys(ServerSystem):
     def WallsCollapse(self):
         for player in self.teams:
             self.sendTitle('§l§c墙塌了', 1, player)
-            self.sendTitle('进入战场吧！', 2, player)
+            self.sendTitle('占领所有敌方目标点', 2, player)
+
+        for tup in c.wallPos:
+            self.sendCmd('/fill %s %s %s %s %s %s air' % (tup[0][0], tup[0][1], tup[0][2], tup[1][0], tup[1][1], tup[1][2]), serverApi.GetPlayerList()[0])
 
         self.gracePeriod = False
 
@@ -105,6 +111,23 @@ class megaSystemSys(ServerSystem):
             if (not mComp in d or d[item] > d[mComp]) and item in self.teams:
                 mComp = item
         return mComp
+
+    def setPos(self, playerId, pos):
+        comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
+        re = comp.SetFootPos(pos)
+        return re
+
+    def dist(self, x1, y1, z1, x2, y2, z2):
+        """
+        运算3维空间距离，返回float
+        """
+        p = ((x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2) ** 0.5
+        re = float('%.1f' % p)
+        return re
+
+    def epoch2Datetime(self, epoch):
+        ts = datetime.datetime.fromtimestamp(int(epoch)+0)
+        return ts.strftime('%Y-%m-%d %H:%M:%S')
 
     #################################
 
@@ -117,9 +140,11 @@ class megaSystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerRespawnFinishServerEvent", self, self.OnPlayerRespawnFinishServer)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "ServerChatEvent", self, self.OnServerChat)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerAttackEntityEvent", self, self.OnPlayerAttackEntity)
+        self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "OnScriptTickServer", self, self.OnScriptTickServer)
 
-        commonNetgameApi.AddTimer(1.0, self.tick)
-        commonNetgameApi.AddTimer(1.0, self.boardTick)
+        commonNetgameApi.AddRepeatedTimer(1.0, self.tick)
+        commonNetgameApi.AddRepeatedTimer(1.0, self.boardTick)
+        commonNetgameApi.AddRepeatedTimer(1.0, self.containerTick)
 
     def OnAddServerPlayer(self, data):
         playerId = data['id']
@@ -188,7 +213,20 @@ class megaSystemSys(ServerSystem):
         if self.gracePeriod or self.status != 1:
             return
 
-        self.teams.pop(playerId)
+        for player in self.teams:
+            if self.teams[player] == self.teams[playerId]:
+                comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
+                pos = comp.GetPos()
+                self.sendMsg('§l§e死亡坐标: %s %s %s' % (int(pos[0]), int(pos[1]), int(pos[2])))
+
+        if self.containerStatus[self.teams[playerId]] == 3:
+            self.teams.pop(playerId)
+            for player in serverApi.GetPlayerList():
+                self.sendMsg('§l§6最终击杀:', player)
+            for player in self.teams:
+                self.sendTitle('§l%s VS %s' % (self.getCountInList(self.teams[player], self.teams), len(self.teams) - self.getCountInList(self.teams[player], self.teams)))
+
+        # self.teams.pop(playerId)
         print 'onkill %s->%s' % (attackerId, playerId)
         if playerId in self.teams:
             print c.teamNames[self.teams[playerId]]
@@ -212,12 +250,39 @@ class megaSystemSys(ServerSystem):
                 self.sendMsgToAll("%s杀死了%s" % (attackerNick, playerNick))
                 print 'kill'
 
+            if not self.rff[playerId] and playerId != attackerId and self.teams[playerId] == self.teams[attackerId]:
+                self.sendMsgToAll('§l%s的反向友伤已开启' % lobbyGameApi.GetPlayerNickname(attackerId))
+                def a():
+                    self.sendTitle('§l§4反向友伤已开启', 1, attackerId)
+                    self.sendTitle('您对队友造成的伤害将被反弹', 2, attackerId)
+                commonNetgameApi.AddTimer(1.0, a)
+                self.rff[attackerId] = True
+
     def OnPlayerRespawnFinishServer(self, data):
         playerId = data['playerId']
-        self.sendTitle('§c§l您已被淘汰', 1, playerId)
-        self.sendTitle('别气馁，您的队伍还有机会', 2, playerId)
-        utilsSystem = serverApi.GetSystem('utils', 'utilsSystem')
-        utilsSystem.SetPlayerSpectate(playerId, True)
+
+        if playerId in self.teams:
+            self.sendTitle('§6§l将在5秒后重生', 1, playerId)
+            self.sendCmd('/effect @s blindness 5 1 true', playerId)
+            self.NotifyToClient(playerId, 'StartNoMoveEvent', 5.0)
+            self.setPos(playerId, c.pos[self.teams[playerId]])
+
+        elif self.getCountInList(self.teams[playerId], self.teams) > 0:
+            self.sendTitle('§c§l您已被淘汰', 1, playerId)
+            self.sendTitle('别气馁，您的队伍还有机会', 2, playerId)
+            utilsSystem = serverApi.GetSystem('utils', 'utilsSystem')
+            utilsSystem.SetPlayerSpectate(playerId, True)
+            self.setPos(playerId, c.spectatorPos)
+
+        elif self.getCountInList(self.teams[playerId], self.teams) == 0:
+            for player in self.teams:
+                if self.teams[player] == self.teams[playerId]:
+                    self.sendTitle('§4§l小队全灭', 1, playerId)
+                    self.sendTitle('下次再接再厉!', 2, playerId)
+            utilsSystem = serverApi.GetSystem('utils', 'utilsSystem')
+            utilsSystem.SetPlayerSpectate(playerId, True)
+
+            self.setPos(playerId, c.spectatorPos)
 
     def OnServerPlayerTryDestroyBlock(self, data):
         x = data['x']
@@ -228,6 +293,15 @@ class megaSystemSys(ServerSystem):
         if self.gracePeriod and (abs(x) <= wallWidth or abs(y) <= wallWidth):
             data['cancel'] = True
 
+        nearContainer = False
+        li = c.containerPos
+        for key in li:
+            pos = li[key]
+            if abs(pos[0] - x) < 7 or abs(pos[1] - y) < 7 or abs(pos[2] - z) < 7:
+                nearContainer = True
+        if nearContainer:
+            return
+
     def OnServerEntityTryPlaceBlock(self, data):
         x = data['x']
         y = data['y']
@@ -236,6 +310,18 @@ class megaSystemSys(ServerSystem):
 
         if self.gracePeriod and y > height:
             data['cancel'] = True
+
+        if y > c.maxBuildHeight:
+            data['cancel'] = True
+
+        nearContainer = False
+        li = c.containerPos
+        for key in li:
+            pos = li[key]
+            if abs(pos[0]-x) < 7 or abs(pos[1]-y) < 7 or abs(pos[2]-z) < 7:
+                nearContainer = True
+        if nearContainer:
+            return
 
     def OnPlayerAttackEntity(self, data):
         playerId = data['playerId']
@@ -248,15 +334,14 @@ class megaSystemSys(ServerSystem):
             data['cancel'] = True
             return
 
-        if not self.gracePeriod and self.teams[playerId] == self.teams[victimId]:
-            self.sendTitle('§c', 1, playerId)
-            self.sendTitle('§c不要攻击您的队友！', 2, playerId)
-            data['damage'] = math.floor(data['damage']/2)
-            self.friendlyFires[playerId] += 1
-            self.sendTitle('§c§l警告\n§f再攻击%s次队友将导致你被踢出' % (3-self.friendlyFires[playerId],), 3, playerId)
-
-            if self.friendlyFires[playerId] >= 3:
-                lobbyGameApi.TryToKickoutPlayer(playerId, '§l§f您攻击队友的次数太多了\n\n§r§e多次恶意攻击队友将导致惩罚！')
+        if self.teams[playerId] == self.teams[victimId]:
+            if not self.rff[playerId]:
+                self.sendTitle('§c', 1, playerId)
+                self.sendTitle('§c不要攻击您的队友！', 2, playerId)
+            else:
+                data['cancel'] = True
+                comp = serverApi.GetEngineCompFactory().CreateHurt(playerId)
+                comp.Hurt(8, serverApi.GetMinecraftEnum().ActorDamageCause.EntityAttack, playerId, None, False)
 
     def OnServerChat(self, data):
         playerId = data['playerId']
@@ -299,6 +384,124 @@ class megaSystemSys(ServerSystem):
                 msg = "[观战]§3" + nickname + ": §7" + msg
                 self.sendMsgToAll(msg)
 
+    def OnScriptTickServer(self):
+        if self.status == 0:
+            for player in serverApi.GetPlayerList():
+                comp = serverApi.GetEngineCompFactory().CreatePos(player)
+                pos = comp.GetPos()
+
+                if pos[1] < c.lobbyHeightLimit:
+                    self.setPos(player, c.lobbyPos)
+
+        elif self.status == 1:
+            if self.timer < c.prepPhaseDuration:
+                for player in serverApi.GetPlayerList():
+                    comp = serverApi.GetEngineCompFactory().CreatePos(player)
+                    pos = comp.GetPos()
+
+                    if pos[1] > c.buildHeight:
+                        self.sendCmd('/tp @s ~ ~-1 ~', player)
+
+    def containerTick(self):
+        if self.status == 1:
+
+            for key in c.containerPos:
+                if self.containerStatus[key] == 3:
+                    continue
+
+                containerDefended = False
+                teamsInContainer = []
+                enemiesInContainer = 0
+
+                containerPos = c.containerPos[key]
+
+                for player in self.teams:
+                    comp = serverApi.GetEngineCompFactory().CreatePos(player)
+                    pos = comp.GetPos()
+                    dist = self.dist(pos[0], pos[1], pos[2], containerPos[0], containerPos[1], containerPos[2])
+
+                    if key == self.teams[player]:
+                        containerDefended = True
+                        break
+
+                    if key not in teamsInContainer:
+                        teamsInContainer.append(key)
+
+                    if dist <= 5:
+                        enemiesInContainer += 1
+
+                # conclusion
+                if (enemiesInContainer and containerDefended) or len(teamsInContainer) > 1:
+                    self.containerStatus[key] = 2
+
+                    if self.containerStatus[key] != self.legacyContainerStatus[key]:
+                        for player in self.teams:
+                            if self.teams[player] == key:
+                                self.sendTitle('§l§e你的目标点正在被争夺', 1, player)
+                                self.sendTitle('返回基地保护目标点！', 2, player)
+                            elif self.teams[player] in teamsInContainer:
+                                self.sendTitle('§l§e目标点正在被争夺', 1, player)
+                                self.sendTitle('消灭目标点内的其他玩家', 2, player)
+
+                elif enemiesInContainer and not containerDefended:
+                    self.containerStatus[key] = 1
+                    self.containerProgress[key] += 3 + enemiesInContainer
+
+                    if self.containerStatus[key] != self.legacyContainerStatus[key]:
+                        for player in self.teams:
+                            if self.teams[player] == key:
+                                self.sendTitle('§l§c你的目标点正在被占领', 1, player)
+                                self.sendTitle('立刻返回基地保护目标点！', 2, player)
+                            elif self.teams[player] in teamsInContainer:
+                                self.sendTitle('§l§a开始占领目标点', 1, player)
+                                self.sendTitle('消灭所有尝试干涉的玩家！', 2, player)
+
+                else:
+                    self.containerStatus[key] = 0
+                    if self.containerProgress[key] != 0:
+                        self.containerProgress[key] = 0
+
+                    if self.containerStatus[key] != self.legacyContainerStatus[key]:
+                        for player in self.teams:
+                            if self.teams[player] == key:
+                                self.sendTitle('§l§a目标点争夺已停止', 1, player)
+                                self.sendTitle('防止敌人再次开始争夺！', 2, player)
+                            elif self.teams[player] in teamsInContainer:
+                                self.sendTitle('§l§c目标点争夺已停止', 1, player)
+
+                if self.containerProgress[key] >= 100:
+                    self.capturedContainer(key, teamsInContainer[0])
+
+            for player in self.teams:
+                response = {
+                    'status': self.containerStatus[self.teams[player]],
+                    'progress': self.containerProgress[self.teams[player]]
+                }
+                self.NotifyToClient(player, 'UpdateContainerStatusEvent', response)
+
+                if self.containerStatus[self.teams[player]] == 1:
+                    prog = int(round(self.containerProgress[self.teams[player]])) % 10
+                    extras = "§l§c" + ("⏺" * prog) + '§7' + ("⏺" * (10 - prog))
+                    self.sendTitle('§l§c目标点被占领§r %s §c- %s' % (extras, self.containerProgress[self.teams[player]]) + '%')
+
+                elif self.containerStatus[self.teams[player]] == 2:
+                    prog = int(round(self.containerProgress[self.teams[player]])) % 10
+                    extras = "§l§c" + ("⏺" * prog) + '§7' + ("⏺" * (10 - prog))
+                    self.sendTitle('§l§e目标点正在争夺§r %s §e- %s' % (extras, self.containerProgress[self.teams[player]]) + '%')
+
+            self.legacyContainerStatus = self.containerStatus
+
+    def capturedContainer(self, containerId, capturingTeam):
+        self.containerStatus[containerId] = 3
+        self.sendCmd('/setblock %s %s %s stained_glass 15' % (c.containerPos[0], c.containerPos[1]-1, c.containerPos[2]), serverApi.GetPlayerList()[0])
+
+        for player in self.teams:
+            if self.teams[player] == containerId:
+                self.sendTitle("§c§l目标点已被敌方占领", 1, player)
+                self.sendTitle("您将不再重生", 2, player)
+
+            self.sendMsg('%s§r§7的目标点被%s§r§7占领了！' % (c.teamNames[containerId], c.teamNames[capturingTeam]), player)
+
     # main ticking logic
     def tick(self):
         count = len(serverApi.GetPlayerList())
@@ -306,7 +509,6 @@ class megaSystemSys(ServerSystem):
         if self.status == 0:
             print 'countdown=%s' % self.countdown
             self.timer = 0
-            self.scoreboard(1, 6, "§c%s§f秒" % self.countdown)
             if count < c.startCountdown:
                 pass
             elif c.startCountdown <= count <= 40:
@@ -327,28 +529,30 @@ class megaSystemSys(ServerSystem):
         elif self.status == 1:
             self.timer += 1
 
-            if self.timer and self.timer % 60 == 0 and self.timer < 900:
+            if self.timer and self.timer % 60 == 0 and self.timer < c.prepPhaseDuration:
                 for player in self.teams:
-                    self.sendTitle('§6§l%s分钟' % ((900-self.timer)/60,), 1, player)
+                    self.sendTitle('§6§l%s分钟' % ((c.prepPhaseDuration-self.timer)/60,), 1, player)
                     self.sendTitle('战墙倒塌倒计时', 2, player)
-            elif 900 > self.timer >= 885:
+            elif c.prepPhaseDuration > self.timer >= c.prepPhaseDuration - 15:
                 for player in self.teams:
-                    self.sendTitle('§c§l%s秒' % (900-self.timer,), 1, player)
+                    self.sendTitle('§c§l%s秒' % (c.prepPhaseDuration-self.timer,), 1, player)
                     self.sendTitle('战墙即将倒塌，做好准备', 2, player)
 
-            if self.timer == 900:
+            if self.timer == c.prepPhaseDuration:
                 self.WallsCollapse()
 
-        mTeamBuffer = None
-        for player in self.teams:
-            if mTeamBuffer != self.teams[player] and mTeamBuffer:
-                mIsWin = False
-                break
-            else:
-                mIsWin = True
-            mTeamBuffer = self.teams[player]
-        if mIsWin:
-            self.win(mTeamBuffer)
+            # self.sendCmd('/effect @a saturation 1 255 true', serverApi.GetPlayerList()[0])
+
+            mTeamBuffer = None
+            for player in self.teams:
+                if mTeamBuffer != self.teams[player] and mTeamBuffer:
+                    mIsWin = False
+                    break
+                else:
+                    mIsWin = True
+                mTeamBuffer = self.teams[player]
+            if mIsWin and self.teams:
+                self.win(mTeamBuffer)
 
     def win(self, team):
         teamName = c.teamNames[team]
@@ -399,6 +603,7 @@ class megaSystemSys(ServerSystem):
         for player in self.waiting:
             self.kills[player] = 0
             self.teams[player] = mTeamAssign
+            self.rff[player] = False
             self.friendlyFires[player] = 0
 
             self.sendCmd('/gamemode s', player)
@@ -413,6 +618,7 @@ class megaSystemSys(ServerSystem):
                 comp = serverApi.GetEngineCompFactory().CreateName(p)
                 comp.SetPlayerPrefixAndSuffixName(c.teamPrefix[self.teams[p]], serverApi.GenerateColor('RED'), '',
                                                   serverApi.GenerateColor('RED'))
+
             commonNetgameApi.AddTimer(6.0, a, player)
 
         self.waiting = []
@@ -422,6 +628,12 @@ class megaSystemSys(ServerSystem):
             self.sendCmd('/spawpoint @s %s %s %s' % (teamPos[0], teamPos[1], teamPos[2]), player)
 
         self.playStartAnimation()
+        self.sendCmd('/time set day', serverApi.GetPlayerList()[0])
+
+        for i in range(c.teamsCount):
+            self.containerProgress[i+1] = 0
+            self.containerStatus[i+1] = 0
+            self.legacyContainerStatus = self.containerStatus
 
     def boardTick(self):
         utilsSystem = serverApi.GetSystem('utils', 'utilsSystem')
@@ -437,7 +649,7 @@ class megaSystemSys(ServerSystem):
 §l目前人数: §e%s人
 §f倒计时: §c%s秒
 
-§r§e在ICE_GAME体验超级战墙【无凋零版】
+§r§e在ICE_GAME体验超级战墙【占领目标点】
 §7%s
 """ % (c.startCountdown, len(self.waiting), self.countdown, self.epoch2Datetime(time.time())))
         elif self.status == 1:
@@ -449,13 +661,23 @@ class megaSystemSys(ServerSystem):
 
 §r§f您的队伍： %s
 §r§f距离战墙倒塌： §6%s
+§r§l§e利用这段时间搜集资源，准备迎战！
 
-§r§e在ICE_GAME体验超级战墙【无凋零版】
-""" % (datetime.timedelta(seconds=self.timer), c.teamNames[self.teams[player]], datetime.timedelta(seconds=(900-self.timer))))
+§r§e在ICE_GAME体验超级战墙【占领目标点】
+""" % (datetime.timedelta(seconds=self.timer), c.teamNames[self.teams[player]], datetime.timedelta(seconds=(c.prepPhaseDuration-self.timer))))
             else:
                 for player in self.teams:
-
-                    params = '§c'+str(self.getCountInList(1, self.teams))+' §e'+str(self.getCountInList(2, self.teams))+' §b'+str(self.getCountInList(3, self.teams))+' §a'+str(self.getCountInList(24, self.teams))
+                    extra = ""
+                    for key in self.containerStatus:
+                        status = self.containerStatus[key]
+                        if status == 0:
+                            extra += "%s: §l§a安全§r\n" % (c.teamNames[key])
+                        elif status == 1:
+                            extra += "%s: §l§c占领中 - §f%s" % (c.teamNames[key], self.containerProgress[key]) + "%§r\n"
+                        elif status == 2:
+                            extra += "%s: §l§e争夺中§n\n" % (c.teamNames[key])
+                        elif status == 3:
+                            extra += "%s: §l§6%s LEFT§r\n" % (c.teamNames[key], self.getCountInList(key, self.teams))
 
                     do(player, True, """
 §e§lICE§a_§bGAME§r§l -> §6超级§a战墙§r
@@ -464,6 +686,6 @@ class megaSystemSys(ServerSystem):
 §r§f您的队伍： %s
 §r%s
 
-§r§e在ICE_GAME体验超级战墙【无凋零版】
-""" % (datetime.timedelta(seconds=self.timer), c.teamNames[self.teams[player]], params))
+§r§e在ICE_GAME体验超级战墙【占领目标点】
+""" % (datetime.timedelta(seconds=self.timer), c.teamNames[self.teams[player]], extra))
 
