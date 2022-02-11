@@ -11,12 +11,13 @@ import lobbyGame.netgameApi as lobbyGameApi
 import apolloCommon.redisPool as redisPool
 import apolloCommon.commonNetgameApi as commonNetgameApi
 import apolloCommon.mysqlPool as mysqlPool
+import tarkovScript.tarkovConsts as c
 
 # TODO debug add server type here
 if False:
     pass
 else:
-    import tarkovScript.tarkovConsts.exampleMap as c
+    mapConsts = c.exampleMap
 
 mysqlPool.InitDB(30)
 
@@ -42,7 +43,7 @@ class tarkovSystemSys(ServerSystem):
         self.ListenEvents()
         self.consts = c
         
-        self.timer = c.evacTime
+        self.timer = mapConsts.evacTime
         self.status = 0
         self.countdown = 60
         self.alive = {}
@@ -56,7 +57,6 @@ class tarkovSystemSys(ServerSystem):
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "DamageEvent", self, self.OnDamage)
         self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "PlayerAttackEntityEvent", self, self.OnPlayerAttackEntity)
 
-        self.ListenForEvent('hud', 'hudClient', "DisplayDeathDoneEvent", self, self.OnDisplayDeathDone)
         # self.ListenForEvent('music', 'musicSystem', 'CreateMusicIdEvent', self, self.OnCreateMusicId)
 
         self.ListenForEvent('tarkov', 'tarkovClient', 'ActionEvent', self, self.OnClientAction)
@@ -127,6 +127,7 @@ class tarkovSystemSys(ServerSystem):
         return mComp
 
     def updateServerStatus(self, status, isOverride=False):
+        return
         args = {
             'sid': lobbyGameApi.GetServerId(),
             'value': status,
@@ -159,7 +160,7 @@ class tarkovSystemSys(ServerSystem):
             utilsSystem = serverApi.GetSystem('utils', 'utilsSystem')
 
             msg = ''
-            for name in c.evacPointNames:
+            for name in mapConsts.evacPointNames:
                 msg += '§f§l%s : --§r\n' % name
                 utilsSystem.TextBoard(playerId, True, msg)
 
@@ -168,7 +169,7 @@ class tarkovSystemSys(ServerSystem):
             commonNetgameApi.AddTimer(5.0, a, playerId)
 
     def SpawnPlayer(self, playerId):
-        spawnPoses = c.spawnPos
+        spawnPoses = mapConsts.spawnPos
         # TODO Debug: un-comment this line
         # self.setPos(playerId, spawnPoses[self.spawnChoiceIndex])
 
@@ -201,7 +202,7 @@ class tarkovSystemSys(ServerSystem):
         self.uid.pop(playerId)
 
     def OnDamage(self, data):
-        playerId = data['victimId']
+        playerId = data['entityId']
         srcId = data['srcId']
 
         if self.status != 1:
@@ -231,7 +232,7 @@ class tarkovSystemSys(ServerSystem):
         if self.status != 1 or not self.alive[playerId] or not self.alive[victimId]:
             data['cancel'] = True
 
-    def OnDisplayDeathDone(self, data):
+    def HudPlayerDeathEvent(self, data):
         playerId = data['playerId']
         attackerId = data['attackerId']
         comp = serverApi.GetEngineCompFactory().CreatePos(playerId)
@@ -249,9 +250,11 @@ class tarkovSystemSys(ServerSystem):
         deathPlayerArmor = comp.GetPlayerAllItems(serverApi.GetMinecraftEnum().ItemPosType.ARMOR, True)
         comp = serverApi.GetEngineCompFactory().CreateItem(serverApi.GetLevelId())
         for item in deathPlayerInventory:
-            comp.SpawnItemToLevel(item, 0, pos)
+            if item:
+                comp.SpawnItemToLevel(item, 0, pos)
         for item in deathPlayerArmor:
-            comp.SpawnItemToLevel(item, 0, pos)
+            if item:
+                comp.SpawnItemToLevel(item, 0, pos)
 
         response = {
             'timer': self.timer,

@@ -120,7 +120,7 @@ class hudSystemSys(ServerSystem):
         if playerId in self.nearDeathPlayers:
             self.nearDeathPlayers.pop(self.nearDeathPlayers.index(playerId))
 
-        self.sendCmd('/effect @s clear')
+        self.sendCmd('/effect @s clear', playerId)
 
     def OnDisplayDeathDone(self, playerId):
         print 'death done for %s' % playerId

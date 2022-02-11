@@ -17,7 +17,6 @@ class tarkovScreen(ScreenNode):
         print '==== %s ====' % 'init tarkovScreen'
 
         self.overlay = '/overlay'
-        self.paperDoll = '/paperDoll'
 
         self.pausePanel = '/pausePanel'
         self.pauseReturnBtn = self.pausePanel + '/button0'
@@ -27,11 +26,14 @@ class tarkovScreen(ScreenNode):
         self.deathPanelBackground = self.deathPanel + '/image1'
         self.deathReasonIndicator = self.deathPanel + '/image3'
         self.deathIndicatorBlur = self.deathPanel + '/image2'
-        self.missionTimeInd = self.deathPanel + '/label0'
+        self.missionTimeInd = self.deathPanel + '/image4/label0'
         self.endDisconnectBtn = self.deathPanel + '/button2'
+        self.deathPanelPaperdoll = self.deathPanel + '/paper_doll1'
 
         self.prepPanel = '/prepPanel'
-        self.prepTimerInd = self.prepPanel + '/label1'
+        self.prepTimerBase = self.prepPanel + '/image7'
+        self.prepTimerInd = self.prepPanel + '/image7/label1'
+        self.prepPanelPaperdoll = self.prepPanel + '/paper_doll0'
 
         self.gamePanel = '/gamePanel'
         self.gameTimerInd = self.gamePanel + '/label2'
@@ -44,6 +46,7 @@ class tarkovScreen(ScreenNode):
         self.evacTimer = 3600
 
         self.fadeInTimerHandle = None
+        self.mFadeInAlphaBuffer = 0.0
 
     def SetProgressbarValue(self, path, value):
         progressBarUIControl = clientApi.GetUI('tarkov', 'tarkovUI').GetBaseUIControl(path).asProgressBar()
@@ -64,7 +67,6 @@ class tarkovScreen(ScreenNode):
         # self.SetVisible('/panel0', False)
         self.SetVisible("", True)
 
-        path = self.paperDoll
         param = {
             "entity_id": clientApi.GetLocalPlayerId(),
             "scale": 0.5,
@@ -72,8 +74,8 @@ class tarkovScreen(ScreenNode):
             "init_rot_y": 60,
             "molang_dict": {"variable.liedownamount": 1}
         }
-        doll = clientApi.GetUI('tarkov', 'tarkovUI').GetBaseUIControl(path).asNeteasePaperDoll()
-        doll.RenderEntity(param)
+        clientApi.GetUI('tarkov', 'tarkovUI').GetBaseUIControl(self.deathPanelPaperdoll).asNeteasePaperDoll().RenderEntity(param)
+        clientApi.GetUI('tarkov', 'tarkovUI').GetBaseUIControl(self.prepPanelPaperdoll).asNeteasePaperDoll().RenderEntity(param)
 
         self.SetVisible(self.pausePanel, False)
         self.SetVisible(self.deathPanel, False)
@@ -81,6 +83,7 @@ class tarkovScreen(ScreenNode):
         self.SetVisible(self.gamePanel, False)
 
         self.SetText(self.prepTimerInd, '等待玩家进入')
+        self.SetVisible(self.prepTimerBase, False)
 
         self.SetVisible(self.overlay, True)
 
@@ -91,30 +94,30 @@ class tarkovScreen(ScreenNode):
         comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
         if isFadeIn:
             self.SetAlpha(path, 0.0)
+            self.mFadeInAlphaBuffer = 0.0
             def a(param):
                 p = param[0]
                 d = param[1]
                 cb = param[2]
-                alpha = self.GetAlpha(p)
-                if alpha >= 1:
+                if self.mFadeInAlphaBuffer >= 1:
                     comp.CancelTimer(self.fadeInTimerHandle)
                     if cb: cb()
                     return 
                 else:
-                    self.SetAlpha(path, alpha + (0.01 / d))
+                    self.SetAlpha(path, self.mFadeInAlphaBuffer + (0.01 / d))
         else:
             self.SetAlpha(path, 1.0)
+            self.mFadeInAlphaBuffer = 1.0
             def a(param):
                 p = param[0]
                 d = param[1]
                 cb = param[2]
-                alpha = self.GetAlpha(p)
-                if alpha <= 0:
+                if self.mFadeInAlphaBuffer <= 0:
                     comp.CancelTimer(self.fadeInTimerHandle)
                     if cb: cb()
                     return
                 else:
-                    self.SetAlpha(path, alpha - (0.01 / d))
+                    self.SetAlpha(path, self.mFadeInAlphaBuffer - (0.01 / d))
 
         comp.AddRepeatedTimer(0.01, a, (path, duration, OnEndCallback))
 
@@ -122,11 +125,12 @@ class tarkovScreen(ScreenNode):
     def StartDeploy(self):
         self.deployHasStarted = True
         comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
-        self.deployTimerHandle = comp.AddRepeatedTimer(0.01, self.doDeployCountdown)
+        self.deployTimerHandle = comp.AddRepeatedTimer(0.1, self.doDeployCountdown)
+        self.SetVisible(self.prepTimerBase, True)
 
     def doDeployCountdown(self):
-        self.SetText(self.prepTimerInd, '00:%s%s' % (format(self.deployTimer, '.2f'), random.randint(0, 9)))
-        self.deployTimer -= 0.01
+        self.SetText(self.prepTimerInd, '00:%s%s%s' % (format(self.deployTimer, '.1f'), random.randint(0, 9), random.randint(0, 9)))
+        self.deployTimer -= 0.1
 
         if self.deployTimer <= 0:
             comp = clientApi.GetEngineCompFactory().CreateGame(clientApi.GetLevelId())
@@ -162,12 +166,14 @@ class tarkovScreen(ScreenNode):
         # set the indicator blur and background
         if cause == 'suc':
             uiNode.GetBaseUIControl(self.deathIndicatorBlur).asImage().SetSprite('textures/ui/tarkovUI/suc-blur')
-            uiNode.GetBaseUIControl(self.deathIndicatorBlur).asImage().SetSprite('textures/ui/tarkovUI/deathscreen-suc')
+            uiNode.GetBaseUIControl(self.deathPanelBackground).asImage().SetSprite('textures/ui/tarkovUI/deathscreen-suc')
+        else:
+            uiNode.GetBaseUIControl(self.deathIndicatorBlur).asImage().SetSprite('textures/ui/tarkovUI/fail-blur')
+            uiNode.GetBaseUIControl(self.deathPanelBackground).asImage().SetSprite('textures/ui/tarkovUI/deathscreen')
 
         self.SetVisible(self.overlay, True)
         self.SetVisible(self.deathPanel, True)
         self.startElementFade(self.overlay, 1.0, None)
-
 
     def resumeGame(self, args):
         pass

@@ -12,7 +12,7 @@ debugMode = True
 
 #通用设置
 # 多少人后会开始倒计时？
-startCountdown = 4
+startCountdown = 2
 # 多少人后会缩短倒计时
 enoughPlayers = 10
 
@@ -27,6 +27,11 @@ exampleParam = {
 }
 
 class Constructor:
+    spawnPos = None
+    evacPoints = None
+    scavSpawns = None
+    evacTime = None
+    evacPointNames = None
 
     def __init__(self, params):
         self.spawnPos = params['spawnPos']
